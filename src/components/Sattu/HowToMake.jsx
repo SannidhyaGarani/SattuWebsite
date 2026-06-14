@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from 'swiper/modules';
 import { Leaf } from 'lucide-react';
+import SectionHeader from './SectionHeader';
 import 'swiper/css';
 import 'swiper/css/pagination';
 
@@ -11,160 +12,144 @@ const steps = [
     number: "01",
     title: "Add 2-3 tbsp Sattu Mix",
     subtitle: "Pure traditional roast",
-    image: "img/ss.png"
+    image: "img/01.png"
   },
   {
     number: "02",
-    title: "Add 200ml of water or milk",
+    title: "Add 200ml Water or Milk",
     subtitle: "Chilled or room temp",
-    image: "img/s11.png"
+    image: "img/02.png"
   },
   {
     number: "03",
-    title: "Stir well until smooth",
+    title: "Stir Well Until Smooth",
     subtitle: "No lumps, perfect blend",
-    image: "https://images.unsplash.com/photo-1556767576-5ec41e3239ea?q=80&w=400&auto=format&fit=crop"
+    image: "img/03.png"
   },
   {
     number: "04",
-    title: "Enjoy your healthy Sattu Drink!",
+    title: "Enjoy Your Sattu Drink!",
     subtitle: "Real nutrition unlocked",
-    image: "https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?q=80&w=400&auto=format&fit=crop"
+    image: "img/04.png"
   }
 ];
 
 const HowToMake = () => {
   return (
     <section 
-      className="py-24 relative overflow-hidden border-t-4 border-b-4 border-[#8B7355]/20 bg-cover bg-center"
-      style={{ backgroundImage: "url('/img/b3.png')" }} // Preserve background image
+      className="py-24 relative overflow-hidden bg-cover bg-center border-t border-b border-[#E3DBC5]"
+      style={{ backgroundImage: "url('/img/b3.png')" }}
     >
-      {/* Subtle Premium Texture Overlay */}
-      <div className="absolute inset-0 bg-white/10 pointer-events-none"></div>
+      {/* Premium Multi-layered Tonal Overlays */}
+      <div className="absolute inset-0 bg-[#FAF4E3]/60 pointer-events-none mix-blend-color-burn" />
+      <div className="absolute inset-0 opacity-[0.02] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/p6-grain.png')]" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         
-        {/* Section Header */}
-        <div className="text-center mb-20 flex flex-col items-center">
-          <span className="text-[#8B5A2B] font-sans font-bold tracking-widest text-sm uppercase mb-3 block sepia-[15%]">
-              Simple Preparation
-            </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-[#2D241E] tracking-tight relative pb-4">
-            How to Make Sattu Drink
-          </h2>
-          <div className="w-16 h-[2px] bg-[#8B5A2B] mt-2 sepia-[15%]"></div>
-        </div>
+        {/* Section Title Unit */}
+        <SectionHeader 
+          title="How to Make Sattu Drink" 
+          subtitle="Crafting the Perfect Blend"
+        />
 
-        {/* Desktop Grid Layout (Hidden on Mobile/Tablet) */}
-        <div className="hidden lg:grid grid-cols-4 gap-8 relative">
+        {/* DESKTOP GALLERY GRID */}
+        <div className="hidden lg:grid grid-cols-4 gap-8 relative mt-20">
           
-          {/* Connecting Premium Line (Desktop only) */}
-          <div className="absolute top-24 left-0 w-full h-[1px] hidden lg:block px-32">
+          {/* Fine Editorial Connecting Track Line */}
+          <div className="absolute top-40 left-0 w-full h-[1px] px-32 pointer-events-none">
             <motion.div 
               initial={{ scaleX: 0 }}
               whileInView={{ scaleX: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 1.5, ease: "easeInOut" }}
-              className="w-full h-full border-b border-dashed border-[#5C4033]/20 origin-left"
+              transition={{ duration: 1.2, ease: "easeInOut" }}
+              className="w-full h-full border-b border-dashed border-[#976E2A]/20 origin-left"
             />
           </div>
 
-          {/* Map through steps for Desktop */}
           {steps.map((step, index) => (
             <motion.div
               key={step.number}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.15, duration: 0.8, ease: "easeOut" }}
-              className="relative flex flex-col items-center group w-full text-center transition-all duration-300"
+              transition={{ delay: index * 0.12, duration: 0.8, ease: [0.25, 1, 0.5, 1] }}
+              className="group flex flex-col items-center w-full text-center relative"
             >
-              {/* Image Frame Wrapper */}
-              <div className="relative mb-6">
+              {/* Arched Frame Asset with Decreased Stroke (p-1.5) & Rich Ambient Shadows */}
+              <div className="relative w-full aspect-[3/4] max-w-[230px] bg-[#FFFDF6] border border-[#E3DBC5]/80 rounded-t-[120px] rounded-b-[24px] p-1.5 mb-8 transition-all duration-500 group-hover:border-[#976E2A]/40 shadow-[0_20px_40px_rgba(32,59,35,0.06),0_1px_3px_rgba(32,59,35,0.02)] group-hover:shadow-[0_35px_60px_rgba(151,110,42,0.14),0_2px_8px_rgba(151,110,42,0.04)] group-hover:-translate-y-1">
                 
-                {/* Traditional Heavy Ink-Print Style Frame */}
-                <div className="relative w-48 h-60 aspect-[3/4] bg-[#E5D3B3] p-1.5 border-b-4 border-r-4 border-[#5C4033] transition-transform duration-500 group-hover:scale-105">
-                  <div className="w-full h-full overflow-hidden relative">
-                    <img 
-                      src={step.image} 
-                      alt={step.title} 
-                      className="w-full h-full object-cover grayscale-[20%] sepia-[10%] transition-transform duration-700 group-hover:scale-110" 
-                    />
-                    {/* Darkening image tint filter */}
-                    <div className="absolute inset-0 bg-amber-950/10 mix-blend-multiply"></div>
-                  </div>
+                {/* Internal Image Viewport Mask */}
+                <div className="w-full h-full overflow-hidden rounded-t-[115px] rounded-b-[18px] relative bg-[#FAF4E3]">
+                  <img 
+                    src={step.image} 
+                    alt={step.title} 
+                    className="w-full h-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:scale-105" 
+                  />
+                  {/* Subtle grading overlay tint */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#203B23]/10 via-transparent to-transparent opacity-60" />
                 </div>
 
-                {/* Number Badge - Stamp style */}
-                <motion.div 
-                  initial={{ scale: 0 }}
-                  whileInView={{ scale: 1 }}
-                  transition={{ delay: 0.4 + index * 0.15, type: "spring", stiffness: 120 }}
-                  className="absolute -top-3 -left-3 w-10 h-10 bg-[#2D241E] text-[#E5D3B3] font-mono font-bold text-lg flex items-center justify-center border-2 border-[#5C4033] group-hover:bg-[#112517] transition-colors duration-300"
-                >
-                  {step.number}
-                </motion.div>
+                {/* Floating Wireframe Step Medal */}
+                <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-9 h-9 rounded-full bg-[#203B23] border border-[#976E2A]/30 flex items-center justify-center text-white shadow-[0_4px_12px_rgba(32,59,35,0.3)] transition-all duration-300 group-hover:bg-[#976E2A] group-hover:shadow-[0_6px_16px_rgba(151,110,42,0.4)]">
+                  <span className="text-[11px] font-poppins font-bold tracking-wider">{step.number}</span>
+                </div>
               </div>
               
-              {/* Text Meta */}
-              <h3 className="font-serif text-lg font-bold text-[#2D241E] leading-snug mb-1 px-2 group-hover:text-[#1C3B24] transition-colors duration-300">
-                {step.title}
-              </h3>
-              <p className="text-[11px] font-sans font-bold uppercase tracking-[0.2em] text-[#8B5A2B]">
-                {step.subtitle}
-              </p>
+              {/* Typography Structure */}
+              <div className="px-2 mt-2">
+                
+                <h3 className="font-poppins text-lg font-bold text-[#203B23] leading-snug tracking-tight group-hover:text-[#976E2A] transition-colors duration-300 mb-1">
+                  {step.title}
+                </h3>
+                <span className="text-[10px] font-poppins font-bold uppercase tracking-[0.25em] text-[#976E2A] block ">
+                  {step.subtitle}
+                </span>
+              </div>
 
             </motion.div>
           ))}
         </div>
 
-        {/* Mobile & Tablet Slider Layout */}
-        <div className="block lg:hidden !-mr-6 md:!-mr-12">
+        {/* MOBILE & TABLET SLIDER LAYOUT */}
+        <div className="block lg:hidden !-mr-6 md:!-mr-12 mt-14">
           <Swiper
             modules={[Autoplay, Pagination]}
-            spaceBetween={20}
+            spaceBetween={24}
             slidesPerView={1.2}
             pagination={{ clickable: true }}
             autoplay={{ delay: 4500, disableOnInteraction: false }}
             breakpoints={{
-              480: { slidesPerView: 1.5 },
-              640: { slidesPerView: 2 },
+              480: { slidesPerView: 1.6 },
+              640: { slidesPerView: 2.2 },
+              768: { slidesPerView: 2.6 },
             }}
-            className="pb-12 premium-htw-swiper"
+            className="pb-16 premium-htw-swiper"
           >
-            {/* Map through steps for Mobile/Tablet Slider */}
-            {steps.map((step, index) => (
+            {steps.map((step) => (
               <SwiperSlide key={step.number} className="h-full">
-                <div className="relative flex flex-col items-center group w-full text-center transition-all duration-300">
-                  {/* Image Frame Wrapper */}
-                  <div className="relative mb-6">
-                    
-                    {/* Traditional Heavy Ink-Print Style Frame */}
-                    <div className="relative w-48 h-60 aspect-[3/4] bg-[#E5D3B3] p-1.5 border-b-4 border-r-4 border-[#5C4033] transition-transform duration-500 group-hover:scale-105">
-                      <div className="w-full h-full overflow-hidden relative">
-                        <img 
-                          src={step.image} 
-                          alt={step.title} 
-                          className="w-full h-full object-cover grayscale-[20%] sepia-[10%] transition-transform duration-700 group-hover:scale-110" 
-                        />
-                        {/* Darkening image tint filter */}
-                        <div className="absolute inset-0 bg-amber-950/10 mix-blend-multiply"></div>
-                      </div>
+                <div className="group flex flex-col items-center w-full text-center relative px-2">
+                  
+                  {/* Matching Mobile Architectural Frame with Premium Adjustments */}
+                  <div className="relative w-full aspect-[3/4] max-w-[230px] mx-auto bg-[#FFFDF6] border border-[#E3DBC5]/80 rounded-t-[120px] rounded-b-[24px] p-1.5 mb-8 shadow-[0_16px_32px_rgba(32,59,35,0.05)]">
+                    <div className="w-full h-full overflow-hidden rounded-t-[115px] rounded-b-[18px] relative bg-[#FAF4E3]">
+                      <img src={step.image} alt={step.title} className="w-full h-full object-cover" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#203B23]/10 via-transparent to-transparent opacity-60" />
                     </div>
 
-                    {/* Number Badge - Stamp style */}
-                    <div className="absolute -top-3 -left-3 w-10 h-10 bg-[#2D241E] text-[#E5D3B3] font-mono font-bold text-lg flex items-center justify-center border-2 border-[#5C4033] group-hover:bg-[#112517] transition-colors duration-300">
-                      {step.number}
+                    <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-9 h-9 rounded-full bg-[#203B23] border border-[#976E2A]/30 flex items-center justify-center text-white shadow-[0_4px_12px_rgba(32,59,35,0.2)]">
+                      <span className="text-[11px] font-poppins font-bold tracking-wider">{step.number}</span>
                     </div>
                   </div>
                   
-                  {/* Text Meta */}
-                  <h3 className="font-serif text-lg font-bold text-[#2D241E] leading-snug mb-1 px-2">
-                    {step.title}
-                  </h3>
-                  <p className="text-[11px] font-sans font-bold uppercase tracking-[0.2em] text-[#8B5A2B]">
-                    {step.subtitle}
-                  </p>
+                  <div className="mt-2">
+                    <span className="text-[10px] font-poppins font-bold uppercase tracking-[0.25em] text-[#976E2A] block mb-2">
+                      {step.subtitle}
+                    </span>
+                    <h3 className="font-poppins text-base font-bold text-[#203B23] leading-snug tracking-tight">
+                      {step.title}
+                    </h3>
+                  </div>
+
                 </div>
               </SwiperSlide>
             ))}
@@ -172,32 +157,32 @@ const HowToMake = () => {
         </div>
       </div>
 
-      {/* Embedded Swiper Custom Pagination Styles */}
+      {/* Reconfigured Minimal Slider Pagination Architecture */}
       <style dangerouslySetInnerHTML={{__html: `
         .premium-htw-swiper .swiper-pagination-bullet {
-          background: #5C4033 !important;
+          background: #203B23 !important;
           opacity: 0.15;
-          width: 5px;
-          height: 5px;
+          width: 6px;
+          height: 6px;
+          transition: all 0.3s ease;
         }
         .premium-htw-swiper .swiper-pagination-bullet-active {
           opacity: 1;
-          background: #8B5A2B !important;
-          width: 16px;
+          background: #976E2A !important;
+          width: 20px;
           border-radius: 4px;
         }
         .premium-htw-swiper .swiper-pagination {
-          bottom: 0px !important;
-          text-align: center !important;
+          bottom: 4px !important;
         }
       `}} />
 
-      {/* Decorative Traditional Assets */}
-      <div className="absolute left-8 bottom-12 opacity-15 rotate-45 hidden lg:block text-[#1C3B24]">
-        <Leaf size={56} strokeWidth={1.5} />
+      {/* Fine-Art Background Floating Accents */}
+      <div className="absolute left-6 bottom-10 opacity-10 rotate-[35deg] hidden lg:block text-[#203B23]">
+        <Leaf size={48} strokeWidth={1.2} />
       </div>
-      <div className="absolute right-12 top-1/3 opacity-15 -rotate-12 hidden lg:block text-[#1C3B24]">
-        <Leaf size={44} strokeWidth={1.5} />
+      <div className="absolute right-10 top-1/4 opacity-10 -rotate-[15deg] hidden lg:block text-[#203B23]">
+        <Leaf size={38} strokeWidth={1.2} />
       </div>
     </section>
   );

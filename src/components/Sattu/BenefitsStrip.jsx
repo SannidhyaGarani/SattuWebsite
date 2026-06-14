@@ -1,90 +1,189 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Dumbbell, Sprout, Leaf, Snowflake, Utensils } from 'lucide-react';
+import { 
+  Dumbbell, 
+  Sprout, 
+  Leaf, 
+  Snowflake, 
+  Utensils, 
+  DotSquare,
+  ChevronLeft,
+  ChevronRight
+} from 'lucide-react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+
+import SectionHeader from './SectionHeader';
 
 const benefits = [
   {
+    num: "01",
     title: "High in Protein",
-    desc: "Builds strength naturally from within",
-    icon: <Dumbbell size={32} strokeWidth={1.5} />,
+    desc: "Builds strength naturally from within.",
+    icon: <img src="https://res.cloudinary.com/duzwys877/image/upload/v1781441466/body_dzurv4.svg" alt="Body Shape" className="w-20 h-20 object-contain" />,
+    isGreen: true,
   },
   {
+    num: "02",
     title: "Rich in Fiber",
-    desc: "Supports seamless gut health & digestion",
-    icon: <Sprout size={32} strokeWidth={1.5} />,
+    desc: "Supports seamless digestion & gut health.",
+     icon: <img src="https://res.cloudinary.com/duzwys877/image/upload/v1781441581/leafes_kx6mzs.svg" alt="Body Shape" className="w-20 h-20 object-contain" />,
+    isGreen: false,
   },
   {
+    num: "03",
     title: "100% Natural",
-    desc: "Zero chemicals, pure raw potency",
-    icon: <Leaf size={32} strokeWidth={1.5} />,
+    desc: "Zero chemicals, absolute purity guaranteed.",
+      icon: <img src="https://res.cloudinary.com/duzwys877/image/upload/v1781441161/b1_ltomv8.svg" alt="Body Shape" className="w-20 h-20 object-contain" />,
+    isGreen: true,
   },
   {
+    num: "04",
     title: "Cooling Effect",
-    desc: "Perfect structural hydration for summer",
-    icon: <Snowflake size={32} strokeWidth={1.5} />,
+    desc: "Perfect hydration for the Indian climate.",
+      icon: <img src="https://res.cloudinary.com/duzwys877/image/upload/v1781441161/b2_s1suqm.svg" alt="Body Shape" className="w-20 h-20 object-contain" />,
+    isGreen: false,
   },
   {
+    num: "05",
     title: "Keeps You Full",
-    desc: "Sustained fuel that manages cravings",
-    icon: <Utensils size={32} strokeWidth={1.5} />,
+    desc: "Sustained energy that helps manage weight.",
+      icon: <img src="https://res.cloudinary.com/duzwys877/image/upload/v1781441161/spoon_taz39x.svg" alt="Body Shape" className="w-20 h-20 object-contain" />,
+    isGreen: true,
   },
 ];
 
 const BenefitsStrip = () => {
   return (
-    <section className="py-16 md:py-20 bg-[#FDFBF7] relative overflow-hidden">
-      {/* Editorial Top/Bottom Accent Borders */}
-      <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#11261C]/10 to-transparent" />
-      <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#11261C]/10 to-transparent" />
-
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+    <section className="py-20 bg-[#FAF4E3] relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         
-        {/* Compact Layout Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-6 justify-center items-start">
-          {benefits.map((benefit, index) => (
-            <motion.div
-              key={benefit.title}
-              initial={{ opacity: 0, y: 25 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.08, duration: 0.6 }}
-              className="group flex flex-col items-center text-center w-full"
-            >
+        <SectionHeader 
+          title="The Goodness Of Sattu" 
+          subtitle="Natural • Nutritious • Wholesome"
+        />
+
+        {/* --- SWIPER SLIDER REPLACING GRID --- */}
+        <div className="relative group px-4">
+          <Swiper
+            modules={[Autoplay, Pagination, Navigation]}
+            spaceBetween={24}
+            slidesPerView={1}
+            autoplay={{
+              delay: 4000,
+              disableOnInteraction: false,
+            }}
+            pagination={{
+              clickable: true,
+              el: '.benefits-pagination',
+            }}
+            navigation={{
+              prevEl: '.benefit-prev',
+              nextEl: '.benefit-next',
+            }}
+            breakpoints={{
+              640: {
+                slidesPerView: 2,
+              },
+              1024: {
+                slidesPerView: 5,
+              },
+            }}
+            className="!py-12"
+          >
+            {benefits.map((benefit, index) => {
               
-              {/* THE HERO CIRCLE: Deep Dark Velvet Green Background */}
-              <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-[#11261C] border border-[#D4A359]/30 flex items-center justify-center relative transition-all duration-500 shadow-[0_15px_30px_rgba(17,38,28,0.15)] group-hover:border-[#D4A359] group-hover:shadow-[0_0_40px_rgba(212,163,89,0.35)] group-hover:scale-105 mb-5">
-                
-                {/* Expanding Outer Accent Ring */}
-                <div className="absolute -inset-1.5 rounded-full border border-dashed border-[#D4A359]/10 group-hover:border-[#D4A359]/50 group-hover:scale-105 transition-all duration-500 pointer-events-none" />
-                
-                {/* Deep Inner Glow Shadow Effect */}
-                <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-black/40 via-transparent to-white/5 pointer-events-none" />
-                
-                {/* Radiant Highlighted Icon */}
-                <div className="text-[#D4A359] drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)] group-hover:scale-110 group-hover:text-[#FFF] group-hover:drop-shadow-[0_0_12px_rgba(212,163,89,0.8)] transition-all duration-400 relative z-10">
-                  {benefit.icon}
-                </div>
-              </div>
+              const themeColor = benefit.isGreen ? 'text-[#203B23]' : 'text-[#976E2A]';
+              const badgeBg = benefit.isGreen ? 'bg-[#203B23]' : 'bg-[#976E2A]';
+              const dashBorder = benefit.isGreen ? 'border-[#203B23]/30' : 'border-[#976E2A]/30';
 
-              {/* TEXT BLOCK: High Contrast Typography */}
-              <div className="px-2">
-                {/* Main Highlight Title */}
-                <h3 className="text-sm sm:text-base font-serif font-bold text-[#11261C] tracking-tight mb-1.5 group-hover:text-[#D4A359] transition-colors duration-300">
-                  {benefit.title}
-                </h3>
-                
-                {/* Secondary Muted Description */}
-                <p className="text-[11px] sm:text-xs font-sans font-medium text-[#5A6960] leading-snug max-w-[160px] mx-auto group-hover:text-[#11261C] transition-colors duration-300">
-                  {benefit.desc}
-                </p>
-              </div>
+              return (
+                <SwiperSlide key={benefit.num} className="h-auto">
+                  <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1, duration: 0.5 }}
+                    className="group h-full relative bg-[#FFFDF6] border-[1.5px] border-[#E3DBC5] rounded-[32px] p-6 pt-12 flex flex-col items-center text-center transition-all duration-300 hover:border-[#976E2A]/60 shadow-sm"
+                  >
+                    
+                    {/* 1. Numerical Counter Top Badge */}
+                    <div className={`absolute -top-6 left-1/2 transform -translate-x-1/2 w-14 h-14 ${badgeBg} rounded-full flex items-center justify-center text-white text-[35px] font-sans font-bold shadow-sm z-20`}>
+                      {benefit.num}
+                    </div>
 
-              {/* Micro Floor Pointer Highlight */}
-              <div className="w-1.5 h-1.5 rounded-full bg-[#D4A359] mt-4 opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100 transition-all duration-400 shadow-[0_0_8px_#D4A359]" />
+                    {/* 2. Concentric Center Circle with Flanking React Icon Leaves */}
+                    <div className={`relative w-24 h-24 rounded-full border border-dashed ${dashBorder} flex items-center justify-center mb-2`}>
+                      
+                      <div className={`absolute inset-1 rounded-full border ${benefit.isGreen ? 'border-[#203B23]/10' : 'border-[#976E2A]/10'}`} />
+                      
+                      <div className={`absolute -left-3 top-1/2 -translate-y-1/2 -rotate-45 ${themeColor} opacity-40`}>
+                        <Leaf size={12} className="fill-current" />
+                      </div>
 
-            </motion.div>
-          ))}
+                      <div className={`absolute -right-3 top-1/2 -translate-y-1/2 rotate-45 scale-x-[-1] ${themeColor} opacity-40`}>
+                        <Leaf size={12} className="fill-current" />
+                      </div>
+
+                      <div className={`${themeColor} relative z-10 transition-transform duration-300 group-hover:scale-105`}>
+                        {benefit.icon}
+                      </div>
+                    </div>
+
+                    {/* 3. Serif Main Header Title */}
+                    <h3 className="text-xl font-poppins font-bold text-[#203B23] tracking-tight leading-tight mb-2 min-h-[48px] flex items-center justify-center">
+                      {benefit.title}
+                    </h3>
+                    
+                    {/* 4. Muted Organic Body Text Description */}
+                    <p className="text-xs font-sans font-medium text-[#605948] leading-relaxed max-w-[160px]">
+                      {benefit.desc}
+                    </p>
+
+                    {/* 5. Bottom Card Anchored Triple Leaf Ornament */}
+                    <div className={`mt-auto pt-6 flex items-center justify-center gap-0.5 ${themeColor} opacity-60`}>
+                      <Leaf size={10} className="rotate-[-30deg] fill-current" />
+                      <Leaf size={12} className="fill-current -translate-y-1" />
+                      <Leaf size={10} className="rotate-[30deg] scale-x-[-1] fill-current" />
+                    </div>
+
+                  </motion.div>
+                </SwiperSlide>
+              );
+            })}
+          </Swiper>
+
+          {/* Custom Navigation Buttons */}
+          <button className="benefit-prev absolute left-[-20px] top-1/2 -translate-y-1/2 z-30 w-10 h-10 bg-white rounded-full shadow-md flex items-center justify-center text-[#203B23] hover:bg-[#203B23] hover:text-white transition-all duration-300 opacity-0 group-hover:opacity-100 hidden md:flex">
+            <ChevronLeft size={20} />
+          </button>
+          <button className="benefit-next absolute right-[-20px] top-1/2 -translate-y-1/2 z-30 w-10 h-10 bg-white rounded-full shadow-md flex items-center justify-center text-[#203B23] hover:bg-[#203B23] hover:text-white transition-all duration-300 opacity-0 group-hover:opacity-100 hidden md:flex">
+            <ChevronRight size={20} />
+          </button>
+
+          {/* Custom Pagination */}
+          <div className="benefits-pagination flex justify-center gap-2 mt-4" />
         </div>
+
+        <style dangerouslySetInnerHTML={{ __html: `
+          .benefits-pagination .swiper-pagination-bullet {
+            width: 10px;
+            height: 10px;
+            background: #E3DBC5;
+            opacity: 1;
+            transition: all 0.3s ease;
+          }
+          .benefits-pagination .swiper-pagination-bullet-active {
+            background: #976E2A;
+            width: 25px;
+            border-radius: 5px;
+          }
+        `}} />
 
       </div>
     </section>

@@ -1,119 +1,186 @@
-import React from 'react';
+import { Star } from "lucide-react";
 import { motion } from 'framer-motion';
-import { Star, Quote, Leaf } from 'lucide-react';
+import SectionHeader from './SectionHeader';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 
 const testimonials = [
   {
     name: "Rohit Sharma",
     role: "Verified Buyer",
-    text: "Perfect drink for summers! Keeps me full for long and gives natural energy.",
-    avatar: "https://images.unsplash.com/photo-1544723795-3fb6469f5b39?q=80&w=400&h=400&auto=format&fit=crop"
+    text: "The pure, unadulterated taste of tradition. This Sattu has become my daily ritual for natural energy and gut health.",
+    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&h=200&auto=format&fit=crop"
   },
   {
     name: "Ananya Verma",
     role: "Verified Buyer",
-    text: "Tastes amazing and super healthy. A must-have in my daily routine.",
-    avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=400&h=400&auto=format&fit=crop"
+    text: "Perfect for the hot Indian climate. It keeps me hydrated and full for hours. Absolutely world-class quality.",
+    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200&h=200&auto=format&fit=crop"
   },
   {
     name: "Karan Patel",
     role: "Fitness Enthusiast",
-    text: "Great source of protein. Much better than other protein shakes.",
-    avatar: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=400&h=400&auto=format&fit=crop"
+    text: "As a fitness professional, I value raw potency. This is the cleanest protein source I've ever integrated into my diet.",
+    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200&h=200&auto=format&fit=crop"
+  },
+  {
+    name: "Meera Iyer",
+    role: "Health Coach",
+    text: "Finally, a brand that respects Vedic production methods. The stone-ground quality is evident in every single sip.",
+    avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=200&h=200&auto=format&fit=crop"
   }
 ];
 
 const Testimonials = () => {
   return (
     <section 
-      className="py-24 bg-[#FDF8F1] text-[#2D241E] relative overflow-hidden"
-      style={{ backgroundImage: "url('/img/parchment-bg.jpg')", backgroundSize: 'cover' }} // Aged parchment texture background
+      className="py-24 relative overflow-hidden bg-[#FDFBF7]"
     >
-      {/* Subtle organic fiber overlay */}
-      <div className="absolute inset-0 opacity-[0.04] pointer-events-none bg-[radial-gradient(#000_1.5px,transparent_1.5px)] [background-size:32px_32px]"></div>
+      {/* ---------- RESPONSIVE BACKGROUND IMAGES ---------- */}
+      {/* Mobile background (visible only on screens < 768px) */}
+      <div 
+        className="absolute inset-0 opacity-[0.9] pointer-events-none block md:hidden"
+        style={{ 
+          backgroundImage: "url('/img/masala.jpeg')",  // ← Replace with your mobile image path
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          filter: 'sepia(30%) brightness(1.1)'
+        }} 
+      />
+
+      {/* Desktop background (visible only on screens >= 768px) */}
+      <div 
+        className="absolute inset-0 opacity-[0.9] pointer-events-none hidden md:block"
+        style={{ 
+          backgroundImage: "url('/img/b2.png')", // ← Replace with your desktop image path
+          backgroundSize: '100% 100%',
+          backgroundPosition: 'center',
+          filter: 'sepia(30%) brightness(1.1)'
+        }} 
+      />
+
+      {/* SUBTLE GRAIN OVERLAY (kept common for both) */}
+      <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/p6-grain.png')]" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         
-        {/* Section Header with artisanal typography */}
-        <div className="text-center mb-20 flex flex-col items-center">
-          <span className="text-[#D9A036] font-sans font-bold tracking-widest text-sm uppercase mb-3 block">
-            Real Reviews
-          </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-[#2D241E] tracking-tight pb-4">
-            Trusted by Thousands
-          </h2>
-          {/* Stamped rustic gold bar divider */}
-          <div className="w-24 h-2 bg-[#D9A036] mt-1 border border-[#5C4033] rounded-sm shadow-inner opacity-80"></div>
+        <SectionHeader 
+          title="Trusted by Thousands" 
+          subtitle="Real Stories • Pure Satisfaction"
+        />
+
+        <div className="relative px-4 sm:px-12">
+          <Swiper
+            modules={[Autoplay, Pagination, Navigation]}
+            spaceBetween={30}
+            slidesPerView={1}
+            navigation={{
+              nextEl: '.testimonial-next',
+              prevEl: '.testimonial-prev',
+            }}
+            autoplay={{ delay: 5000, disableOnInteraction: false }}
+            pagination={{ clickable: true, el: '.testimonial-pagination' }}
+            breakpoints={{
+              768: { slidesPerView: 2 },
+              1200: { slidesPerView: 3 },
+            }}
+            className="overflow-visible"
+          >
+            {testimonials.map((item, index) => (
+              <SwiperSlide key={index}>
+                <motion.div 
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  className="relative h-[480px] flex flex-col items-center justify-center group"
+                >
+                  {/* THE IMPERIAL ARCH SHAPE COMPONENT */}
+                  <div className="absolute inset-0 z-0 drop-shadow-[0_15px_30px_rgba(0,0,0,0.06)]">
+                    <svg viewBox="0 0 400 500" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full drop-shadow-sm transition-transform duration-500 group-hover:scale-[1.02]">
+                      <path 
+                        d="M200 0 C240 0 270 15 290 35 C310 55 325 80 335 110 C345 80 360 55 380 35 C400 15 430 0 470 0 L400 0 Z" 
+                        fill="transparent" 
+                      />
+                      {/* Custom Dome Path */}
+                      <path d="M200 5C260 5 310 25 340 55C370 85 385 115 395 155C400 175 400 195 400 215V465C400 487.091 382.091 505 360 505H40C17.9086 505 0 487.091 0 465V215C0 195 0 175 5 155C15 115 30 85 60 55C90 25 140 5 200 5Z" fill="#FDF6E9" />
+                      
+                      {/* Scallops - Top Arch Circles */}
+                      <circle cx="200" cy="18" r="45" fill="#FDF6E9" />
+                      <circle cx="130" cy="40" r="40" fill="#FDF6E9" />
+                      <circle cx="270" cy="40" r="40" fill="#FDF6E9" />
+                      <circle cx="75" cy="85" r="35" fill="#FDF6E9" />
+                      <circle cx="325" cy="85" r="35" fill="#FDF6E9" />
+
+                      {/* Accent Stroke */}
+                      <path d="M200 12C140 12 90 32 60 62C30 92 15 122 5 162C0 182 0 202 0 222V460C0 478 15 493 33 495 C33 480 48 465 65 465 H335 C352 465 367 480 367 495 C385 493 400 478 400 460 V222C400 202 400 182 395 162C385 122 370 92 340 62C310 32 260 12 200 12Z" stroke="#D9A036" strokeWidth="0.8" strokeOpacity="0.25" fill="transparent" />
+                    </svg>
+                  </div>
+
+                  {/* CARD CONTENT */}
+                  <div className="relative z-10 flex flex-col items-center text-center px-10">
+                    {/* Stars */}
+                    <div className="flex gap-1.5 mb-8">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} size={15} className="fill-[#D9A036] text-[#D9A036]" strokeWidth={0} />
+                      ))}
+                    </div>
+
+                    {/* Testimonial text with inline quotes */}
+                    <div className="relative mb-12">
+                      <span className="absolute -top-6 -left-4 text-4xl font-serif text-[#D9A036]/20">“</span>
+                      <p className="text-[15px] md:text-[17px] font-poppins font-medium text-[#11261C] leading-[1.7] italic tracking-tight">
+                        {item.text}
+                      </p>
+                      <div className="w-12 h-[1px] bg-[#D9A036]/20 mx-auto mt-6" />
+                      <span className="absolute -bottom-10 -right-4 text-4xl font-serif text-[#D9A036]/20">”</span>
+                    </div>
+
+                    {/* Brand Footer Slot */}
+                    <div className="flex items-center gap-4 pt-4">
+                      <div className="w-14 h-14 rounded-full border border-[#D9A036]/30 p-1 shadow-sm bg-white/50">
+                        <img src={item.avatar} className="w-full h-full object-cover rounded-full" alt={item.name} />
+                      </div>
+                      <div className="text-left">
+                        <h4 className="font-poppins font-bold text-sm text-[#11261C] tracking-tight">{item.name}</h4>
+                        <p className="text-[10px] font-sans font-black text-[#D9A036] uppercase tracking-[0.2em]">{item.role}</p>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+
+          {/* CUSTOM NAVIGATION CONTROLS */}
+          <button className="testimonial-prev absolute top-1/2 -left-4 md:-left-12 -translate-y-1/2 w-12 h-12 rounded-full bg-white border border-[#D9A036]/20 shadow-lg flex items-center justify-center text-[#11261C] hover:bg-[#11261C] hover:text-white transition-all z-20 cursor-pointer group">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <button className="testimonial-next absolute top-1/2 -right-4 md:-right-12 -translate-y-1/2 w-12 h-12 rounded-full bg-white border border-[#D9A036]/20 shadow-lg flex items-center justify-center text-[#11261C] hover:bg-[#11261C] hover:text-white transition-all z-20 cursor-pointer group">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
+
+          {/* CUSTOM PAGINATION */}
+          <div className="testimonial-pagination flex justify-center gap-2 mt-16 !relative"></div>
         </div>
-
-        {/* Testimonials Grid with heavy traditional frames */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10 p-2">
-          {testimonials.map((item, index) => (
-            <motion.div 
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.15, duration: 0.8, ease: "easeOut" }}
-              whileHover={{ y: -4, boxShadow: '12px 12px 0px 0px rgba(139,115,85,0.2)' }} // Physical depth shadow
-              className="bg-[#FDF8F1] p-8 rounded-sm flex flex-col justify-between relative group transition-all duration-300 shadow-[8px_8px_0px_0px_rgba(139,115,85,0.1)] border-[4px] border-[#5C4033] border-asymmetrical hover:border-[#D9A036]"
-            >
-              {/* Decorative Stamped Gold Quote Icon with weathering */}
-              <div className="absolute top-6 right-8 text-[#D9A036]/70 transition-colors duration-300">
-                <Quote size={40} strokeWidth={1} fill="currentColor" className="opacity-40 filter drop-shadow-[2px_2px_1px_rgba(92,64,51,0.3)]" />
-              </div>
-
-              <div>
-                {/* Weathered Gold Star Rating */}
-                <div className="flex gap-1 mb-6">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} size={16} className="fill-[#D9A036] text-[#D9A036]/60" strokeWidth={1.2} />
-                  ))}
-                </div>
-                
-                {/* Testimonial Quote in prominent hand-lettered-style serif */}
-                <p className="font-serif text-base md:text-lg leading-relaxed text-[#5C4033] italic mb-10 tracking-tight font-handcrafted">
-                  "{item.text}"
-                </p>
-              </div>
-
-              {/* User Bio Footer with sketch-style avatars */}
-              <div className="flex items-center gap-4 pt-6 border-t border-[#D9D3C7]/40 mt-auto">
-                {/* Avatar as a textured woodcut sketch portrait */}
-                <div className="w-14 h-14 rounded-md overflow-hidden border-2 border-[#5C4033] p-1 bg-[#EFECE6] flex items-center justify-center sepia-sketch">
-                  <img src={item.avatar} alt={item.name} className="w-full h-full object-cover rounded-sm grayscale-[30%] sepia-[15%]" />
-                </div>
-                <div>
-                  <h4 className="font-serif font-bold text-sm text-[#2D241E] tracking-tight">{item.name}</h4>
-                  <p className="text-xs font-sans tracking-wide text-[#8B7355]">{item.role}</p>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
       </div>
 
-      {/* Re-styled leaf patterns as watercolor sketches on parchment */}
-      <div className="absolute -bottom-16 -left-16 opacity-10 rotate-45 hidden lg:block text-[#1C3B24] pointer-events-none filter sepia">
-        <Leaf size={240} strokeWidth={1.2} />
-      </div>
-      <div className="absolute -top-16 -right-16 opacity-10 -rotate-12 hidden lg:block text-[#1C3B24] pointer-events-none filter sepia">
-        <Leaf size={200} strokeWidth={1.2} />
-      </div>
-
-      {/* Embedded CSS for custom traditional features */}
       <style dangerouslySetInnerHTML={{__html: `
-        .border-asymmetrical {
-          border-top-left-radius: 4px;
-          border-top-right-radius: 6px;
-          border-bottom-right-radius: 2px;
-          border-bottom-left-radius: 8px;
+        .testimonial-pagination .swiper-pagination-bullet {
+          width: 8px;
+          height: 8px;
+          background: #11261C;
+          opacity: 0.15;
+          margin: 0 6px !important;
+          transition: all 0.4s ease;
         }
-        .sepia-sketch img {
-          filter: grayscale(30%) sepia(15%);
-        }
-        .font-handcrafted {
-          font-variation-settings: 'ital' 1, 'wght' 400;
+        .testimonial-pagination .swiper-pagination-bullet-active {
+          width: 28px;
+          border-radius: 4px;
+          background: #D9A036;
+          opacity: 1;
         }
       `}} />
     </section>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Shield, Award, Zap, Sprout, Sparkles, Compass, Fingerprint, ArrowUpRight } from 'lucide-react';
+import { Shield, Award, Zap, Sprout, Sparkles, Compass, Fingerprint, ArrowUpRight, Leaf } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const About = () => {
@@ -7,9 +7,9 @@ const About = () => {
   const premiumEase = [0.25, 1, 0.5, 1];
 
   return (
-    <div className="min-h-screen bg-[#F9F8F6] pt-32 lg:pt-48 pb-32 overflow-hidden selection:bg-[#1C3B24] selection:text-white">
-      {/* Light Luxury Geometric Dot Mesh Overlay */}
-      <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:32px_32px]"></div>
+    <div className="min-h-screen bg-[#FAF4E3] pt-32 lg:pt-48 pb-32 overflow-hidden selection:bg-[#203B23] selection:text-white">
+      {/* Heritage Grain Overlay */}
+      <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/p6-grain.png')] mix-blend-multiply"></div>
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 relative z-10">
         
@@ -23,21 +23,24 @@ const About = () => {
             transition={{ duration: 1, ease: premiumEase }}
             className="lg:col-span-7 space-y-10"
           >
-            <div className="flex items-center gap-2.5 text-[#D9A036]">
-              <Sparkles size={12} strokeWidth={1.5} />
-              <span className="text-[10px] font-bold uppercase tracking-[0.35em]">The Magadh Legacy</span>
+            <div className="flex items-center gap-2.5 text-[#976E2A]">
+              <div className="flex items-center gap-1">
+                <Leaf size={14} className="fill-current rotate-45" />
+                <div className="w-8 h-[1px] bg-[#976E2A]/30" />
+              </div>
+              <span className="text-[10px] font-poppins font-bold uppercase tracking-[0.35em]">The Magadh Legacy</span>
             </div>
             
-            <h1 className="text-[12vw] sm:text-[8vw] lg:text-[6.5vw] font-serif font-light text-[#1C2B21] leading-[0.95] tracking-tighter">
-              Ancestral Fuel. <br />
-              <span className="font-serif italic text-[#1C3B24] font-normal">Biological</span> <br />
-              Refinement.
+            <h1 className="text-[12vw] sm:text-[8vw] lg:text-[6vw] font-poppins font-bold text-[#203B23] leading-[0.95] tracking-tight uppercase">
+              Ancestral <br />
+              <span className="font-serif italic text-[#976E2A] lowercase font-normal">Super-Fuel</span> <br />
+              Refined.
             </h1>
             
-            <div className="h-[1px] w-20 bg-[#D9A036]" />
+            <div className="h-[2px] w-20 bg-[#976E2A]/40" />
             
-            <p className="text-base sm:text-lg text-[#5C665E] font-light leading-relaxed max-w-xl">
-              We operate at the convergence of native agricultural wisdom and contemporary bio-availability analysis. Sattu is not a modern formulation; it is the raw, uncompromised performance secret of ancient India, architecturalized for the global vanguard.
+            <p className="text-base sm:text-lg text-[#605948] font-poppins font-medium leading-relaxed max-w-xl">
+              We operate at the convergence of native agricultural wisdom and contemporary bio-availability analysis. Sattu is the raw, uncompromised performance secret of ancient India, architecturalized for the global vanguard.
             </p>
           </motion.div>
           
@@ -48,49 +51,58 @@ const About = () => {
             transition={{ duration: 1.2, ease: premiumEase }}
             className="lg:col-span-5 relative mt-8 lg:mt-0 w-full"
           >
-            {/* Main Editorial Canvas Image */}
-            <div className="aspect-[4/5] rounded-xl overflow-hidden bg-[#EFECE6] border border-[#EAE6DF] shadow-md group">
-              <img 
-                src="img/ss.png"
-                alt="Native Crop Sourcing" 
-                className="w-full h-full object-cover grayscale opacity-90 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-[1.5s] ease-out group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#1C2B21]/20 via-transparent to-transparent pointer-events-none" />
+            {/* Arched Architectural Frame */}
+            <div className="aspect-[4/5] rounded-t-[180px] rounded-b-[40px] overflow-hidden bg-[#FFFDF6] border-[1.5px] border-[#E3DBC5] p-2 shadow-xl group">
+              <div className="w-full h-full rounded-t-[175px] rounded-b-[32px] overflow-hidden relative">
+                <img 
+                  src="img/ss.png"
+                  alt="Native Crop Sourcing" 
+                  className="w-full h-full object-cover transition-transform duration-[1.5s] ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#203B23]/30 via-transparent to-transparent pointer-events-none" />
+              </div>
             </div>
             
             {/* Floating Heritage Meta Token */}
-            <div className="absolute -bottom-10 -left-6 sm:left-12 bg-white rounded-lg p-8 shadow-[0_30px_70px_rgba(28,43,33,0.08)] border border-[#EAE6DF] max-w-[240px] hidden sm:block backdrop-blur-md">
-              <p className="text-4xl font-serif font-light text-[#1C3B24] mb-1 tracking-tight">100%</p>
-              <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-[#A69F91]">Whole Food Integrity</p>
-              <div className="mt-5 h-[1px] w-full bg-[#EAE6DF]" />
-              <p className="text-[10px] text-[#707A72] font-light mt-3 leading-relaxed">Zero isolate proteins. Zero synthetic chemistry modifiers.</p>
+            <div className="absolute -bottom-10 -right-6 lg:-left-12 bg-[#FFFDF6] rounded-[32px] p-8 shadow-2xl border border-[#E3DBC5] max-w-[260px] backdrop-blur-md">
+              <div className="flex items-center gap-2 text-[#976E2A] mb-3">
+                <Shield size={16} />
+                <div className="h-[1px] flex-1 bg-[#976E2A]/20" />
+              </div>
+              <p className="text-4xl font-poppins font-bold text-[#203B23] mb-1 tracking-tight">100%</p>
+              <p className="text-[10px] font-poppins font-bold uppercase tracking-[0.2em] text-[#976E2A]">Whole Food Integrity</p>
+              <div className="mt-5 h-[1px] w-full border-t border-dashed border-[#E3DBC5]" />
+              <p className="text-[11px] text-[#605948] font-poppins font-medium mt-4 leading-relaxed">Zero isolate proteins. Zero synthetic chemistry modifiers.</p>
             </div>
           </motion.div>
         </div>
 
         {/* ================= VALUE PILLARS MATRIX ================= */}
         <div className="mb-40">
-          <div className="mb-16 max-w-md">
-            <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#9A8F80] mb-3">Our Mandate</p>
-            <h2 className="text-2xl font-serif font-light tracking-tight text-[#1C2B21]">Rigorous Production Benchmarks</h2>
+          <div className="mb-16 max-w-xl">
+            <div className="flex items-center gap-4 mb-4">
+               <span className="text-[10px] font-poppins font-bold uppercase tracking-[0.25em] text-[#976E2A]">Our Mandate</span>
+               <div className="h-[1px] w-12 bg-[#976E2A]/30" />
+            </div>
+            <h2 className="text-[32px] md:text-[44px] font-poppins font-bold tracking-tight text-[#203B23] leading-tight uppercase">Rigorous Production Benchmarks</h2>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                icon: <Sprout size={24} strokeWidth={1.2} />,
+                icon: <Sprout size={24} />,
                 title: "Direct Terroir Sourcing",
-                desc: "We exclusively source premium black chana variations cultivated via traditional dry-land farming structures across Bihar, paying direct premium wages to our heritage farm partners."
+                desc: "We exclusively source premium chana variations cultivated via traditional dry-land farming structures across Bihar, paying direct premium wages to our farm partners."
               },
               {
-                icon: <Zap size={24} strokeWidth={1.2} />,
+                icon: <Zap size={24} />,
                 title: "Slow Low-GI Influx",
-                desc: "The ancient sand-roasting processing method locks in complex structural starches, yielding a natural fuel source that delivers sustained baseline glycogen metrics without blood sugar spikes."
+                desc: "The ancient sand-roasting processing method locks in complex structural starches, yielding a natural fuel source that delivers sustained baseline glycogen metrics."
               },
               {
-                icon: <Shield size={24} strokeWidth={1.2} />,
+                icon: <Shield size={24} />,
                 title: "Pristine Minimalist Label",
-                desc: "Stone-milled precision without modification filters. No refined sugars, chemical stabilizers, or emulsifiers. Unrefined whole-food raw ingredients from native earth to glass."
+                desc: "Stone-milled precision without modification filters. No refined sugars, chemical stabilizers, or emulsifiers. Unrefined whole-food raw ingredients from earth to glass."
               }
             ].map((value, i) => (
               <motion.div 
@@ -99,20 +111,20 @@ const About = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.12, duration: 0.8, ease: premiumEase }}
-                className="p-10 rounded-xl bg-white border border-[#EAE6DF] flex flex-col justify-between hover:shadow-[0_24px_60px_rgba(28,43,33,0.04)] transition-all duration-500 group relative overflow-hidden"
+                className="p-10 rounded-[32px] bg-[#FFFDF6] border-[1.5px] border-[#E3DBC5] flex flex-col justify-between hover:border-[#976E2A]/40 transition-all duration-500 group relative shadow-sm"
               >
                 <div className="space-y-6">
-                  <div className="w-12 h-12 rounded-lg bg-[#F9F8F6] border border-[#EAE6DF] flex items-center justify-center text-[#1C3B24] group-hover:bg-[#1C3B24] group-hover:text-white transition-all duration-500">
+                  <div className="w-14 h-14 rounded-2xl bg-[#FAF4E3] border border-[#E3DBC5] flex items-center justify-center text-[#203B23] group-hover:bg-[#203B23] group-hover:text-white transition-all duration-500 shadow-sm relative">
                     {value.icon}
+                    <div className="absolute -top-1 -right-1 w-3 h-3 bg-[#976E2A] rounded-full border-2 border-white scale-0 group-hover:scale-100 transition-transform duration-500" />
                   </div>
-                  <h3 className="text-lg font-serif font-bold text-[#1C2B21] tracking-tight">{value.title}</h3>
-                  <p className="text-xs text-[#5C665E] font-light leading-relaxed">{value.desc}</p>
+                  <h3 className="text-xl font-poppins font-bold text-[#203B23] tracking-tight leading-tight">{value.title}</h3>
+                  <p className="text-xs text-[#605948] font-poppins font-medium leading-relaxed">{value.desc}</p>
                 </div>
                 
-                {/* Decorative Micro Vector Accent */}
-                <div className="pt-6 mt-8 border-t border-[#F9F8F6] flex items-center justify-between opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                  <span className="text-[9px] font-bold uppercase tracking-wider text-[#D9A036]">Verified Standard</span>
-                  <ArrowUpRight size={12} className="text-[#9A8F80]" />
+                <div className="pt-6 mt-8 border-t border-dashed border-[#E3DBC5] flex items-center justify-between">
+                  <span className="text-[10px] font-poppins font-bold uppercase tracking-wider text-[#976E2A]">Verified Standard</span>
+                  <ArrowUpRight size={14} className="text-[#976E2A] transform group-hover:rotate-45 transition-transform" />
                 </div>
               </motion.div>
             ))}
@@ -125,37 +137,41 @@ const About = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 1.2, ease: premiumEase }}
-          className="bg-[#1C3B24] rounded-2xl p-10 md:p-20 text-[#EFECE6] relative overflow-hidden shadow-xl"
+          className="bg-[#203B23] rounded-[48px] p-10 md:p-20 text-[#FAF4E3] relative overflow-hidden shadow-2xl"
         >
-          {/* Asymmetric Artistic Overlay Gradients */}
-          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#D9A036]/10 rounded-full blur-[160px] opacity-30 -translate-y-1/2 translate-x-1/2 pointer-events-none" />
-          <div className="absolute inset-0 opacity-[0.02] pointer-events-none bg-[radial-gradient(#FFF_1px,transparent_1px)] [background-size:24px_24px]"></div>
+          {/* Large Watermark */}
+          <div className="absolute bottom-[-5%] right-[-5%] text-[20vw] font-poppins font-black text-white/[0.03] uppercase pointer-events-none select-none tracking-tighter">
+            BHARAT
+          </div>
           
-          <div className="relative z-10 max-w-4xl space-y-10">
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-[1px] bg-[#D9A036]" />
-              <span className="text-[10px] font-bold uppercase tracking-[0.35em] text-[#D9A036]">The Charter of Truth</span>
+          <div className="relative z-10 max-w-4xl space-y-12">
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-[1px] bg-[#976E2A]" />
+              <span className="text-[11px] font-poppins font-bold uppercase tracking-[0.4em] text-[#976E2A]">The Charter of Truth</span>
             </div>
             
-            <h2 className="text-2xl sm:text-4xl md:text-5xl font-serif font-light leading-[1.25] tracking-tight text-white">
-              “True health rejects modern synthetic assembly lines. True longevity is achieved by restoring deep, uncompromised, <span className="font-serif italic text-[#D9A036]">native agriculture metrics</span> back to daily life.”
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-poppins font-bold leading-[1.2] tracking-tighter text-white uppercase">
+              “True health rejects <span className="font-serif italic text-[#976E2A] lowercase font-normal">synthetic</span> assembly lines. True longevity is achieved by restoring uncompromised <span className="text-[#976E2A]">native agriculture</span> back to life.”
             </h2>
             
-            <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
-              <div className="flex items-center gap-4">
-                <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-[#D9A036]">
-                  <Award size={16} strokeWidth={1.5} />
+            <div className="pt-10 border-t border-[#FAF4E3]/10 flex flex-col sm:flex-row sm:items-center justify-between gap-8">
+              <div className="flex items-center gap-5">
+                <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-[#976E2A]">
+                  <Award size={20} />
                 </div>
                 <div>
-                  <p className="font-sans font-bold text-xs uppercase tracking-widest text-white">Biological Source Certified</p>
-                  <p className="text-[9px] text-[#A69F91] uppercase tracking-widest mt-0.5">100% Traceable Farming Assets</p>
+                  <p className="font-poppins font-bold text-xs uppercase tracking-widest text-white">Biological Source Certified</p>
+                  <p className="text-[10px] font-poppins font-medium text-[#FAF4E3]/40 uppercase tracking-[0.2em] mt-1">100% Traceable Farming Assets</p>
                 </div>
               </div>
               
-              {/* Secondary Context Micro Credentials */}
-              <div className="flex gap-8 text-[10px] uppercase tracking-widest font-medium text-[#A69F91]">
-                <span className="flex items-center gap-1.5"><Compass size={11} /> Identity Protected</span>
-                <span className="flex items-center gap-1.5"><Fingerprint size={11} /> Stone Milled Real</span>
+              <div className="flex gap-8">
+                <span className="flex items-center gap-2 text-[11px] font-poppins font-bold uppercase tracking-widest text-[#FAF4E3]/30">
+                  <Compass size={14} /> Global Distribution
+                </span>
+                <span className="flex items-center gap-2 text-[11px] font-poppins font-bold uppercase tracking-widest text-[#FAF4E3]/30">
+                  <Fingerprint size={14} /> Authentic Sourcing
+                </span>
               </div>
             </div>
           </div>

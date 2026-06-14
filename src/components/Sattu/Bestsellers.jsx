@@ -7,6 +7,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { db } from '../../components/Firebase';
 import { collection, getDocs, query, orderBy } from 'firebase/firestore';
 import { useAuth } from '../../components/useAuth';
+import SectionHeader from './SectionHeader';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -73,7 +74,7 @@ const ProductCard = ({ product, idx }) => {
         <span className="text-[11px] font-sans font-bold uppercase tracking-widest text-[#C45525] mb-1">
           {product.flavor || "Flavor Type"}
         </span>
-        <h3 className="text-[22px] font-serif font-bold text-[#10321F] mb-1 leading-tight">
+        <h3 className="text-[22px] font-poppins font-bold text-[#10321F] mb-1 leading-tight">
           {product.name}
         </h3>
 
@@ -98,7 +99,7 @@ const ProductCard = ({ product, idx }) => {
       {/* Price & Action Footer */}
       <div className="flex items-center justify-between mt-auto px-1 pt-3 relative z-10">
         <div className="flex flex-col">
-          <span className="text-[28px] font-serif font-bold text-[#10321F] leading-none">
+          <span className="text-[28px] font-poppins font-bold text-[#10321F] leading-none">
             ₹{product.price}
           </span>
           <span className="text-sm font-sans font-semibold text-[#10321F]/50 line-through mt-0.5">
@@ -126,7 +127,7 @@ const BestsellerProducts = () => {
       try {
         const q = query(collection(db, "products"), orderBy("createdAt", "desc"));
         const snap = await getDocs(q);
-        setProducts(snap.docs.map(doc => ({ id: doc.id, ...doc.data() })).slice(0, 3)); // Limiting to 3 to match design
+        setProducts(snap.docs.map(doc => ({ id: doc.id, ...doc.data() })).slice(0, 4)); // Showing 4 cards as requested
       } catch (error) {
         console.error("Error fetching products:", error);
       } finally {
@@ -138,13 +139,14 @@ const BestsellerProducts = () => {
 
   if (loading) {
     return (
-      <section
-        className="py-24 relative overflow-hidden bg-cover bg-center"
-        style={{ backgroundImage: "url('/img/b1.png')" }}
-      >
+      <section className="py-24 relative overflow-hidden">
+        {/* Mobile loading background */}
+        <div className="absolute inset-0 block md:hidden bg-cover bg-center" style={{ backgroundImage: "url('/img/b1.png')" }} />
+        {/* Desktop loading background */}
+        <div className="absolute inset-0 hidden md:block bg-cover bg-center" style={{ backgroundImage: "url('/img/b1.png')" }} />
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[...Array(3)].map((_, i) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[...Array(4)].map((_, i) => (
               <div key={i} className="h-[450px] bg-[#f5d2a1]/50 rounded-[24px] animate-pulse" />
             ))}
           </div>
@@ -154,41 +156,49 @@ const BestsellerProducts = () => {
   }
 
   return (
-    <section
-      className="py-24 relative overflow-hidden bg-cover bg-center"
-      style={{ backgroundImage: "url('/img/b1.png')" }}
-    >
-      <div className="max-w-6xl mx-auto px-6 md:px-12 relative z-10">
+    <section className="py-24 relative overflow-hidden">
+      {/* ---------- RESPONSIVE BACKGROUND IMAGES ---------- */}
+      {/* Mobile background (visible only on screens < 768px) */}
+      <div 
+        className="absolute inset-0 block md:hidden bg-cover bg-center"
+        style={{ 
+          backgroundImage: "url('/img/b1.png')",  // ← Replace with your mobile image path
+        }} 
+      />
+
+      {/* Desktop background (visible only on screens >= 768px) */}
+      <div 
+        className="absolute inset-0 hidden md:block bg-cover bg-center"
+        style={{ 
+          backgroundImage: "url('/img/b1.png')", // ← Replace with your desktop image path
+        }} 
+      />
+
+      {/* SUBTLE GRAIN OVERLAY (optional) */}
+      <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/p6-grain.png')]" />
+
+      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
 
         {/* Section Title Header Block */}
-        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-6 mb-12">
-          <div>
-            <div className="flex items-center gap-2 mb-3">
-              <LeafFlourish />
-              <span className="text-[#C45525] font-sans font-bold tracking-[0.2em] text-xs uppercase">
-                Curated Favorites
-              </span>
-              <LeafFlourish />
-            </div>
-            <div className="flex items-center gap-4">
-              <h2 className="text-[42px] md:text-[52px] font-serif font-bold text-[#10321F] tracking-tight leading-none">
-                Our Bestsellers
-              </h2>
-              <DividerFlower />
-            </div>
+        <div className="relative">
+          <SectionHeader 
+            title="Our Bestsellers" 
+            subtitle="Curated Favorites • Shop the Collection"
+          />
+          {/* Floating Shop Link */}
+          <div className="absolute top-0 right-0 hidden md:block">
+            <Link
+              to="/shop"
+              className="text-[11px] font-sans font-bold uppercase tracking-[0.15em] text-[#10321F] flex items-center gap-2 hover:text-[#C45525] transition-colors pb-1 border-b-[1.5px] border-dashed border-[#10321F]/40"
+            >
+              <span>View Shop</span>
+              <ArrowRight size={14} />
+            </Link>
           </div>
-
-          <Link
-            to="/shop"
-            className="text-[11px] font-sans font-bold uppercase tracking-[0.15em] text-[#10321F] flex items-center gap-2 hover:text-[#C45525] transition-colors pb-1 border-b-[1.5px] border-dashed border-[#10321F]/40 mb-2"
-          >
-            <span>View All Products</span>
-            <ArrowRight size={14} />
-          </Link>
         </div>
 
-        {/* Desktop Grid Layout (Matched to 3 columns like reference) */}
-        <div className="hidden lg:grid grid-cols-3 gap-8">
+        {/* Desktop Grid Layout (Matched to 4 columns as requested) */}
+        <div className="hidden lg:grid grid-cols-4 gap-6">
           {products.map((product, idx) => (
             <ProductCard key={product.id} product={product} idx={idx} />
           ))}

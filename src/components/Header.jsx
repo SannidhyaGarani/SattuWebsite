@@ -112,19 +112,34 @@ const Header = () => {
       >
         <div className="max-w-7xl mx-auto w-full flex items-center justify-between">
           
-          {/* Logo - Refined Traditional Editorial Layout */}
+          {/* Logo & Brand Name Signature - Premium Stacked Layout */}
           <motion.div style={{ scale: logoScale }}>
-            <Link to="/" className="flex flex-col items-center group relative z-[110] text-center">
-              {/* Decorative side ornaments for logo */}
-              <div className="absolute -left-6 top-1/2 -translate-y-1/2 w-4 h-[1px] bg-[#D9A036]/40 hidden xl:block" />
-              <div className="absolute -right-6 top-1/2 -translate-y-1/2 w-4 h-[1px] bg-[#D9A036]/40 hidden xl:block" />
-              
-              <span className="text-xl md:text-3xl font-serif font-bold text-[#1C3B24] tracking-[0.25em] transition-colors duration-300 group-hover:text-[#D9A036] block whitespace-nowrap leading-tight">
-                NATIVA
-              </span>
-              <span className="text-[7px] md:text-[9px] tracking-[0.5em] text-[#8B7355] uppercase font-sans mt-0.5 font-black block whitespace-nowrap">
-                ORGANICS
-              </span>
+            <Link to="/" className="flex items-center gap-4 group relative z-[110]">
+              <div className="relative">
+                <img 
+                  src="/img/logo.png" 
+                  alt="Indian Food Way" 
+                  className="h-12 md:h-16 w-auto object-contain transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-[#D9A036]/10 blur-xl rounded-full scale-50 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+              </div>
+              <div className="flex flex-col items-start leading-[0.8] gap-0">
+                <span className="text-[20px] md:text-[28px] font-serif font-black text-[#1C3B24] tracking-tighter transition-colors group-hover:text-[#D9A036] uppercase">
+                  Indian
+                </span>
+                <div className="flex flex-col items-start">
+                  <span className="text-[14px] md:text-[20px] font-serif text-[#1C3B24] tracking-tight transition-colors group-hover:text-[#D9A036] uppercase">
+                    Food Way
+                  </span>
+                  <div className="flex items-center gap-2 mt-1.5 w-full">
+                    <div className="h-[1px] flex-grow bg-[#D9A036]/30" />
+                    <span className="text-[7px] md:text-[8px] tracking-[0.4em] text-[#8B7355] uppercase font-sans font-black whitespace-nowrap">
+                      Pure Nutrition
+                    </span>
+                    <div className="h-[1px] flex-grow bg-[#D9A036]/30" />
+                  </div>
+                </div>
+              </div>
             </Link>
           </motion.div>
 
@@ -243,14 +258,21 @@ const Header = () => {
             <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[radial-gradient(#1C3B24_1.5px,transparent_1.5px)] [background-size:24px_24px]" />
 
             {/* Dedicated Top Bar inside Overlay - Compact height */}
-            <div className="w-full px-6 sm:px-10 h-[72px] flex items-center justify-between border-b border-[#1C3B24]/5 relative z-20 bg-[#FDF6E9]">
-              <div className="flex flex-col items-center text-center select-none">
-                <span className="text-xl font-serif font-bold text-[#1C3B24] tracking-[0.2em]">
-                  NATIVA
-                </span>
-                <span className="text-[7px] tracking-[0.4em] text-[#8B7355] uppercase font-sans mt-0.5 font-black">
-                  ORGANICS
-                </span>
+            <div className="w-full px-6 sm:px-10 h-[80px] flex items-center justify-between border-b border-[#1C3B24]/5 relative z-20 bg-[#FDF6E9]">
+              <div className="flex items-center gap-3 select-none">
+                <img 
+                  src="/img/logo.png" 
+                  alt="Indian food way" 
+                  className="h-10 w-auto object-contain"
+                />
+                <div className="flex flex-col items-start leading-none">
+                  <span className="text-sm font-serif font-black text-[#1C3B24] tracking-tight">
+                    Indian food way
+                  </span>
+                  <span className="text-[7px] tracking-[0.3em] text-[#8B7355] uppercase font-sans mt-0.5 font-bold">
+                    Pure Nutrition
+                  </span>
+                </div>
               </div>
               
               {/* Refined Fixed Close Action */}
