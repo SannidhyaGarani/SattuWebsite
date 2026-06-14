@@ -12,8 +12,8 @@ const Home = () => {
   return (
     <main className="bg-brand-cream min-h-screen">
       <Hero />
-      <BenefitsStrip />
       <Bestsellers />
+      <BenefitsStrip />
       {/* <FlavorsSection /> */}
       {/* <WhyChooseSection /> */}
       <HowToMake />
