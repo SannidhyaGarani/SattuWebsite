@@ -6,27 +6,27 @@ const benefits = [
   {
     title: "High in Protein",
     desc: "Builds strength naturally from within",
-    icon: <Dumbbell size={22} />,
+    icon: <Dumbbell size={32} strokeWidth={1.5} />,
   },
   {
     title: "Rich in Fiber",
     desc: "Supports seamless gut health & digestion",
-    icon: <Sprout size={22} />,
+    icon: <Sprout size={32} strokeWidth={1.5} />,
   },
   {
     title: "100% Natural",
     desc: "Zero chemicals, pure raw potency",
-    icon: <Leaf size={22} />,
+    icon: <Leaf size={32} strokeWidth={1.5} />,
   },
   {
     title: "Cooling Effect",
     desc: "Perfect structural hydration for summer",
-    icon: <Snowflake size={22} />,
+    icon: <Snowflake size={32} strokeWidth={1.5} />,
   },
   {
     title: "Keeps You Full",
     desc: "Sustained fuel that manages cravings",
-    icon: <Utensils size={22} />,
+    icon: <Utensils size={32} strokeWidth={1.5} />,
   },
 ];
 
