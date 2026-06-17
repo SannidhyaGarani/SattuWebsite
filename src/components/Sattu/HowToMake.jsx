@@ -111,17 +111,17 @@ const HowToMake = () => {
         </div>
 
         {/* MOBILE & TABLET SLIDER LAYOUT */}
-        <div className="block lg:hidden !-mr-6 md:!-mr-12 mt-14">
+        <div className="block lg:hidden mt-14">
           <Swiper
             modules={[Autoplay, Pagination]}
             spaceBetween={24}
-            slidesPerView={1.2}
+            slidesPerView={1}
+            centeredSlides={true}
             pagination={{ clickable: true }}
             autoplay={{ delay: 4500, disableOnInteraction: false }}
             breakpoints={{
-              480: { slidesPerView: 1.6 },
-              640: { slidesPerView: 2.2 },
-              768: { slidesPerView: 2.6 },
+              640: { slidesPerView: 2 },
+              768: { slidesPerView: 2.5 },
             }}
             className="pb-16 premium-htw-swiper"
           >

@@ -1,11 +1,12 @@
+import React, { useState, useEffect } from "react";
 import "./App.css";
-import { useState, useEffect } from "react";
 import Header from "./components/Header";
 import Footer from "./components/Sattu/Footer";
 import Home from "./components/Homepage/Home";
 import Admin from "./pages/Admin/Admin";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import AuthProvider from "./components/AuthProvider";
+import { StoreProvider } from "./components/StoreProvider";
 import Login from "./components/Login";
 import Benefits from "./pages/Benefits";
 import Signup from "./components/Signup";
@@ -31,22 +32,24 @@ const AppRoutes = () => {
     <>
       <ScrollToTop />
       {!hideChrome && <Header />}
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/admin" element={<Admin />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/checkout" element={<Checkout />} />
-        <Route path="/wishlist" element={<Wishlist />} />
-        <Route path="/account" element={<Account />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/shop" element={<Shop />} />
-        <Route path="/benefits" element={<Benefits />} />
-        <Route path="/product/:id" element={<ProductDetail />} />
-        <Route path="/product/:id/quickview" element={<QuickView />} />
-      </Routes>
+      <div className={!hideChrome ? "" : ""}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/admin" element={<Admin />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/wishlist" element={<Wishlist />} />
+          <Route path="/account" element={<Account />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/shop" element={<Shop />} />
+          <Route path="/benefits" element={<Benefits />} />
+          <Route path="/product/:id" element={<ProductDetail />} />
+          <Route path="/product/:id/quickview" element={<QuickView />} />
+        </Routes>
+      </div>
       {!hideChrome && <Footer />}
     </>
   );
@@ -59,12 +62,14 @@ function App() {
     <>
       {!isPreloaderDone && <Preloader onComplete={() => setIsPreloaderDone(true)} />}
       <AuthProvider>
-        <BrowserRouter>
-          <AppRoutes />
-        </BrowserRouter>
+        <StoreProvider>
+          <BrowserRouter>
+            <AppRoutes />
+          </BrowserRouter>
+        </StoreProvider>
       </AuthProvider>
     </>
   );
 }
 
-export default App
+export default App;

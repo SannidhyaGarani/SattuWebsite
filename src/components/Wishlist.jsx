@@ -1,17 +1,13 @@
-import React, { useEffect, useState } from "react";
-import { useAuth } from "./useAuth";
-import { db } from "./Firebase";
-import { collection, getDocs, doc, deleteDoc, setDoc } from "firebase/firestore";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Heart, Trash2, ShoppingBag, ArrowLeft, Sparkles, X } from "lucide-react";
+import { Heart, Trash2, ShoppingBag, ArrowRight, Sparkles, X, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import PageHeader from "./Sattu/PageHeader";
+import { useStore } from "./StoreProvider";
 
 const Wishlist = () => {
-  const { user } = useAuth();
+  const { wishlist, removeFromWishlist, addToCart, loading } = useStore();
   const navigate = useNavigate();
-  const [items, setItems] = useState([]);
-  const [loading, setLoading] = useState(true);
   const [feedbackMessage, setFeedbackMessage] = useState(null);
 
   const triggerToast = (msg) => {
@@ -19,209 +15,152 @@ const Wishlist = () => {
     setTimeout(() => setFeedbackMessage(null), 4000);
   };
 
-  useEffect(() => {
-    const load = async () => {
-      if (!user) {
-        setLoading(false);
-        return;
-      }
-      try {
-        const snap = await getDocs(collection(db, "users", user.uid, "wishlist"));
-        const list = snap.docs.map((d) => ({ id: d.id, ...d.data() }));
-        setItems(list);
-      } catch (error) {
-        console.error("Error loading wishlist:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-    load();
-  }, [user]);
-
-  const removeItem = async (id) => {
-    if (!user) return;
-    try {
-      await deleteDoc(doc(db, "users", user.uid, "wishlist", id));
-      setItems((prev) => prev.filter((i) => i.id !== id));
-      triggerToast("Removed from wishlist");
-    } catch (error) {
-      console.error("Error removing item:", error);
-    }
+  const handleMoveToCart = async (product) => {
+    await addToCart(product);
+    await removeFromWishlist(product.id);
+    triggerToast("Moved to your bag!");
   };
 
-  const moveToCart = async (item) => {
-    if (!user) return;
-    try {
-      // Add to cart
-      await setDoc(doc(db, "users", user.uid, "cart", item.id), {
-        ...item,
-        addedAt: new Date().toISOString()
-      });
-      // Remove from wishlist
-      await deleteDoc(doc(db, "users", user.uid, "wishlist", item.id));
-      setItems((prev) => prev.filter((i) => i.id !== item.id));
-      triggerToast("Moved to cart!");
-    } catch (error) {
-      console.error("Error moving to cart:", error);
-    }
-  };
+  const premiumEase = [0.25, 1, 0.5, 1];
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-[#EFECE6] flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#1C3B24]"></div>
-      </div>
-    );
-  }
-
-  if (!user) {
-    return (
-      <div className="min-h-screen bg-[#EFECE6]">
-        <PageHeader
-          title="Your Wishlist"
-          subtitle="Saved Favorites"
-          breadcrumbItems={[
-            { label: "Home", path: "/" },
-            { label: "Wishlist" },
-          ]}
-        />
-        <div className="py-24 px-6">
-          <div className="bg-white p-12 rounded-3xl border border-[#D9D3C7] shadow-[0_20px_50px_rgba(28,43,33,0.05)] max-w-md w-full text-center mx-auto">
-            <div className="w-20 h-20 bg-[#EFECE6] rounded-3xl flex items-center justify-center mx-auto mb-8 text-[#1C3B24]">
-              <Heart size={40} />
-            </div>
-            <h2 className="text-2xl font-serif font-bold text-[#1C2B21] mb-4 text-center">
-              Sign In to Wishlist
-            </h2>
-            <p className="text-[#707A72] font-medium mb-8">
-              Sign in to access your saved Sattu blends.
-            </p>
-            <Link
-              to="/login"
-              className="block w-full py-4 bg-[#1C3B24] text-white rounded-2xl font-bold hover:bg-[#112517] transition-all shadow-lg shadow-[#1C3B24]/20"
-            >
-              Sign In
-            </Link>
-          </div>
+      <div className="min-h-screen bg-[#FAF4E3] flex flex-col items-center justify-center gap-6 relative">
+        <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/p6-grain.png')]" />
+        <div className="relative w-16 h-16">
+          <div className="absolute inset-0 border border-[#E3DBC5] rounded-full" />
+          <div className="absolute inset-0 border border-t-[#976E2A] rounded-full animate-spin" />
         </div>
+        <p className="text-[10px] font-poppins font-bold uppercase tracking-[0.4em] text-[#976E2A]">Curating Catalog...</p>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-[#EFECE6]">
+    <div className="min-h-screen bg-[#FAF4E3] relative selection:bg-[#976E2A] selection:text-[#FFFDF6]">
       <PageHeader
-        title="Your Wishlist"
-        subtitle="Saved Favorites"
-        backUrl="/shop"
+        title="Saved Gems"
+        subtitle="Wishlist Archive"
         breadcrumbItems={[
           { label: "Home", path: "/" },
-          { label: "Shop", path: "/shop" },
+          { label: "Collection", path: "/shop" },
           { label: "Wishlist" },
         ]}
       />
 
-      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 py-12">
-        {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
-          <div className="space-y-4">
-            <p className="text-[#707A72] font-medium">
-              {items.length} {items.length === 1 ? "Saved Blend" : "Saved Blends"}
-            </p>
-          </div>
-        </div>
+      {/* Heritage Detail Overlay */}
+      <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/p6-grain.png')] mix-blend-multiply"></div>
 
-        {/* Grid */}
-        {items.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-8 gap-y-16">
-            {items.map((item) => (
-              <motion.div
-                key={item.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="group relative flex flex-col justify-between"
-              >
-                <div className="relative aspect-[4/5] mb-6 bg-[#EFECE6] rounded-2xl overflow-hidden border border-[#D9D3C7] transition-all duration-700 ease-out group-hover:shadow-[0_20px_60px_rgba(28,43,33,0.06)] group-hover:-translate-y-1">
-                  <img
-                    src={item.image || item.images?.[0] || "https://images.unsplash.com/photo-1594488651083-023b857dc3f8?q=80&w=600&auto=format&fit=crop"}
-                    alt={item.name}
-                    className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#1C2B21]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  <button
-                    onClick={() => removeItem(item.id)}
-                    className="absolute top-4 right-4 w-11 h-11 bg-white/95 backdrop-blur-md rounded-xl text-[#1C2B21] hover:bg-red-500 hover:text-white transition-all shadow-lg flex items-center justify-center border border-[#D9D3C7]"
-                  >
-                    <Trash2 size={16} strokeWidth={1.5} />
-                  </button>
-                  <div className="absolute bottom-4 left-4">
-                    <span className="px-4 py-2 rounded-xl bg-white/90 backdrop-blur-md text-[9px] font-black uppercase tracking-[0.25em] text-[#1C3B21] shadow-sm border border-[#D9D3C7]">
-                      {item.flavor || "Classic Roasted"}
-                    </span>
-                  </div>
-                </div>
-                <div className="space-y-3 px-1">
-                  <h3 className="text-lg font-serif font-bold text-[#1C2B21] tracking-tight group-hover:text-[#1C3B24] transition-colors line-clamp-1">
-                    {item.name}
-                  </h3>
-                  <div className="pt-4 border-t border-[#D9D3C7] flex items-center justify-between">
-                    <div className="flex flex-col">
-                      <span className="text-[8px] font-bold uppercase tracking-widest text-[#707A72]">
-                        Price
-                      </span>
-                      <span className="text-2xl font-serif font-bold text-[#1C3B24] mt-0.5">
-                        ₹{Number(item.price || 0).toFixed(0)}
-                      </span>
-                    </div>
-                    <button
-                      onClick={() => moveToCart(item)}
-                      className="w-12 h-12 bg-[#1C3B24] border border-[#1C3B24] text-white group-hover:bg-[#112517] hover:scale-105 rounded-xl flex items-center justify-center transition-all duration-300 shadow-lg shadow-[#1C3B24]/20"
-                    >
-                      <ShoppingBag size={18} strokeWidth={1.5} />
-                    </button>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        ) : (
-          <div className="text-center py-28 bg-white rounded-3xl border border-[#D9D3C7] max-w-2xl mx-auto">
-            <div className="w-20 h-20 rounded-full bg-[#EFECE6] border border-[#D9D3C7] flex items-center justify-center mx-auto mb-8 text-[#707A72]">
-              <Heart size={32} />
+      <div className="max-w-7xl mx-auto px-6 md:px-12 py-20 relative z-10">
+        {wishlist.length === 0 ? (
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="bg-[#FFFDF6] rounded-[48px] border-[1.5px] border-dashed border-[#E3DBC5] p-24 text-center shadow-sm max-w-2xl mx-auto"
+          >
+            <div className="w-24 h-24 rounded-full bg-[#FAF4E3] border border-[#E3DBC5] flex items-center justify-center text-[#976E2A] mx-auto mb-10">
+              <Heart size={40} strokeWidth={1} />
             </div>
-            <h3 className="text-2xl font-serif font-bold text-[#1C2B21] mb-4">
-              Your Wishlist is Empty
+            <h3 className="text-4xl font-poppins font-bold text-[#203B23] mb-5 tracking-tight">
+              Registry Empty
             </h3>
-            <p className="text-[#707A72] font-medium max-w-md mx-auto mb-8 leading-relaxed">
-              Explore our premium Sattu blends and save your favorites here for later.
+            <p className="text-sm text-[#203B23]/60 font-poppins max-w-sm mx-auto mb-14 leading-relaxed tracking-wide">
+              Your personal curator catalog is currently unassigned. Archive your favorite heritage blends here for future acquisition.
             </p>
             <Link
               to="/shop"
-              className="inline-flex items-center gap-3 bg-[#1C3B24] text-white px-8 py-4 rounded-2xl font-bold hover:bg-[#112517] transition-all shadow-lg shadow-[#1C3B24]/20"
+              className="inline-flex items-center gap-4 px-12 py-6 bg-[#203B23] text-[#FFFDF6] font-poppins font-bold text-[11px] uppercase tracking-[0.4em] rounded-2xl hover:bg-[#976E2A] transition-all duration-300 shadow-2xl shadow-[#203B23]/10"
             >
-              Explore Products
-              <ArrowLeft size={16} className="rotate-180" />
+              Discover Boutique
+              <ArrowRight size={14} />
             </Link>
+          </motion.div>
+        ) : (
+          <div className="space-y-12">
+            <div className="flex items-center justify-between border-b border-[#E3DBC5]/60 pb-8">
+              <h2 className="text-[12px] font-poppins font-bold uppercase tracking-[0.5em] text-[#976E2A]">
+                {wishlist.length} {wishlist.length === 1 ? "Archive Entry" : "Archive Entries"}
+              </h2>
+            </div>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 xl:gap-10">
+              {wishlist.map((item, idx) => (
+                <motion.div
+                  key={`${item.id}-${idx}`}
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: idx * 0.05, duration: 0.8, ease: premiumEase }}
+                  className="group relative bg-[#FFFDF6] rounded-[32px] p-6 border border-[#E3DBC5]/60 transition-all duration-500 hover:shadow-[0_20px_50px_rgba(32,59,35,0.06)] flex flex-col"
+                >
+                  {/* Removal Micro-Action */}
+                  <button
+                    onClick={() => removeFromWishlist(item.id)}
+                    className="absolute top-4 right-4 z-20 w-10 h-10 rounded-xl bg-white/80 backdrop-blur-sm text-[#203B23]/30 hover:bg-red-50 hover:text-red-500 transition-all duration-300 border border-[#E3DBC5]/40 opacity-0 group-hover:opacity-100 transform translate-y-[-10px] group-hover:translate-y-0"
+                  >
+                    <X size={16} strokeWidth={2} />
+                  </button>
+
+                  {/* Arched Architectural Frame */}
+                  <div 
+                    onClick={() => navigate(`/product/${item.id}`)}
+                    className="relative aspect-[4/5] rounded-[24px] overflow-hidden bg-[#FAF4E3] mb-8 border border-[#E3DBC5]/30 cursor-pointer p-6 flex items-center justify-center"
+                  >
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      className="w-full h-full object-contain filter drop-shadow-xl transition-transform duration-[1.5s] group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-[#203B23]/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </div>
+
+                  <div className="space-y-4 px-1 flex-grow">
+                     <span className="text-[10px] font-poppins font-bold uppercase tracking-[0.35em] text-[#C45525]">
+                      {item.flavor || "Artisanal Selection"}
+                    </span>
+                    <h3 
+                      onClick={() => navigate(`/product/${item.id}`)}
+                      className="text-2xl font-poppins font-bold text-[#203B23] tracking-tight hover:text-[#976E2A] transition-colors cursor-pointer"
+                    >
+                      {item.name}
+                    </h3>
+                    
+                    <div className="pt-6 border-t border-[#E3DBC5]/40 flex items-center justify-between mt-auto">
+                      <span className="text-3xl font-poppins font-bold text-[#203B23]">
+                        ₹{Number(item.price).toFixed(0)}
+                      </span>
+                      <button
+                        onClick={() => handleMoveToCart(item)}
+                        className="w-14 h-14 bg-[#203B23] text-[#FFFDF6] rounded-[18px] flex items-center justify-center hover:bg-[#976E2A] transition-all duration-500 shadow-xl shadow-[#203B23]/10 group/btn"
+                      >
+                        <ShoppingBag size={20} strokeWidth={1.5} className="group-hover/btn:scale-110 transition-transform" />
+                      </button>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
         )}
       </div>
 
-      {/* Feedback Toast */}
+      {/* Premium Toast Notification System */}
       <AnimatePresence>
         {feedbackMessage && (
           <motion.div
             initial={{ opacity: 0, y: 50, x: "-50%" }}
             animate={{ opacity: 1, y: 0, x: "-50%" }}
             exit={{ opacity: 0, y: 20, x: "-50%" }}
-            className="fixed bottom-12 left-1/2 z-50 bg-[#1C3B24] border border-white/10 text-[#EFECE6] px-6 py-4 rounded-xl shadow-2xl flex items-center gap-4 backdrop-blur-md max-w-md w-[90%]"
+            className="fixed bottom-12 left-1/2 z-50 bg-[#203B23] border border-[#FAF4E3]/10 text-[#FAF4E3] px-8 py-5 rounded-[24px] shadow-2xl flex items-center gap-6 backdrop-blur-xl max-w-md w-[90%]"
           >
-            <Sparkles size={16} className="text-[#D9A036] shrink-0" />
-            <p className="text-xs font-light tracking-wide flex-1">{feedbackMessage}</p>
+            <div className="w-10 h-10 rounded-xl bg-[#FAF4E3]/10 flex items-center justify-center text-[#976E2A]">
+              <Sparkles size={20} />
+            </div>
+            <p className="text-[11px] font-poppins font-bold uppercase tracking-widest flex-1">{feedbackMessage}</p>
             <button
               onClick={() => setFeedbackMessage(null)}
               className="opacity-40 hover:opacity-100 transition-opacity"
             >
-              <X size={14} />
+              <X size={20} />
             </button>
           </motion.div>
         )}

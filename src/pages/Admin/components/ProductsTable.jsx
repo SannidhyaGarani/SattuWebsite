@@ -17,7 +17,7 @@ const ProductsTable = ({ products, onEdit, onDelete }) => {
     <section className="bg-white rounded-2xl border border-[#D9D3C7] shadow-sm overflow-hidden">
       <div className="px-6 py-5 flex items-center justify-between border-b border-[#D9D3C7]">
         <div>
-          <h2 className="text-lg font-serif font-bold text-[#1C2B21]">Sattu Products</h2>
+          <h2 className="text-lg font-poppins font-bold text-[#1C2B21]">Sattu Products</h2>
           <p className="text-sm text-[#707A72] mt-1">
             Manage your sattu drink catalog
           </p>

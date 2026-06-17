@@ -69,7 +69,7 @@ const FlavorCard = ({ flavor }) => {
 
         {/* Text Content */}
         <div className="flex flex-col items-center text-center mt-6">
-          <h3 className="text-xl font-serif font-bold text-[#2D241E] mb-1">
+          <h3 className="text-xl font-poppins font-bold text-[#2D241E] mb-1">
             {flavor.name}
           </h3>
           <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#8B5A2B] italic mb-3">
@@ -85,7 +85,7 @@ const FlavorCard = ({ flavor }) => {
       {/* Button Module */}
       <div className="w-full pt-6 mt-4 flex justify-center">
         <Link to="/shop" className="relative px-6 py-2 border-2 border-[#5C4033] hover:bg-[#5C4033] hover:text-[#FDF6E9] transition-colors duration-300">
-          <span className="font-serif font-bold text-xs uppercase">
+          <span className="font-poppins font-bold text-xs uppercase">
             Pick Harvest
           </span>
         </Link>
@@ -114,13 +114,13 @@ const FlavorsSection = () => {
             className="flex items-center gap-4 mb-4"
           >
             <div className="h-[1px] w-12 bg-[#D1B894]" />
-            <span className="text-[#D9A036] font-serif italic text-sm tracking-wide">
+            <span className="text-[#D9A036] font-poppins italic text-sm tracking-wide">
               Established Heritage
             </span>
             <div className="h-[1px] w-12 bg-[#D1B894]" />
           </motion.div>
 
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-extrabold text-[#1C2B21] tracking-tight max-w-3xl leading-[1.1] mb-6">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-poppins font-extrabold text-[#1C2B21] tracking-tight max-w-3xl leading-[1.1] mb-6">
             The Golden Standard of <span className="text-[#D9A036] italic">Indian Flavors</span>
           </h2>
           

@@ -13,7 +13,7 @@ const flavorStats = [
 const FlavorsOverview = () => {
   return (
     <section className="bg-white rounded-2xl border border-[#D9D3C7] shadow-sm p-6">
-      <h2 className="text-lg font-serif font-bold text-[#1C2B21] mb-1.5">
+      <h2 className="text-lg font-poppins font-bold text-[#1C2B21] mb-1.5">
         Flavors Overview
       </h2>
       <p className="text-sm text-[#707A72] mb-6">

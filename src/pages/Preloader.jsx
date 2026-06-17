@@ -126,12 +126,12 @@ const PremiumPreloader = ({ onComplete }) => {
         <div className="text-center space-y-4 md:space-y-5 flex flex-col items-center">
           {/* Brand Name */}
           <div className="flex flex-col items-center">
-            <h1 className="text-3xl md:text-5xl font-serif font-black text-[#11261C] tracking-tighter leading-none uppercase">
+            <h1 className="text-3xl md:text-5xl font-poppins font-black text-[#11261C] tracking-tighter leading-none uppercase">
               Indian <span className="text-[#D4A359]">Food Way</span>
             </h1>
             <div className="flex items-center gap-3 mt-3 w-full max-w-[200px]">
               <div className="h-[1px] flex-grow bg-[#D4A359]/30" />
-              <p className="text-[10px] font-sans font-bold tracking-[0.4em] text-[#D4A359] uppercase whitespace-nowrap">
+              <p className="text-[10px] font-poppins font-bold tracking-[0.4em] text-[#D4A359] uppercase whitespace-nowrap">
                 Pure Nutrition
               </p>
               <div className="h-[1px] flex-grow bg-[#D4A359]/30" />
@@ -143,21 +143,21 @@ const PremiumPreloader = ({ onComplete }) => {
             {/* Subtle Accent Line divider */}
             <div className="w-6 h-[1px] bg-[#11261C]/20 mb-3" />
             
-            <div className="flex items-baseline font-serif font-light text-[#11261C]">
+            <div className="flex items-baseline font-poppins font-light text-[#11261C]">
               <span className="text-5xl md:text-6xl tracking-tighter">
                 {String(Math.floor(progress)).padStart(3, '0')}
               </span>
-              <span className="text-xs font-sans font-bold text-[#D4A359] tracking-wider ml-1">%</span>
+              <span className="text-xs font-poppins font-bold text-[#D4A359] tracking-wider ml-1">%</span>
             </div>
 
             {/* Contextual Status Tracker Strings */}
             <div className="mt-4 h-4 overflow-hidden relative w-48 text-center">
-              <span className={`absolute inset-x-0 mx-auto text-[9px] font-sans font-bold uppercase tracking-[0.3em] text-[#11261C]/50 transition-all duration-500 transform ${
+              <span className={`absolute inset-x-0 mx-auto text-[9px] font-poppins font-bold uppercase tracking-[0.3em] text-[#11261C]/50 transition-all duration-500 transform ${
                 progress === 100 ? '-translate-y-full opacity-0' : 'translate-y-0 opacity-100'
               }`}>
                 Nourishing your body
               </span>
-              <span className={`absolute inset-x-0 mx-auto text-[9px] font-sans font-bold uppercase tracking-[0.3em] text-[#D4A359] transition-all duration-500 transform ${
+              <span className={`absolute inset-x-0 mx-auto text-[9px] font-poppins font-bold uppercase tracking-[0.3em] text-[#D4A359] transition-all duration-500 transform ${
                 progress === 100 ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'
               }`}>
                 Ready for Vitality

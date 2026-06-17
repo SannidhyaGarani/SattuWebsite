@@ -75,7 +75,7 @@ const Account = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-[#FDFBF7] flex items-center justify-center">
+      <div className="min-h-screen bg-transparent flex items-center justify-center">
         <div className="relative w-10 h-10">
           <div className="absolute inset-0 border-2 border-[#1C3B24]/10 rounded-full" />
           <div className="absolute inset-0 border-2 border-t-[#1C3B24] rounded-full animate-spin" />
@@ -85,7 +85,7 @@ const Account = () => {
   }
 
   return (
-    <div className="min-h-screen bg-[#FDFBF7] text-[#1C2B21] pt-32 pb-24 px-6 md:px-12 lg:px-16 selection:bg-[#1C3B24] selection:text-white">
+    <div className="min-h-screen bg-transparent text-[#1C2B21] pt-32 pb-24 px-6 md:px-12 lg:px-16 selection:bg-[#1C3B24] selection:text-white">
       <div className="max-w-[1320px] mx-auto">
         
         {/* PREMIUM ACCOUNT HEADER MARQUEE */}
@@ -110,7 +110,7 @@ const Account = () => {
               </div>
               
               <div className="space-y-1.5">
-                <h1 className="text-3xl font-serif font-light text-[#EFECE6] tracking-tight">
+                <h1 className="text-3xl font-poppins font-light text-[#EFECE6] tracking-tight">
                   {userData?.displayName || "Registry Member"}
                 </h1>
                 <p className="text-xs text-[#EFECE6]/60 font-light tracking-wide">{user?.email}</p>
@@ -146,7 +146,7 @@ const Account = () => {
                 <div className="w-10 h-10 rounded-xl bg-[#F9F8F6] flex items-center justify-center text-[#1C3B24] mb-4 group-hover:bg-[#1C3B24] group-hover:text-white transition-all duration-300">
                   <ShoppingBag size={16} strokeWidth={1.5} />
                 </div>
-                <p className="text-2xl font-serif font-light text-[#1C2B21]">{stats.cart}</p>
+                <p className="text-2xl font-poppins font-light text-[#1C2B21]">{stats.cart}</p>
                 <p className="text-[9px] font-bold text-[#9A8F80] uppercase tracking-widest mt-1">Manifest Cart</p>
               </Link>
               
@@ -154,7 +154,7 @@ const Account = () => {
                 <div className="w-10 h-10 rounded-xl bg-[#F9F8F6] flex items-center justify-center text-[#1C3B24] mb-4 group-hover:bg-[#1C3B24] group-hover:text-white transition-all duration-300">
                   <Heart size={16} strokeWidth={1.5} />
                 </div>
-                <p className="text-2xl font-serif font-light text-[#1C2B21]">{stats.wishlist}</p>
+                <p className="text-2xl font-poppins font-light text-[#1C2B21]">{stats.wishlist}</p>
                 <p className="text-[9px] font-bold text-[#9A8F80] uppercase tracking-widest mt-1">Saved Curations</p>
               </Link>
             </div>
@@ -191,7 +191,7 @@ const Account = () => {
             <div className="bg-white rounded-2xl border border-[#EAE6DF] p-8 md:p-10 shadow-[0_4px_30px_rgba(0,0,0,0.01)]">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-10 pb-6 border-b border-[#EAE6DF]">
                 <div className="space-y-1">
-                  <h3 className="text-2xl font-serif font-light text-[#1C2B21]">Recent Consignments</h3>
+                  <h3 className="text-2xl font-poppins font-light text-[#1C2B21]">Recent Consignments</h3>
                   <p className="text-xs text-[#707A72] font-light">Trace historical data logs on personal nutritional allocations.</p>
                 </div>
                 <Link to="/orders" className="self-start sm:self-center h-9 px-5 border border-[#EAE6DF] rounded-xl text-[9px] font-bold text-[#1C3B24] uppercase tracking-widest hover:border-[#1C3B24] hover:bg-[#1C3B24] hover:text-[#EFECE6] transition-all flex items-center">
@@ -217,7 +217,7 @@ const Account = () => {
                         </div>
                       </div>
                       <div className="w-full sm:w-auto flex sm:flex-col justify-between sm:items-end items-center gap-1.5">
-                        <p className="text-lg font-serif font-light text-[#1C2B21] font-mono">${order.total}</p>
+                        <p className="text-lg font-poppins font-light text-[#1C2B21] font-mono">${order.total}</p>
                         <span className="inline-flex px-2.5 py-0.5 rounded text-[8px] font-bold uppercase tracking-widest bg-emerald-50 text-emerald-700 border border-emerald-100">
                           {order.status}
                         </span>
@@ -231,7 +231,7 @@ const Account = () => {
                     <ShoppingBag size={24} strokeWidth={1.5} />
                   </div>
                   <div className="space-y-1">
-                    <h4 className="text-lg font-serif font-light text-[#1C2B21]">Manifest Clear</h4>
+                    <h4 className="text-lg font-poppins font-light text-[#1C2B21]">Manifest Clear</h4>
                     <p className="text-xs text-[#707A72] font-light max-w-xs mx-auto">Your entry file lists no active dispatches at this current timestamp.</p>
                   </div>
                   <Link to="/shop" className="inline-flex items-center gap-2 h-11 px-8 bg-[#1C3B24] text-[#EFECE6] font-bold text-[9px] uppercase tracking-[0.25em] rounded-xl hover:bg-[#1C2B21] transition-all">
@@ -247,7 +247,7 @@ const Account = () => {
               <div className="absolute top-0 right-0 w-48 h-48 bg-white/5 rounded-full blur-[40px] -translate-y-1/2 translate-x-1/2" />
               <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
                 <div className="text-center md:text-left space-y-1">
-                  <h3 className="text-xl font-serif font-light tracking-wide">House Premium Dividend</h3>
+                  <h3 className="text-xl font-poppins font-light tracking-wide">House Premium Dividend</h3>
                   <p className="text-xs text-[#EFECE6]/80 font-light">You accumulate parameters at a baseline margin of 550 points from your complimentary reserve.</p>
                 </div>
                 <button className="h-11 px-6 bg-[#1C3B24] text-[#EFECE6] rounded-xl font-bold text-[9px] uppercase tracking-[0.2em] hover:bg-[#1C2B21] transition-all duration-300 shrink-0">

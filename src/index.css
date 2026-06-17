@@ -18,11 +18,16 @@
 
 @layer base {
   body {
-    @apply bg-brand-cream text-brand-olive font-sans antialiased;
+    @apply text-brand-olive font-poppins antialiased min-h-screen bg-[#FAF4E3];
+    background-image: url('/img/Body.jpeg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
   }
   
   h1, h2, h3, h4, h5, h6 {
-    @apply font-serif;
+    @apply font-poppins;
   }
 }
 

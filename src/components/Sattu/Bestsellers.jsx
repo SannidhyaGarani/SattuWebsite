@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from 'swiper/modules';
-import { Star, ShoppingBag, ArrowRight } from 'lucide-react';
+import { Star, ShoppingBag, ArrowRight, Heart, X, Sparkles } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { db } from '../../components/Firebase';
 import { collection, getDocs, query, orderBy } from 'firebase/firestore';
-import { useAuth } from '../../components/useAuth';
+import { useStore } from '../../components/StoreProvider';
 import SectionHeader from './SectionHeader';
 
 // Import Swiper styles
@@ -21,22 +21,27 @@ const DividerFlower = () => (
   </svg>
 );
 
-// Leaf flourish icon for headers
-const LeafFlourish = () => (
-  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" className="text-[#C45525]">
-    <path d="M21.9996 2.00035C21.9996 2.00035 15.9996 1.00035 10.9996 6.00035C8.49964 8.50035 7.49964 12.0003 7.49964 12.0003C7.49964 12.0003 10.9996 11.0003 13.4996 8.50035C18.4996 3.50035 21.9996 2.00035 21.9996 2.00035Z" />
-    <path d="M7.49964 12.0003C7.49964 12.0003 3.99964 11.0003 2.99964 13.0003C1.99964 15.0003 4.99964 21.0003 4.99964 21.0003C4.99964 21.0003 10.9996 18.0003 12.9996 17.0003C14.9996 16.0003 13.9996 12.5003 13.9996 12.5003C13.9996 12.5003 11.9996 14.5003 9.49964 15.0003C6.99964 15.5003 7.49964 12.0003 7.49964 12.0003Z" />
-  </svg>
-);
-
-const ProductCard = ({ product, idx }) => {
+const ProductCard = ({ product, idx, triggerToast }) => {
   const navigate = useNavigate();
-  const { user } = useAuth();
+  const { addToCart, addToWishlist, removeFromWishlist, wishlist, cart } = useStore();
+  const isWishlisted = wishlist.some(item => item.id === product.id);
+  const isInCart = cart.some(item => item.id === product.id);
 
-  const addToCollection = async (e, collectionName) => {
+  const handleAction = async (e, type) => {
     e.stopPropagation();
-    if (!user) { navigate('/login'); return; }
-    // existing cart logic
+    if (type === 'cart') {
+      if (isInCart) return;
+      await addToCart(product);
+      triggerToast("Added to your selection!");
+    } else {
+      if (isWishlisted) {
+        await removeFromWishlist(product.id);
+        triggerToast("Removed from wishlist");
+      } else {
+        await addToWishlist(product);
+        triggerToast("Added to wishlist!");
+      }
+    }
   };
 
   return (
@@ -67,11 +72,22 @@ const ProductCard = ({ product, idx }) => {
           alt={product.name}
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
         />
+        {/* Hover Wishlist Action */}
+        <button
+          onClick={(e) => handleAction(e, 'wishlist')}
+          className={`absolute top-3 right-3 w-9 h-9 rounded-full flex items-center justify-center transition-all duration-300 backdrop-blur-sm z-20 ${
+            isWishlisted 
+            ? "bg-[#C45525] text-white" 
+            : "bg-white/80 text-[#10321F] opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0"
+          }`}
+        >
+          <Heart size={16} fill={isWishlisted ? "currentColor" : "none"} />
+        </button>
       </div>
 
       {/* Info Block */}
       <div className="flex flex-col flex-grow relative z-10 px-1">
-        <span className="text-[11px] font-sans font-bold uppercase tracking-widest text-[#C45525] mb-1">
+        <span className="text-[11px] font-poppins font-bold uppercase tracking-widest text-[#C45525] mb-1">
           {product.flavor || "Flavor Type"}
         </span>
         <h3 className="text-[22px] font-poppins font-bold text-[#10321F] mb-1 leading-tight">
@@ -102,15 +118,20 @@ const ProductCard = ({ product, idx }) => {
           <span className="text-[28px] font-poppins font-bold text-[#10321F] leading-none">
             ₹{product.price}
           </span>
-          <span className="text-sm font-sans font-semibold text-[#10321F]/50 line-through mt-0.5">
+          <span className="text-sm font-poppins font-semibold text-[#10321F]/50 line-through mt-0.5">
             ₹{product.mrp || Math.round(product.price * 1.2)}
           </span>
         </div>
         <button
-          onClick={(e) => addToCollection(e, 'cart')}
-          className="px-5 py-2.5 bg-[#10321F] text-white rounded-[12px] text-[11px] font-bold uppercase tracking-widest flex items-center gap-2 hover:bg-[#1A452C] transition-colors"
+          onClick={(e) => handleAction(e, 'cart')}
+          disabled={isInCart}
+          className={`px-5 py-2.5 rounded-[12px] text-[11px] font-bold uppercase tracking-widest flex items-center gap-2 transition-all duration-300 ${
+            isInCart 
+            ? "bg-[#C45525] text-white cursor-default opacity-80" 
+            : "bg-[#10321F] text-white hover:bg-[#C45525]"
+          }`}
         >
-          ADD
+          {isInCart ? "IN BAG" : "ADD"}
           <ShoppingBag size={14} className="opacity-90" />
         </button>
       </div>
@@ -121,13 +142,19 @@ const ProductCard = ({ product, idx }) => {
 const BestsellerProducts = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [feedbackMessage, setFeedbackMessage] = useState(null);
+
+  const triggerToast = (msg) => {
+    setFeedbackMessage(msg);
+    setTimeout(() => setFeedbackMessage(null), 4000);
+  };
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
         const q = query(collection(db, "products"), orderBy("createdAt", "desc"));
         const snap = await getDocs(q);
-        setProducts(snap.docs.map(doc => ({ id: doc.id, ...doc.data() })).slice(0, 4)); // Showing 4 cards as requested
+        setProducts(snap.docs.map(doc => ({ id: doc.id, ...doc.data() })).slice(0, 4));
       } catch (error) {
         console.error("Error fetching products:", error);
       } finally {
@@ -140,10 +167,7 @@ const BestsellerProducts = () => {
   if (loading) {
     return (
       <section className="py-24 relative overflow-hidden">
-        {/* Mobile loading background */}
-        <div className="absolute inset-0 block md:hidden bg-cover bg-center" style={{ backgroundImage: "url('/img/b1.png')" }} />
-        {/* Desktop loading background */}
-        <div className="absolute inset-0 hidden md:block bg-cover bg-center" style={{ backgroundImage: "url('/img/b1.png')" }} />
+        <div className="absolute inset-0 bg-[#FAF4E3]/50" />
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {[...Array(4)].map((_, i) => (
@@ -157,39 +181,26 @@ const BestsellerProducts = () => {
 
   return (
     <section className="py-24 relative overflow-hidden">
-      {/* ---------- RESPONSIVE BACKGROUND IMAGES ---------- */}
-      {/* Mobile background (visible only on screens < 768px) */}
       <div 
         className="absolute inset-0 block md:hidden bg-cover bg-center"
-        style={{ 
-          backgroundImage: "url('/img/b1.png')",  // ← Replace with your mobile image path
-        }} 
+        style={{ backgroundImage: "url('/img/b1.png')" }} 
       />
-
-      {/* Desktop background (visible only on screens >= 768px) */}
       <div 
         className="absolute inset-0 hidden md:block bg-cover bg-center"
-        style={{ 
-          backgroundImage: "url('/img/b1.png')", // ← Replace with your desktop image path
-        }} 
+        style={{ backgroundImage: "url('/img/b1.png')" }} 
       />
-
-      {/* SUBTLE GRAIN OVERLAY (optional) */}
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/p6-grain.png')]" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
-
-        {/* Section Title Header Block */}
         <div className="relative">
           <SectionHeader 
             title="Our Bestsellers" 
-            subtitle="Curated Favorites • Shop the Collection"
+            subtitle=" Shop the Collection"
           />
-          {/* Floating Shop Link */}
           <div className="absolute top-0 right-0 hidden md:block">
             <Link
               to="/shop"
-              className="text-[11px] font-sans font-bold uppercase tracking-[0.15em] text-[#10321F] flex items-center gap-2 hover:text-[#C45525] transition-colors pb-1 border-b-[1.5px] border-dashed border-[#10321F]/40"
+              className="text-[11px] font-poppins font-bold uppercase tracking-[0.15em] text-[#10321F] flex items-center gap-2 hover:text-[#C45525] transition-colors pb-1 border-b-[1.5px] border-dashed border-[#10321F]/40"
             >
               <span>View Shop</span>
               <ArrowRight size={14} />
@@ -197,14 +208,12 @@ const BestsellerProducts = () => {
           </div>
         </div>
 
-        {/* Desktop Grid Layout (Matched to 4 columns as requested) */}
         <div className="hidden lg:grid grid-cols-4 gap-6">
           {products.map((product, idx) => (
-            <ProductCard key={product.id} product={product} idx={idx} />
+            <ProductCard key={product.id} product={product} idx={idx} triggerToast={triggerToast} />
           ))}
         </div>
 
-        {/* Mobile & Tablet Slider Layout */}
         <div className="block lg:hidden !-mr-6 md:!-mr-12">
           <Swiper
             modules={[Autoplay, Pagination]}
@@ -221,15 +230,36 @@ const BestsellerProducts = () => {
           >
             {products.map((product, idx) => (
               <SwiperSlide key={product.id} className="h-auto">
-                <ProductCard product={product} idx={idx} />
+                <ProductCard product={product} idx={idx} triggerToast={triggerToast} />
               </SwiperSlide>
             ))}
           </Swiper>
         </div>
-
       </div>
 
-      {/* Embedded Swiper Custom Pagination Styles */}
+      {/* Feedback Toast */}
+      <AnimatePresence>
+        {feedbackMessage && (
+          <motion.div
+            initial={{ opacity: 0, y: 50, x: "-50%" }}
+            animate={{ opacity: 1, y: 0, x: "-50%" }}
+            exit={{ opacity: 0, y: 20, x: "-50%" }}
+            className="fixed bottom-12 left-1/2 z-[200] bg-[#10321F] border border-white/10 text-[#FAF4E3] px-8 py-5 rounded-[24px] shadow-2xl flex items-center gap-6 backdrop-blur-xl max-w-md w-[90%]"
+          >
+            <div className="w-10 h-10 rounded-xl bg-[#FAF4E3]/10 flex items-center justify-center text-[#976E2A]">
+              <Sparkles size={20} />
+            </div>
+            <p className="text-xs font-poppins font-medium tracking-wide flex-1">{feedbackMessage}</p>
+            <button
+              onClick={() => setFeedbackMessage(null)}
+              className="opacity-40 hover:opacity-100 transition-opacity"
+            >
+              <X size={20} />
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       <style dangerouslySetInnerHTML={{
         __html: `
         .heritage-swiper .swiper-pagination-bullet {

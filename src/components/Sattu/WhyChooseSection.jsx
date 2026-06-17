@@ -56,7 +56,7 @@ const FeatureCard = ({ feature, index }) => {
         {feature.icon}
       </div>
 
-      <h3 className="text-xl font-serif font-bold text-white mb-2 leading-tight group-hover:text-[#D9A036] transition-colors">
+      <h3 className="text-xl font-poppins font-bold text-white mb-2 leading-tight group-hover:text-[#D9A036] transition-colors">
         {feature.title}
       </h3>
       <p className="text-sm font-handcrafted italic leading-relaxed text-[#D9D3C7] sepia opacity-90">
@@ -81,11 +81,11 @@ const WhyChooseSection = () => {
 
         {/* Section Header with traditional stamp aesthetic */}
         <div className="text-center mb-16 md:mb-20 flex flex-col items-center">
-          <span className="text-[#D9A036] font-sans font-bold tracking-widest text-xs uppercase block mb-3 relative sepia filter">
+          <span className="text-[#D9A036] font-poppins font-bold tracking-widest text-xs uppercase block mb-3 relative sepia filter">
             Pure Benefits
             <span className="absolute -bottom-1 left-0 w-full h-[1px] bg-[#D9A036]/50"></span>
           </span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-extrabold text-white tracking-tight pb-3 leading-[1.1]">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-poppins font-extrabold text-white tracking-tight pb-3 leading-[1.1]">
             Why Choose Sattu Sattu?
           </h2>
           {/* Stamped rustic divider */}

@@ -130,12 +130,12 @@ const Testimonials = () => {
 
                     {/* Testimonial text with inline quotes */}
                     <div className="relative mb-12">
-                      <span className="absolute -top-6 -left-4 text-4xl font-serif text-[#D9A036]/20">“</span>
+                      <span className="absolute -top-6 -left-4 text-4xl font-poppins text-[#D9A036]/20">“</span>
                       <p className="text-[15px] md:text-[17px] font-poppins font-medium text-[#11261C] leading-[1.7] italic tracking-tight">
                         {item.text}
                       </p>
                       <div className="w-12 h-[1px] bg-[#D9A036]/20 mx-auto mt-6" />
-                      <span className="absolute -bottom-10 -right-4 text-4xl font-serif text-[#D9A036]/20">”</span>
+                      <span className="absolute -bottom-10 -right-4 text-4xl font-poppins text-[#D9A036]/20">”</span>
                     </div>
 
                     {/* Brand Footer Slot */}
@@ -145,7 +145,7 @@ const Testimonials = () => {
                       </div>
                       <div className="text-left">
                         <h4 className="font-poppins font-bold text-sm text-[#11261C] tracking-tight">{item.name}</h4>
-                        <p className="text-[10px] font-sans font-black text-[#D9A036] uppercase tracking-[0.2em]">{item.role}</p>
+                        <p className="text-[10px] font-poppins font-black text-[#D9A036] uppercase tracking-[0.2em]">{item.role}</p>
                       </div>
                     </div>
                   </div>

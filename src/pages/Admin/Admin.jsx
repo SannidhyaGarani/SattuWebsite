@@ -175,7 +175,7 @@ const Admin = () => {
           <div className="bg-white rounded-2xl shadow-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto">
             <div className="px-7 py-5 border-b border-[#D9D3C7] flex items-center justify-between">
               <div>
-                <h2 className="text-xl font-serif font-bold text-[#1C2B21]">
+                <h2 className="text-xl font-poppins font-bold text-[#1C2B21]">
                   Add New Sattu Product
                 </h2>
                 <p className="text-sm text-[#707A72] mt-1">
@@ -204,7 +204,7 @@ const Admin = () => {
           <div className="bg-white rounded-2xl shadow-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto">
             <div className="px-7 py-5 border-b border-[#D9D3C7] flex items-center justify-between">
               <div>
-                <h2 className="text-xl font-serif font-bold text-[#1C2B21]">
+                <h2 className="text-xl font-poppins font-bold text-[#1C2B21]">
                   Edit Product
                 </h2>
                 <p className="text-sm text-[#707A72] mt-1">

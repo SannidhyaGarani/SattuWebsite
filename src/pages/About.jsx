@@ -1,181 +1,119 @@
 import React from 'react';
-import { Shield, Award, Zap, Sprout, Sparkles, Compass, Fingerprint, ArrowUpRight, Leaf } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Leaf, Sparkles, Shield, Sprout, Heart, Compass } from 'lucide-react';
+import PageHeader from '../components/Sattu/PageHeader';
 
 const About = () => {
-  // Cohesive premium easing variables
   const premiumEase = [0.25, 1, 0.5, 1];
 
   return (
-    <div className="min-h-screen bg-[#FAF4E3] pt-32 lg:pt-48 pb-32 overflow-hidden selection:bg-[#203B23] selection:text-white">
-      {/* Heritage Grain Overlay */}
-      <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/p6-grain.png')] mix-blend-multiply"></div>
+    <div className="min-h-screen relative text-[#203B23] selection:bg-[#976E2A] selection:text-[#FFFDF6]">
+      {/* Tonal Heritage Grain Overlay */}
+      <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/p6-grain.png')] mix-blend-multiply z-0"></div>
 
-      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 relative z-10">
+      <PageHeader
+        title="About Us"
+        subtitle="Pure by Nature. Crafted with Care."
+        image="img/ss.png"
+        breadcrumbItems={[
+          { label: "Home", path: "/" },
+          { label: "About Us" },
+        ]}
+      />
+
+      <div className="max-w-6xl mx-auto px-6 md:px-12 relative z-10 py-16 md:py-20">
         
-        {/* ================= HERO ARCHITECTURE ================= */}
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start mb-40">
-          
-          <motion.div 
-            initial={{ opacity: 0, y: 40 }}
+        {/* ================= EDITORIAL MANIFESTO PANEL ================= */}
+        <section className="mb-20 max-w-4xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 1, ease: premiumEase }}
-            className="lg:col-span-7 space-y-10"
+            transition={{ duration: 0.8, ease: premiumEase }}
+            className="bg-[#FFFDF6] border border-[#E3DBC5] rounded-[32px] p-8 md:p-12 text-center relative overflow-hidden shadow-[0_15px_40px_rgba(32,59,35,0.03)]"
           >
-            <div className="flex items-center gap-2.5 text-[#976E2A]">
-              <div className="flex items-center gap-1">
-                <Leaf size={14} className="fill-current rotate-45" />
-                <div className="w-8 h-[1px] bg-[#976E2A]/30" />
-              </div>
-              <span className="text-[10px] font-poppins font-bold uppercase tracking-[0.35em]">The Magadh Legacy</span>
+            {/* Fine Art Accent Mark */}
+            <div className="flex items-center justify-center gap-3 text-[#976E2A] mb-6">
+              <div className="w-6 h-[1px] bg-[#976E2A]/30" />
+              <Leaf size={14} className="fill-current rotate-45 opacity-80" />
+              <div className="w-6 h-[1px] bg-[#976E2A]/30" />
             </div>
-            
-            <h1 className="text-[12vw] sm:text-[8vw] lg:text-[6vw] font-poppins font-bold text-[#203B23] leading-[0.95] tracking-tight uppercase">
-              Ancestral <br />
-              <span className="font-serif italic text-[#976E2A] lowercase font-normal">Super-Fuel</span> <br />
-              Refined.
-            </h1>
-            
-            <div className="h-[2px] w-20 bg-[#976E2A]/40" />
-            
-            <p className="text-base sm:text-lg text-[#605948] font-poppins font-medium leading-relaxed max-w-xl">
-              We operate at the convergence of native agricultural wisdom and contemporary bio-availability analysis. Sattu is the raw, uncompromised performance secret of ancient India, architecturalized for the global vanguard.
+
+            <p className="text-base md:text-lg font-poppins font-medium leading-[1.75] text-[#203B23]/90 tracking-wide">
+              In today’s fast-paced world, finding food that is truly pure has become a luxury. That is why we are here—to bring 100% organic, chemical-free, and wholesome products straight to your doorstep, crafted with the same love and honesty as you would at home.
             </p>
           </motion.div>
-          
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.98, y: 60 }}
-            whileInView={{ opacity: 1, scale: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1.2, ease: premiumEase }}
-            className="lg:col-span-5 relative mt-8 lg:mt-0 w-full"
-          >
-            {/* Arched Architectural Frame */}
-            <div className="aspect-[4/5] rounded-t-[180px] rounded-b-[40px] overflow-hidden bg-[#FFFDF6] border-[1.5px] border-[#E3DBC5] p-2 shadow-xl group">
-              <div className="w-full h-full rounded-t-[175px] rounded-b-[32px] overflow-hidden relative">
-                <img 
-                  src="img/ss.png"
-                  alt="Native Crop Sourcing" 
-                  className="w-full h-full object-cover transition-transform duration-[1.5s] ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#203B23]/30 via-transparent to-transparent pointer-events-none" />
-              </div>
-            </div>
-            
-            {/* Floating Heritage Meta Token */}
-            <div className="absolute -bottom-10 -right-6 lg:-left-12 bg-[#FFFDF6] rounded-[32px] p-8 shadow-2xl border border-[#E3DBC5] max-w-[260px] backdrop-blur-md">
-              <div className="flex items-center gap-2 text-[#976E2A] mb-3">
-                <Shield size={16} />
-                <div className="h-[1px] flex-1 bg-[#976E2A]/20" />
-              </div>
-              <p className="text-4xl font-poppins font-bold text-[#203B23] mb-1 tracking-tight">100%</p>
-              <p className="text-[10px] font-poppins font-bold uppercase tracking-[0.2em] text-[#976E2A]">Whole Food Integrity</p>
-              <div className="mt-5 h-[1px] w-full border-t border-dashed border-[#E3DBC5]" />
-              <p className="text-[11px] text-[#605948] font-poppins font-medium mt-4 leading-relaxed">Zero isolate proteins. Zero synthetic chemistry modifiers.</p>
-            </div>
-          </motion.div>
-        </div>
+        </section>
 
-        {/* ================= VALUE PILLARS MATRIX ================= */}
-        <div className="mb-40">
-          <div className="mb-16 max-w-xl">
-            <div className="flex items-center gap-4 mb-4">
-               <span className="text-[10px] font-poppins font-bold uppercase tracking-[0.25em] text-[#976E2A]">Our Mandate</span>
-               <div className="h-[1px] w-12 bg-[#976E2A]/30" />
+        {/* ================= PILLARS ARCHITECTURE MATRIX ================= */}
+        <section>
+          <div className="text-center max-w-xl mx-auto mb-12 space-y-3">
+            <span className="text-[10px] font-poppins font-bold uppercase tracking-[0.3em] text-[#976E2A] block">
+              The Framework
+            </span>
+            <h2 className="text-2xl md:text-3xl font-poppins font-bold text-[#203B23] tracking-tight">
+              What Makes Us Special?
+            </h2>
+            <div className="flex justify-center pt-1">
+              <div className="w-10 h-[1px] bg-[#976E2A]/40" />
             </div>
-            <h2 className="text-[32px] md:text-[44px] font-poppins font-bold tracking-tight text-[#203B23] leading-tight uppercase">Rigorous Production Benchmarks</h2>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          {/* Compact 2x2 Architectural Grid Matrix */}
+          <div className="grid sm:grid-cols-2 gap-6 max-w-5xl mx-auto">
             {[
               {
-                icon: <Sprout size={24} />,
-                title: "Direct Terroir Sourcing",
-                desc: "We exclusively source premium chana variations cultivated via traditional dry-land farming structures across Bihar, paying direct premium wages to our farm partners."
+                icon: Sprout,
+                title: "100% Organic & Chemical-Free:",
+                desc: "From fields to your kitchen, our products contain zero synthetic chemicals, artificial additives, or preservatives."
               },
               {
-                icon: <Zap size={24} />,
-                title: "Slow Low-GI Influx",
-                desc: "The ancient sand-roasting processing method locks in complex structural starches, yielding a natural fuel source that delivers sustained baseline glycogen metrics."
+                icon: Shield,
+                title: "Zero White Sugar:",
+                desc: "We say a strict NO to refined white sugar, using only nature's cleanest, unrefined alternatives."
               },
               {
-                icon: <Shield size={24} />,
-                title: "Pristine Minimalist Label",
-                desc: "Stone-milled precision without modification filters. No refined sugars, chemical stabilizers, or emulsifiers. Unrefined whole-food raw ingredients from earth to glass."
+                icon: Sparkles,
+                title: "Homemade Seeds & Superfoods:",
+                desc: "Nutrient-dense seeds and everyday staples processed in small, hygienic batches to retain maximum nutrition."
+              },
+              {
+                icon: Compass,
+                title: "Wholesome Clean Range:",
+                desc: "From our nutrient-packed flavoured Sattu to everyday wellness essentials, everything we offer is designed to nourish your body."
               }
-            ].map((value, i) => (
-              <motion.div 
-                key={i}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.12, duration: 0.8, ease: premiumEase }}
-                className="p-10 rounded-[32px] bg-[#FFFDF6] border-[1.5px] border-[#E3DBC5] flex flex-col justify-between hover:border-[#976E2A]/40 transition-all duration-500 group relative shadow-sm"
-              >
-                <div className="space-y-6">
-                  <div className="w-14 h-14 rounded-2xl bg-[#FAF4E3] border border-[#E3DBC5] flex items-center justify-center text-[#203B23] group-hover:bg-[#203B23] group-hover:text-white transition-all duration-500 shadow-sm relative">
-                    {value.icon}
-                    <div className="absolute -top-1 -right-1 w-3 h-3 bg-[#976E2A] rounded-full border-2 border-white scale-0 group-hover:scale-100 transition-transform duration-500" />
+            ].map((pillar, i) => {
+              const Icon = pillar.icon;
+              return (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.08, duration: 0.7, ease: premiumEase }}
+                  className="group relative bg-[#FFFDF6] rounded-[24px] p-6 flex items-start gap-5 transition-all duration-500 border border-[#E3DBC5]/70 hover:border-[#976E2A]/30 hover:shadow-[0_15px_35px_rgba(32,59,35,0.04)]"
+                >
+                  {/* Strict Micro-Frame (p-1.5) Icon Asset Container */}
+                  <div className="w-11 h-11 rounded-xl bg-[#FFFDF6] border border-[#E3DBC5]/60 p-1.5 shrink-0 shadow-sm group-hover:shadow-[0_8px_16px_rgba(151,110,42,0.1)] transition-all duration-500">
+                    <div className="w-full h-full rounded-lg bg-[#FAF4E3] flex items-center justify-center text-[#976E2A] group-hover:bg-[#203B23] group-hover:text-[#FFFDF6] transition-colors duration-500">
+                      <Icon size={14} strokeWidth={1.8} />
+                    </div>
                   </div>
-                  <h3 className="text-xl font-poppins font-bold text-[#203B23] tracking-tight leading-tight">{value.title}</h3>
-                  <p className="text-xs text-[#605948] font-poppins font-medium leading-relaxed">{value.desc}</p>
-                </div>
-                
-                <div className="pt-6 mt-8 border-t border-dashed border-[#E3DBC5] flex items-center justify-between">
-                  <span className="text-[10px] font-poppins font-bold uppercase tracking-wider text-[#976E2A]">Verified Standard</span>
-                  <ArrowUpRight size={14} className="text-[#976E2A] transform group-hover:rotate-45 transition-transform" />
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
 
-        {/* ================= EDITORIAL MANIFESTO BOX ================= */}
-        <motion.div 
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1.2, ease: premiumEase }}
-          className="bg-[#203B23] rounded-[48px] p-10 md:p-20 text-[#FAF4E3] relative overflow-hidden shadow-2xl"
-        >
-          {/* Large Watermark */}
-          <div className="absolute bottom-[-5%] right-[-5%] text-[20vw] font-poppins font-black text-white/[0.03] uppercase pointer-events-none select-none tracking-tighter">
-            BHARAT
+                  {/* High-End Content Layout Group */}
+                  <div className="space-y-1.5 pt-0.5">
+                    <h3 className="text-sm font-poppins font-bold text-[#203B23] tracking-wide uppercase group-hover:text-[#976E2A] transition-colors duration-300">
+                      {pillar.title}
+                    </h3>
+                    <p className="text-xs text-[#203B23]/75 font-poppins leading-relaxed font-medium">
+                      {pillar.desc}
+                    </p>
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
-          
-          <div className="relative z-10 max-w-4xl space-y-12">
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-[1px] bg-[#976E2A]" />
-              <span className="text-[11px] font-poppins font-bold uppercase tracking-[0.4em] text-[#976E2A]">The Charter of Truth</span>
-            </div>
-            
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-poppins font-bold leading-[1.2] tracking-tighter text-white uppercase">
-              “True health rejects <span className="font-serif italic text-[#976E2A] lowercase font-normal">synthetic</span> assembly lines. True longevity is achieved by restoring uncompromised <span className="text-[#976E2A]">native agriculture</span> back to life.”
-            </h2>
-            
-            <div className="pt-10 border-t border-[#FAF4E3]/10 flex flex-col sm:flex-row sm:items-center justify-between gap-8">
-              <div className="flex items-center gap-5">
-                <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-[#976E2A]">
-                  <Award size={20} />
-                </div>
-                <div>
-                  <p className="font-poppins font-bold text-xs uppercase tracking-widest text-white">Biological Source Certified</p>
-                  <p className="text-[10px] font-poppins font-medium text-[#FAF4E3]/40 uppercase tracking-[0.2em] mt-1">100% Traceable Farming Assets</p>
-                </div>
-              </div>
-              
-              <div className="flex gap-8">
-                <span className="flex items-center gap-2 text-[11px] font-poppins font-bold uppercase tracking-widest text-[#FAF4E3]/30">
-                  <Compass size={14} /> Global Distribution
-                </span>
-                <span className="flex items-center gap-2 text-[11px] font-poppins font-bold uppercase tracking-widest text-[#FAF4E3]/30">
-                  <Fingerprint size={14} /> Authentic Sourcing
-                </span>
-              </div>
-            </div>
-          </div>
-        </motion.div>
+        </section>
 
       </div>
     </div>

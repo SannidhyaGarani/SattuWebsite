@@ -46,7 +46,7 @@ const Benefits = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[#F9F8F6] pt-32 lg:pt-48 pb-32 text-[#1C2B21] relative selection:bg-[#1C3B24] selection:text-white">
+    <div className="min-h-screen bg-transparent pt-32 lg:pt-48 pb-32 text-[#1C2B21] relative selection:bg-[#1C3B24] selection:text-white">
       {/* Light Luxury Geometric Dot Mesh Overlay */}
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:32px_32px]"></div>
 
@@ -66,9 +66,9 @@ const Benefits = () => {
               <span className="text-[10px] font-bold uppercase tracking-[0.35em]">The Physiological Ledger</span>
             </div>
             
-            <h1 className="text-[11vw] sm:text-[8vw] lg:text-[6vw] font-serif font-light text-[#1C2B21] leading-[0.95] tracking-tighter">
+            <h1 className="text-[11vw] sm:text-[8vw] lg:text-[6vw] font-poppins font-light text-[#1C2B21] leading-[0.95] tracking-tighter">
               Human Mechanics. <br />
-              <span className="font-serif italic text-[#1C3B24] font-normal">Uncompromised</span> <br />
+              <span className="font-poppins italic text-[#1C3B24] font-normal">Uncompromised</span> <br />
               Efficiency.
             </h1>
             
@@ -81,7 +81,7 @@ const Benefits = () => {
 
           {/* Minimalist Sidebar Floating Counter */}
           <div className="lg:col-span-4 lg:text-right pt-6 hidden lg:block">
-            <span className="text-[120px] font-serif font-light text-[#1C3B24]/10 leading-none select-none pointer-events-none">
+            <span className="text-[120px] font-poppins font-light text-[#1C3B24]/10 leading-none select-none pointer-events-none">
               01
             </span>
             <p className="text-[9px] font-bold uppercase tracking-widest text-[#9A8F80] mt-2">
@@ -97,7 +97,7 @@ const Benefits = () => {
           <div className="lg:col-span-5 flex flex-col justify-between gap-8">
             <div className="space-y-4">
               <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#9A8F80]">Biological Vectors</p>
-              <h2 className="text-2xl font-serif font-light tracking-tight text-[#1C2B21]">The Three Structural Pillars</h2>
+              <h2 className="text-2xl font-poppins font-light tracking-tight text-[#1C2B21]">The Three Structural Pillars</h2>
             </div>
 
             <div className="space-y-4 flex-1 justify-center flex flex-col">
@@ -118,7 +118,7 @@ const Benefits = () => {
                       {item.icon}
                     </div>
                     <div>
-                      <h3 className="text-sm font-sans font-bold text-[#1C2B21] tracking-tight">{item.title}</h3>
+                      <h3 className="text-sm font-poppins font-bold text-[#1C2B21] tracking-tight">{item.title}</h3>
                       <p className="text-[10px] text-[#9A8F80] tracking-wide mt-0.5">{item.metric}</p>
                     </div>
                   </div>
@@ -147,7 +147,7 @@ const Benefits = () => {
               >
                 <div className="space-y-6">
                   <div className="inline-flex items-baseline gap-2">
-                    <span className="text-5xl sm:text-6xl font-serif font-light text-[#1C3B24] tracking-tight">
+                    <span className="text-5xl sm:text-6xl font-poppins font-light text-[#1C3B24] tracking-tight">
                       {biologicalMetrics[activeMetric].value}
                     </span>
                     <span className="text-xs uppercase tracking-widest font-bold text-[#D9A036]">
@@ -167,7 +167,7 @@ const Benefits = () => {
                       <span className="text-[9px] font-bold uppercase tracking-widest text-[#9A8F80] block">
                         {stat.label}
                       </span>
-                      <span className="text-lg font-serif font-light text-[#1C2B21]">
+                      <span className="text-lg font-poppins font-light text-[#1C2B21]">
                         {stat.value}
                       </span>
                     </div>
@@ -209,7 +209,7 @@ const Benefits = () => {
               <div className="w-10 h-10 rounded-lg bg-[#F9F8F6] border border-[#EAE6DF] flex items-center justify-center text-[#1C3B24]">
                 {benefit.icon}
               </div>
-              <h3 className="text-base font-serif font-bold text-[#1C2B21] tracking-tight">{benefit.title}</h3>
+              <h3 className="text-base font-poppins font-bold text-[#1C2B21] tracking-tight">{benefit.title}</h3>
               <p className="text-xs text-[#5C665E] font-light leading-relaxed">{benefit.desc}</p>
             </motion.div>
           ))}
@@ -232,7 +232,7 @@ const Benefits = () => {
               <span className="text-[10px] font-bold uppercase tracking-[0.35em] text-[#D9A036]">Biological Charter</span>
             </div>
             
-            <h2 className="text-2xl sm:text-4xl md:text-5xl font-serif font-light leading-[1.25] tracking-tight text-white">
+            <h2 className="text-2xl sm:text-4xl md:text-5xl font-poppins font-light leading-[1.25] tracking-tight text-white">
               “We hold an uncompromising belief: human peak performance does not require chemical modification. Our products are engineered by nature, verified by tradition, and refined for biological synergy.”
             </h2>
             

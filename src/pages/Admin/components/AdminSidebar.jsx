@@ -25,7 +25,7 @@ const AdminSidebar = ({ activeItem, setActiveItem }) => {
             <Leaf size={20} strokeWidth={2} />
           </div>
           <div>
-            <p className="text-base font-serif font-bold tracking-tight text-[#1C2B21]">
+            <p className="text-base font-poppins font-bold tracking-tight text-[#1C2B21]">
               Sattu Admin
             </p>
             <p className="text-xs text-[#707A72]">Product Management</p>

@@ -4,7 +4,7 @@ import { Leaf, Heart, Users, Sparkles, GlassWater, Zap, CheckCircle2, Globe2 } f
 
 const SattuStorySection = () => {
   return (
-    <div className="w-full max-w-7xl mx-auto font-sans overflow-hidden bg-[#EFECE6] border border-[#D9D3C7] rounded-2xl shadow-xl shadow-stone-900/5 my-12">
+    <div className="w-full max-w-7xl mx-auto font-poppins overflow-hidden bg-[#EFECE6] border border-[#D9D3C7] rounded-2xl shadow-xl shadow-stone-900/5 my-12">
       
       {/* MAIN RUSTIC HERITAGE GRID */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 w-full">
@@ -27,10 +27,10 @@ const SattuStorySection = () => {
           <div className="absolute inset-0 opacity-[0.02] pointer-events-none bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:20px_20px]"></div>
           
           <div className="relative z-10">
-            <span className="text-[#D9A036] font-sans font-bold text-xs uppercase tracking-widest mb-3 block">
+            <span className="text-[#D9A036] font-poppins font-bold text-xs uppercase tracking-widest mb-3 block">
               Our Legacy
             </span>
-            <h2 className="text-[#1C2B21] font-serif font-bold text-3xl lg:text-4xl leading-[1.15] mb-6 tracking-tight">
+            <h2 className="text-[#1C2B21] font-poppins font-bold text-3xl lg:text-4xl leading-[1.15] mb-6 tracking-tight">
               From Our Roots <br />
               <span className="italic font-normal text-[#3E4A41]">To Your Glass</span>
             </h2>
@@ -53,7 +53,7 @@ const SattuStorySection = () => {
               <GlassWater className="w-5 h-5 stroke-[1.5]" />
             </div>
             <div>
-              <p className="font-serif font-medium text-base text-white tracking-wide">Just Add Liquid</p>
+              <p className="font-poppins font-medium text-base text-white tracking-wide">Just Add Liquid</p>
               <p className="text-xs text-[#A3B8A8] mt-0.5">Stir cleanly into water or milk. Ready instantly.</p>
             </div>
           </div>
@@ -64,7 +64,7 @@ const SattuStorySection = () => {
               <Zap className="w-5 h-5 stroke-[1.5]" />
             </div>
             <div>
-              <p className="font-serif font-medium text-base text-white tracking-wide">Clean Active Fuel</p>
+              <p className="font-poppins font-medium text-base text-white tracking-wide">Clean Active Fuel</p>
               <p className="text-xs text-[#A3B8A8] mt-0.5">Optimized cleanly for breakfast, work, or workouts.</p>
             </div>
           </div>
@@ -75,7 +75,7 @@ const SattuStorySection = () => {
               <Users className="w-5 h-5 stroke-[1.5]" />
             </div>
             <div>
-              <p className="font-serif font-medium text-base text-white tracking-wide">Family Formulation</p>
+              <p className="font-poppins font-medium text-base text-white tracking-wide">Family Formulation</p>
               <p className="text-xs text-[#A3B8A8] mt-0.5">Perfect digestability for developing children & adults alike.</p>
             </div>
           </div>
@@ -86,7 +86,7 @@ const SattuStorySection = () => {
               <Sparkles className="w-5 h-5 stroke-[1.5]" />
             </div>
             <div>
-              <p className="font-serif font-medium text-base text-white tracking-wide">Daily Ritual</p>
+              <p className="font-poppins font-medium text-base text-white tracking-wide">Daily Ritual</p>
               <p className="text-xs text-[#A3B8A8] mt-0.5">Build a pure, high-fiber structural foundation every morning.</p>
             </div>
           </div>
@@ -111,15 +111,15 @@ const SattuStorySection = () => {
         {/* Left Side: Tagline & CTA */}
         <div className="flex flex-col sm:flex-row items-center gap-6 w-full lg:w-auto justify-between lg:justify-start z-10">
           <div className="text-center sm:text-left">
-            <h3 className="font-serif text-xl lg:text-2xl font-bold tracking-wide text-white">
+            <h3 className="font-poppins text-xl lg:text-2xl font-bold tracking-wide text-white">
               Real Ingredients. Real Nutrition.
             </h3>
-            <p className="text-[#A3B8A8] text-xs mt-1 font-sans tracking-wide uppercase">No Added Preservatives • Clean Label Certified</p>
+            <p className="text-[#A3B8A8] text-xs mt-1 font-poppins tracking-wide uppercase">No Added Preservatives • Clean Label Certified</p>
           </div>
           <motion.button 
             whileHover={{ scale: 1.02, backgroundColor: '#C28E2E' }}
             whileTap={{ scale: 0.98 }}
-            className="bg-[#D9A036] text-[#112517] font-sans font-bold uppercase tracking-widest text-xs px-8 py-4 rounded-md transition-colors shadow-lg shadow-black/10 whitespace-nowrap w-full sm:w-auto text-center"
+            className="bg-[#D9A036] text-[#112517] font-poppins font-bold uppercase tracking-widest text-xs px-8 py-4 rounded-md transition-colors shadow-lg shadow-black/10 whitespace-nowrap w-full sm:w-auto text-center"
           >
             Order Pure Sattu
           </motion.button>

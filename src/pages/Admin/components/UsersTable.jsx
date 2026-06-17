@@ -5,7 +5,7 @@ const UsersTable = ({ users }) => {
     <section className="bg-white rounded-2xl border border-[#D9D3C7] shadow-sm overflow-hidden">
       <div className="px-6 py-5 flex items-center justify-between border-b border-[#D9D3C7]">
         <div>
-          <h2 className="text-lg font-serif font-bold text-[#1C2B21]">Registered Users</h2>
+          <h2 className="text-lg font-poppins font-bold text-[#1C2B21]">Registered Users</h2>
           <p className="text-sm text-[#707A72] mt-1">All customers and their details</p>
         </div>
         <span className="px-4 py-2 rounded-full bg-[#1C3B24]/10 text-[#1C3B24] text-sm font-bold">

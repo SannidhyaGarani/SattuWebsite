@@ -113,7 +113,7 @@ const BenefitsStrip = () => {
                   >
                     
                     {/* 1. Numerical Counter Top Badge */}
-                    <div className={`absolute -top-6 left-1/2 transform -translate-x-1/2 w-14 h-14 ${badgeBg} rounded-full flex items-center justify-center text-white text-[35px] font-sans font-bold shadow-sm z-20`}>
+                    <div className={`absolute -top-6 left-1/2 transform -translate-x-1/2 w-14 h-14 ${badgeBg} rounded-full flex items-center justify-center text-white text-[35px] font-poppins font-bold shadow-sm z-20`}>
                       {benefit.num}
                     </div>
 
@@ -141,7 +141,7 @@ const BenefitsStrip = () => {
                     </h3>
                     
                     {/* 4. Muted Organic Body Text Description */}
-                    <p className="text-xs font-sans font-medium text-[#605948] leading-relaxed max-w-[160px]">
+                    <p className="text-xs font-poppins font-medium text-[#605948] leading-relaxed max-w-[160px]">
                       {benefit.desc}
                     </p>
 

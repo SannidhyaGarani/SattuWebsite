@@ -5,7 +5,7 @@ const AdminHeader = ({ activeItem }) => {
   return (
     <header className="flex items-center justify-between mb-8">
       <div>
-        <h1 className="text-3xl font-serif font-bold tracking-tight text-[#1C2B21]">
+        <h1 className="text-3xl font-poppins font-bold tracking-tight text-[#1C2B21]">
           {activeItem}
         </h1>
         <p className="mt-2 text-sm font-medium tracking-wide text-[#4A5D4E] uppercase">

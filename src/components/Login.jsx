@@ -1,18 +1,20 @@
 import React, { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link, useSearchParams } from "react-router-dom";
 import { useAuth } from "./useAuth";
-import { Mail, Lock, ArrowRight, Leaf, AlertCircle, Eye, EyeOff } from "lucide-react";
+import { Mail, Lock, ArrowRight, Leaf, AlertCircle, Eye, EyeOff, Sparkles, ChevronLeft } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const Login = () => {
   const { login } = useAuth();
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
+  const redirectPath = searchParams.get("redirect") || "/";
   const premiumEase = [0.25, 1, 0.5, 1];
 
   const handleSubmit = async (e) => {
@@ -21,8 +23,8 @@ const Login = () => {
     setLoading(true);
     try {
       await login(email, password);
-      navigate("/");
-    } catch {
+      navigate(redirectPath);
+    } catch (err) {
       setError("The credentials provided do not match our archive records.");
     } finally {
       setLoading(false);
@@ -30,53 +32,73 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#FDFBF7]  mt-35 text-[#1C2B21] flex relative overflow-hidden selection:bg-[#1C3B24] selection:text-white">
+    <div className="min-h-screen  mt-28 bg-[#FAF4E3] text-[#203B23] flex relative overflow-hidden selection:bg-[#976E2A] selection:text-[#FFFDF6]">
       
-      {/* LEFT COLUMN: VISUAL ART DIRECTION EMBED (HIDDEN ON MOBILE) */}
-      <div className="hidden lg:flex w-[45%] bg-[#1C3B24] relative flex-col justify-between p-16 overflow-hidden">
+      {/* Background Textures */}
+      <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/p6-grain.png')] mix-blend-multiply" />
+      
+      {/* LEFT COLUMN: VISUAL ART DIRECTION */}
+      <div className="hidden lg:flex w-[45%] bg-[#203B23] relative flex-col justify-between p-16 overflow-hidden">
         {/* Subtle geometric dot matrix layering */}
-        <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:24px_24px]" />
+        <div className="absolute inset-0 opacity-[0.05] pointer-events-none bg-[radial-gradient(#FAF4E3_1.5px,transparent_1.5px)] [background-size:32px_32px]" />
         
         {/* Abstract luxury ambient texture background blur */}
-        <div className="absolute top-[-20%] left-[-20%] w-[600px] h-[600px] bg-[#D9A036]/10 rounded-full blur-[140px]" />
+        <div className="absolute top-[-20%] left-[-20%] w-[600px] h-[600px] bg-[#976E2A]/20 rounded-full blur-[140px]" />
+        <div className="absolute bottom-[-10%] right-[-10%] w-[400px] h-[400px] bg-[#FAF4E3]/10 rounded-full blur-[100px]" />
         
-        <Link to="/" className="relative z-10 flex items-center gap-2 text-[#EFECE6] text-[11px] font-bold uppercase tracking-[0.3em] opacity-80 hover:opacity-100 transition-opacity">
-          <Leaf size={16} className="text-[#D9A036]" />
-          <span>Sattu Maison d'Origine</span>
+        <Link to="/" className="relative z-10 flex items-center gap-3 text-[#FAF4E3] text-[11px] font-poppins font-bold uppercase tracking-[0.4em] hover:text-[#976E2A] transition-colors group">
+          <div className="w-8 h-8 rounded-full bg-[#FAF4E3]/10 flex items-center justify-center border border-[#FAF4E3]/20 group-hover:border-[#976E2A]/40 transition-colors">
+            <Leaf size={14} className="text-[#976E2A]" />
+          </div>
+          <span>Indian Food Way</span>
         </Link>
 
-        <div className="relative z-10 space-y-6 max-w-sm">
-          <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-[#D9A036]">Verified Member Access</span>
-          <h1 className="text-4xl xl:text-5xl font-serif font-light text-[#EFECE6] leading-[1.15] tracking-tight">
-            Cultivating wellness through traditional raw formulation.
+        <motion.div 
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1, ease: premiumEase }}
+          className="relative z-10 space-y-8 max-w-sm"
+        >
+          <span className="inline-block px-4 py-1.5 rounded-full bg-[#FAF4E3]/10 border border-[#FAF4E3]/20 text-[9px] font-poppins font-bold uppercase tracking-[0.4em] text-[#976E2A]">
+            Verified Member Access
+          </span>
+          <h1 className="text-5xl xl:text-6xl font-poppins font-bold text-[#FAF4E3] leading-[1.1] tracking-tight">
+            Cultivating wellness through heritage.
           </h1>
-          <p className="text-xs text-[#EFECE6]/60 font-light leading-relaxed tracking-wide">
+          <p className="text-sm text-[#FAF4E3]/60 font-poppins leading-relaxed tracking-wide font-medium">
             Access your curated dietary parameters, personalized collection archives, and premium subscription reserves.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="relative z-10 border-t border-white/10 pt-6 text-[9px] font-mono tracking-widest text-[#EFECE6]/40 uppercase">
-          © 2026 Maison Sattu. All Rights Reserved.
+        <div className="relative z-10 border-t border-[#FAF4E3]/10 pt-8 flex items-center justify-between text-[9px] font-poppins font-bold tracking-[0.3em] text-[#FAF4E3]/40 uppercase">
+          <span>© 2026 INDIAN FOOD WAY</span>
+          <div className="flex gap-4">
+             <div className="w-1.5 h-1.5 bg-[#976E2A] rotate-45" />
+             <span>Pure Nutrition</span>
+          </div>
         </div>
       </div>
 
       {/* RIGHT COLUMN: ACCESS FORM WORKSPACE */}
-      <div className="flex-1 flex flex-col justify-center items-center px-6 md:px-16 lg:px-24 py-20 relative bg-[#F9F8F6]">
-        {/* Subtle organic mesh background grid lines */}
-        <div className="absolute inset-0 opacity-[0.02] pointer-events-none bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:32px_32px]" />
-        
-        <div className="w-full max-w-[420px] relative z-10">
+      <div className="flex-1 flex flex-col justify-center items-center px-6 md:px-16 lg:px-24 py-20 relative">
+        <div className="w-full max-w-[440px] relative z-10">
           
+          {/* Back Action */}
+          <button 
+            onClick={() => navigate(-1)}
+            className="flex items-center gap-2 text-[10px] font-poppins font-bold uppercase tracking-[0.25em] text-[#976E2A] mb-12 hover:text-[#203B23] transition-colors group"
+          >
+            <ChevronLeft size={14} className="group-hover:-translate-x-1 transition-transform" />
+            <span>Return to Archive</span>
+          </button>
+
           {/* Header Workspace Stack */}
-          <div className="mb-10 lg:mb-12">
-            <div className="lg:hidden inline-flex items-center justify-center w-12 h-12 bg-[#1C3B24] text-white rounded-xl mb-6 shadow-xl shadow-[#1C3B24]/10">
-              <Leaf size={20} />
-            </div>
-            <h2 className="text-3xl sm:text-4xl font-serif font-light text-[#1C2B21] tracking-tight mb-3">
-              Account Authentication
+          <div className="mb-12">
+            <h2 className="text-4xl sm:text-5xl font-poppins font-bold text-[#203B23] tracking-tight mb-4">
+              Authentication
             </h2>
-            <p className="text-xs text-[#707A72] font-light tracking-wide">
-              Please declare your secure cryptographic records below.
+            <p className="text-sm text-[#203B23]/60 font-poppins font-medium tracking-wide">
+              Please declare your secure cryptographic records below to access the boutique vault.
             </p>
           </div>
 
@@ -84,75 +106,72 @@ const Login = () => {
           <AnimatePresence mode="wait">
             {error && (
               <motion.div 
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.3 }}
-                className="mb-8 p-4 bg-red-50/60 border border-red-100 rounded-xl flex items-start gap-3 text-red-700 text-xs font-medium leading-relaxed"
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                className="mb-10 p-5 bg-red-50 border border-red-100 rounded-2xl flex items-start gap-4 text-red-700 text-xs font-bold leading-relaxed shadow-sm"
               >
-                <AlertCircle size={15} className="shrink-0 text-red-500 mt-0.5" />
+                <AlertCircle size={18} className="shrink-0 text-red-500 mt-0.5" />
                 <span>{error}</span>
               </motion.div>
             )}
           </AnimatePresence>
 
           {/* Interactive Form Field Canvas */}
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form onSubmit={handleSubmit} className="space-y-8">
             
             {/* Email Field Block */}
-            <div className="space-y-2">
-              <div className="flex justify-between items-center px-0.5">
-                <label className="text-[9px] font-bold uppercase tracking-widest text-[#9A8F80]">
-                  Registry Email Address
-                </label>
-              </div>
+            <div className="space-y-3">
+              <label className="text-[10px] font-poppins font-bold uppercase tracking-[0.3em] text-[#203B23]/40 ml-1">
+                Registry Email Identifier
+              </label>
               <div className="relative group">
-                <div className="absolute left-5 top-1/2 -translate-y-1/2 text-[#9A8F80]/60 group-focus-within:text-[#1C3B24] transition-colors duration-300">
-                  <Mail size={16} strokeWidth={1.5} />
+                <div className="absolute left-6 top-1/2 -translate-y-1/2 text-[#203B23]/20 group-focus-within:text-[#976E2A] transition-colors duration-300">
+                  <Mail size={18} strokeWidth={1.5} />
                 </div>
                 <input
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="name@domain.com"
-                  className="w-full pl-13 pr-5 py-4.5 rounded-xl bg-white border border-[#EAE6DF] focus:border-[#1C3B24] outline-none transition-all duration-300 font-serif text-[14px] text-[#1C2B21] placeholder:text-[#9A8F80]/40 shadow-[0_4px_20px_rgba(0,0,0,0.01)]"
+                  placeholder="e.g. curator@heritage.com"
+                  className="w-full pl-16 pr-6 py-5 rounded-2xl bg-[#FFFDF6] border border-[#E3DBC5] focus:border-[#203B23] outline-none transition-all duration-500 font-poppins font-bold text-[14px] text-[#203B23] placeholder:text-[#203B23]/20 shadow-[0_4px_20px_rgba(32,59,35,0.02)]"
                   required
                 />
               </div>
             </div>
 
             {/* Password Field Block */}
-            <div className="space-y-2">
-              <div className="flex justify-between items-center px-0.5">
-                <label className="text-[9px] font-bold uppercase tracking-widest text-[#9A8F80]">
-                  Private Vault Key
+            <div className="space-y-3">
+              <div className="flex justify-between items-center px-1">
+                <label className="text-[10px] font-poppins font-bold uppercase tracking-[0.3em] text-[#203B23]/40">
+                  Private Cryptic Key
                 </label>
                 <button 
                   type="button" 
-                  className="text-[9px] font-bold uppercase tracking-widest text-[#9A8F80] hover:text-[#1C3B24] transition-colors"
+                  className="text-[10px] font-poppins font-bold uppercase tracking-[0.3em] text-[#976E2A] hover:text-[#203B23] transition-colors"
                 >
-                  Recovery Protocol?
+                  Key Recovery?
                 </button>
               </div>
               <div className="relative group">
-                <div className="absolute left-5 top-1/2 -translate-y-1/2 text-[#9A8F80]/60 group-focus-within:text-[#1C3B24] transition-colors duration-300">
-                  <Lock size={16} strokeWidth={1.5} />
+                <div className="absolute left-6 top-1/2 -translate-y-1/2 text-[#203B23]/20 group-focus-within:text-[#976E2A] transition-colors duration-300">
+                  <Lock size={18} strokeWidth={1.5} />
                 </div>
                 <input
                   type={showPassword ? "text" : "password"}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  placeholder="••••••••"
-                  className="w-full pl-13 pr-12 py-4.5 rounded-xl bg-white border border-[#EAE6DF] focus:border-[#1C3B24] outline-none transition-all duration-300 font-serif text-[14px] text-[#1C2B21] placeholder:text-[#9A8F80]/40 shadow-[0_4px_20px_rgba(0,0,0,0.01)]"
+                  placeholder="••••••••••••"
+                  className="w-full pl-16 pr-14 py-5 rounded-2xl bg-[#FFFDF6] border border-[#E3DBC5] focus:border-[#203B23] outline-none transition-all duration-500 font-poppins font-bold text-[14px] text-[#203B23] placeholder:text-[#203B23]/20 shadow-[0_4px_20px_rgba(32,59,35,0.02)]"
                   required
                 />
-                {/* Premium Visibility Toggle Node */}
+                {/* Premium Visibility Toggle */}
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 text-[#9A8F80]/60 hover:text-[#1C2B21] transition-colors"
+                  className="absolute right-5 top-1/2 -translate-y-1/2 text-[#203B23]/20 hover:text-[#203B23] transition-colors"
                 >
-                  {showPassword ? <EyeOff size={16} strokeWidth={1.5} /> : <Eye size={16} strokeWidth={1.5} />}
+                  {showPassword ? <EyeOff size={18} strokeWidth={1.5} /> : <Eye size={18} strokeWidth={1.5} />}
                 </button>
               </div>
             </div>
@@ -161,28 +180,29 @@ const Login = () => {
             <button
               type="submit"
               disabled={loading}
-              className="group w-full h-[54px] rounded-xl bg-[#1C3B24] text-[#EFECE6] font-bold text-[10px] uppercase tracking-[0.25em] shadow-xl shadow-[#1C3B24]/10 hover:bg-[#1C2B21] transition-all duration-300 flex items-center justify-center gap-3 transform active:scale-[0.99] disabled:opacity-50 disabled:pointer-events-none"
+              className="group w-full h-[64px] rounded-2xl bg-[#203B23] text-[#FFFDF6] font-poppins font-bold text-[11px] uppercase tracking-[0.3em] shadow-[0_15px_30px_rgba(32,59,35,0.15)] hover:bg-[#976E2A] transition-all duration-500 flex items-center justify-center gap-4 transform active:scale-[0.98] disabled:opacity-50 disabled:pointer-events-none mt-4"
             >
               {loading ? (
-                <div className="relative w-5 h-5">
-                  <div className="absolute inset-0 border-2 border-white/20 rounded-full" />
-                  <div className="absolute inset-0 border-2 border-t-white rounded-full animate-spin" />
+                <div className="relative w-6 h-6">
+                  <div className="absolute inset-0 border-2 border-[#FFFDF6]/20 rounded-full" />
+                  <div className="absolute inset-0 border-2 border-t-[#FFFDF6] rounded-full animate-spin" />
                 </div>
               ) : (
                 <>
-                  <span>Authenticate Registry</span>
-                  <ArrowRight size={13} strokeWidth={1.5} className="group-hover:translate-x-1 transition-transform duration-300" />
+                  <Sparkles size={16} className="text-[#976E2A]" />
+                  <span>Authenticate Archive Access</span>
+                  <ArrowRight size={16} strokeWidth={2} className="group-hover:translate-x-1 transition-transform duration-300" />
                 </>
               )}
             </button>
           </form>
 
           {/* Membership Creation Access Anchor */}
-          <div className="mt-10 text-center">
-            <p className="text-xs text-[#707A72] font-light tracking-wide">
+          <div className="mt-12 text-center">
+            <p className="text-sm text-[#203B23]/40 font-poppins font-medium tracking-wide">
               New to our House Registry?{" "}
-              <Link to="/signup" className="text-[#1C3B24] font-bold hover:text-[#D9A036] ml-1 transition-colors duration-300">
-                Create Credentials
+              <Link to="/signup" className="text-[#203B23] font-bold hover:text-[#976E2A] ml-2 transition-colors duration-300 pb-0.5 border-b border-dashed border-[#203B23]/20 hover:border-[#976E2A]">
+                Request Credentials
               </Link>
             </p>
           </div>

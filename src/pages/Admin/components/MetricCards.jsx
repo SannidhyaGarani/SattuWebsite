@@ -53,7 +53,7 @@ const MetricCards = () => {
               <p className="text-xs font-bold tracking-wider text-[#707A72] uppercase mb-2">
                 {card.label}
               </p>
-              <p className="text-3xl font-serif font-bold text-[#1C2B21] mb-1">
+              <p className="text-3xl font-poppins font-bold text-[#1C2B21] mb-1">
                 {card.value}
               </p>
               <p className="text-sm font-medium text-[#707A72]">

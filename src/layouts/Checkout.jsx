@@ -108,7 +108,7 @@ const Checkout = () => {
             <div className="w-20 h-20 bg-[#EFECE6] border border-[#D9D3C7] rounded-3xl flex items-center justify-center mx-auto mb-8 text-[#707A72]">
               <CreditCard size={40} />
             </div>
-            <h2 className="text-2xl font-serif font-bold text-[#1C2B21] mb-4 text-center">
+            <h2 className="text-2xl font-poppins font-bold text-[#1C2B21] mb-4 text-center">
               Sign In to Checkout
             </h2>
             <p className="text-[#707A72] font-medium mb-8">
@@ -153,7 +153,7 @@ const Checkout = () => {
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-3xl md:text-4xl font-serif font-bold text-[#1C2B21] mb-6"
+              className="text-3xl md:text-4xl font-poppins font-bold text-[#1C2B21] mb-6"
             >
               Order Confirmed!
             </motion.h2>
@@ -214,7 +214,7 @@ const Checkout = () => {
                 <div className="w-12 h-12 rounded-2xl bg-[#1C3B24]/10 text-[#1C3B24] flex items-center justify-center">
                   <MapPin size={24} />
                 </div>
-                <h2 className="text-2xl font-serif font-bold text-[#1C2B21]">Shipping Details</h2>
+                <h2 className="text-2xl font-poppins font-bold text-[#1C2B21]">Shipping Details</h2>
               </div>
 
               <form onSubmit={handlePlaceOrder} className="space-y-6">
@@ -333,7 +333,7 @@ const Checkout = () => {
                     <div className="w-12 h-12 rounded-2xl bg-[#D9A036]/10 text-[#D9A036] flex items-center justify-center">
                       <CreditCard size={24} />
                     </div>
-                    <h2 className="text-2xl font-serif font-bold text-[#1C2B21]">Payment</h2>
+                    <h2 className="text-2xl font-poppins font-bold text-[#1C2B21]">Payment</h2>
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
@@ -401,7 +401,7 @@ const Checkout = () => {
           {/* Order Summary */}
           <div className="lg:col-span-1">
             <div className="bg-white rounded-3xl border border-[#D9D3C7] shadow-[0_20px_60px_rgba(28,43,33,0.05)] p-8 sticky top-32">
-              <h2 className="text-2xl font-serif font-bold text-[#1C2B21] mb-8">Order Summary</h2>
+              <h2 className="text-2xl font-poppins font-bold text-[#1C2B21] mb-8">Order Summary</h2>
 
               <div className="space-y-6 mb-10">
                 {items.map((item) => (
@@ -441,7 +441,7 @@ const Checkout = () => {
                   <span className="text-[10px] font-bold uppercase tracking-widest text-[#707A72]">
                     Total
                   </span>
-                  <span className="text-4xl font-serif font-bold text-[#1C3B24]">
+                  <span className="text-4xl font-poppins font-bold text-[#1C3B24]">
                     ₹{total.toFixed(0)}
                   </span>
                 </div>
