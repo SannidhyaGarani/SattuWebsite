@@ -2,37 +2,37 @@ import React from 'react';
 import { Package, ShoppingCart, IndianRupee, Users } from 'lucide-react';
 
 const metricCards = [
-  { 
-    label: "Total Products", 
-    value: "12", 
+  {
+    label: "Total Products",
+    value: "12",
     hint: "Across all flavors",
     icon: Package,
     color: "text-[#4A5D4E]",
     bg: "bg-[#4A5D4E]/10"
   },
-  { 
-    label: "Open Orders", 
-    value: "24", 
+  {
+    label: "Open Orders",
+    value: "24",
     hint: "Awaiting fulfillment",
     icon: ShoppingCart,
     color: "text-[#D9A036]",
     bg: "bg-[#D9A036]/10"
   },
-  { 
-    label: "Total Revenue", 
-    value: "₹24,580", 
+  {
+    label: "Total Revenue",
+    value: "₹24,580",
     hint: "This month",
     icon: IndianRupee,
     color: "text-[#6D4C3D]",
     bg: "bg-[#6D4C3D]/10"
   },
-  { 
-    label: "Active Users", 
-    value: "342", 
+  {
+    label: "Active Users",
+    value: "342",
     hint: "Registered customers",
     icon: Users,
-    color: "text-[#1C3B24]",
-    bg: "bg-[#1C3B24]/10"
+    color: "text-[#6b4f3]",
+    bg: "bg-[#6b4f3]/10"
   },
 ];
 

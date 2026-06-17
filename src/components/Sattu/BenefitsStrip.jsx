@@ -1,11 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { 
-  Dumbbell, 
-  Sprout, 
-  Leaf, 
-  Snowflake, 
-  Utensils, 
+import {
+  Dumbbell,
+  Sprout,
+  Leaf,
+  Snowflake,
+  Utensils,
   DotSquare,
   ChevronLeft,
   ChevronRight
@@ -32,28 +32,28 @@ const benefits = [
     num: "02",
     title: "Rich in Fiber",
     desc: "Supports seamless digestion & gut health.",
-     icon: <img src="https://res.cloudinary.com/duzwys877/image/upload/v1781441581/leafes_kx6mzs.svg" alt="Body Shape" className="w-20 h-20 object-contain" />,
+    icon: <img src="https://res.cloudinary.com/duzwys877/image/upload/v1781441581/leafes_kx6mzs.svg" alt="Body Shape" className="w-20 h-20 object-contain" />,
     isGreen: false,
   },
   {
     num: "03",
     title: "100% Natural",
     desc: "Zero chemicals, absolute purity guaranteed.",
-      icon: <img src="https://res.cloudinary.com/duzwys877/image/upload/v1781441161/b1_ltomv8.svg" alt="Body Shape" className="w-20 h-20 object-contain" />,
+    icon: <img src="https://res.cloudinary.com/duzwys877/image/upload/v1781441161/b1_ltomv8.svg" alt="Body Shape" className="w-20 h-20 object-contain" />,
     isGreen: true,
   },
   {
     num: "04",
     title: "Cooling Effect",
     desc: "Perfect hydration for the Indian climate.",
-      icon: <img src="https://res.cloudinary.com/duzwys877/image/upload/v1781441161/b2_s1suqm.svg" alt="Body Shape" className="w-20 h-20 object-contain" />,
+    icon: <img src="https://res.cloudinary.com/duzwys877/image/upload/v1781441161/b2_s1suqm.svg" alt="Body Shape" className="w-20 h-20 object-contain" />,
     isGreen: false,
   },
   {
     num: "05",
     title: "Keeps You Full",
     desc: "Sustained energy that helps manage weight.",
-      icon: <img src="https://res.cloudinary.com/duzwys877/image/upload/v1781441161/spoon_taz39x.svg" alt="Body Shape" className="w-20 h-20 object-contain" />,
+    icon: <img src="https://res.cloudinary.com/duzwys877/image/upload/v1781441161/spoon_taz39x.svg" alt="Body Shape" className="w-20 h-20 object-contain" />,
     isGreen: true,
   },
 ];
@@ -62,9 +62,9 @@ const BenefitsStrip = () => {
   return (
     <section className="py-20 bg-[#FAF4E3] relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
-        
-        <SectionHeader 
-          title="The Goodness Of Sattu" 
+
+        <SectionHeader
+          title="The Goodness Of Sattu"
           subtitle="Natural • Nutritious • Wholesome"
         />
 
@@ -97,10 +97,10 @@ const BenefitsStrip = () => {
             className="!py-12"
           >
             {benefits.map((benefit, index) => {
-              
-              const themeColor = benefit.isGreen ? 'text-[#203B23]' : 'text-[#976E2A]';
-              const badgeBg = benefit.isGreen ? 'bg-[#203B23]' : 'bg-[#976E2A]';
-              const dashBorder = benefit.isGreen ? 'border-[#203B23]/30' : 'border-[#976E2A]/30';
+
+              const themeColor = benefit.isGreen ? 'text-[#6b4f3a]' : 'text-[#976E2A]';
+              const badgeBg = benefit.isGreen ? 'bg-[#6b4f3a]' : 'bg-[#976E2A]';
+              const dashBorder = benefit.isGreen ? 'border-[#6b4f3a]/30' : 'border-[#976E2A]/30';
 
               return (
                 <SwiperSlide key={benefit.num} className="h-auto">
@@ -111,7 +111,7 @@ const BenefitsStrip = () => {
                     transition={{ delay: index * 0.1, duration: 0.5 }}
                     className="group h-full relative bg-[#FFFDF6] border-[1.5px] border-[#E3DBC5] rounded-[32px] p-6 pt-12 flex flex-col items-center text-center transition-all duration-300 hover:border-[#976E2A]/60 shadow-sm"
                   >
-                    
+
                     {/* 1. Numerical Counter Top Badge */}
                     <div className={`absolute -top-6 left-1/2 transform -translate-x-1/2 w-14 h-14 ${badgeBg} rounded-full flex items-center justify-center text-white text-[35px] font-poppins font-bold shadow-sm z-20`}>
                       {benefit.num}
@@ -119,9 +119,9 @@ const BenefitsStrip = () => {
 
                     {/* 2. Concentric Center Circle with Flanking React Icon Leaves */}
                     <div className={`relative w-24 h-24 rounded-full border border-dashed ${dashBorder} flex items-center justify-center mb-2`}>
-                      
-                      <div className={`absolute inset-1 rounded-full border ${benefit.isGreen ? 'border-[#203B23]/10' : 'border-[#976E2A]/10'}`} />
-                      
+
+                      <div className={`absolute inset-1 rounded-full border ${benefit.isGreen ? 'border-[#6b4f3a]/10' : 'border-[#976E2A]/10'}`} />
+
                       <div className={`absolute -left-3 top-1/2 -translate-y-1/2 -rotate-45 ${themeColor} opacity-40`}>
                         <Leaf size={12} className="fill-current" />
                       </div>
@@ -136,10 +136,10 @@ const BenefitsStrip = () => {
                     </div>
 
                     {/* 3. Serif Main Header Title */}
-                    <h3 className="text-xl font-poppins font-bold text-[#203B23] tracking-tight leading-tight mb-2 min-h-[48px] flex items-center justify-center">
+                    <h3 className="text-xl font-poppins font-bold text-[#6b4f3a] tracking-tight leading-tight mb-2 min-h-[48px] flex items-center justify-center">
                       {benefit.title}
                     </h3>
-                    
+
                     {/* 4. Muted Organic Body Text Description */}
                     <p className="text-xs font-poppins font-medium text-[#605948] leading-relaxed max-w-[160px]">
                       {benefit.desc}
@@ -159,10 +159,10 @@ const BenefitsStrip = () => {
           </Swiper>
 
           {/* Custom Navigation Buttons */}
-          <button className="benefit-prev absolute left-[-20px] top-1/2 -translate-y-1/2 z-30 w-10 h-10 bg-white rounded-full shadow-md flex items-center justify-center text-[#203B23] hover:bg-[#203B23] hover:text-white transition-all duration-300 opacity-0 group-hover:opacity-100 hidden md:flex">
+          <button className="benefit-prev absolute left-[-20px] top-1/2 -translate-y-1/2 z-30 w-10 h-10 bg-white rounded-full shadow-md flex items-center justify-center text-[#6b4f3a] hover:bg-[#6b4f3a] hover:text-white transition-all duration-300 opacity-0 group-hover:opacity-100 hidden md:flex">
             <ChevronLeft size={20} />
           </button>
-          <button className="benefit-next absolute right-[-20px] top-1/2 -translate-y-1/2 z-30 w-10 h-10 bg-white rounded-full shadow-md flex items-center justify-center text-[#203B23] hover:bg-[#203B23] hover:text-white transition-all duration-300 opacity-0 group-hover:opacity-100 hidden md:flex">
+          <button className="benefit-next absolute right-[-20px] top-1/2 -translate-y-1/2 z-30 w-10 h-10 bg-white rounded-full shadow-md flex items-center justify-center text-[#6b4f3a] hover:bg-[#6b4f3a] hover:text-white transition-all duration-300 opacity-0 group-hover:opacity-100 hidden md:flex">
             <ChevronRight size={20} />
           </button>
 
@@ -170,7 +170,8 @@ const BenefitsStrip = () => {
           <div className="benefits-pagination flex justify-center gap-2 mt-4" />
         </div>
 
-        <style dangerouslySetInnerHTML={{ __html: `
+        <style dangerouslySetInnerHTML={{
+          __html: `
           .benefits-pagination .swiper-pagination-bullet {
             width: 10px;
             height: 10px;

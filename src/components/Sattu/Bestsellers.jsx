@@ -15,7 +15,7 @@ import 'swiper/css/pagination';
 
 // Tiny floral divider icon from the reference
 const DividerFlower = () => (
-  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-[#10321F]">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-[#6b4f3a]">
     <path d="M12 2C12 2 14 8 18 10C18 10 12 12 12 18C12 18 10 12 6 10C6 10 12 8 12 2Z" fill="currentColor" />
     <circle cx="12" cy="10" r="2" fill="#D9A036" />
   </svg>
@@ -55,12 +55,12 @@ const ProductCard = ({ product, idx, triggerToast }) => {
     >
       {/* Corner Ornaments */}
       <div className="absolute top-2 left-2 opacity-30 pointer-events-none">
-        <svg width="40" height="40" viewBox="0 0 100 100" fill="none" stroke="#10321F" strokeWidth="1">
+        <svg width="40" height="40" viewBox="0 0 100 100" fill="none" stroke="#6b4f3a" strokeWidth="1">
           <path d="M10,10 Q30,10 50,30 Q10,30 10,10 Z M10,10 Q10,30 30,50 Q30,10 10,10 Z" />
         </svg>
       </div>
       <div className="absolute bottom-2 right-2 opacity-30 pointer-events-none rotate-180">
-        <svg width="40" height="40" viewBox="0 0 100 100" fill="none" stroke="#10321F" strokeWidth="1">
+        <svg width="40" height="40" viewBox="0 0 100 100" fill="none" stroke="#6b4f3a" strokeWidth="1">
           <path d="M10,10 Q30,10 50,30 Q10,30 10,10 Z M10,10 Q10,30 30,50 Q30,10 10,10 Z" />
         </svg>
       </div>
@@ -75,11 +75,10 @@ const ProductCard = ({ product, idx, triggerToast }) => {
         {/* Hover Wishlist Action */}
         <button
           onClick={(e) => handleAction(e, 'wishlist')}
-          className={`absolute top-3 right-3 w-9 h-9 rounded-full flex items-center justify-center transition-all duration-300 backdrop-blur-sm z-20 ${
-            isWishlisted 
-            ? "bg-[#C45525] text-white" 
-            : "bg-white/80 text-[#10321F] opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0"
-          }`}
+          className={`absolute top-3 right-3 w-9 h-9 rounded-full flex items-center justify-center transition-all duration-300 backdrop-blur-sm z-20 ${isWishlisted
+              ? "bg-[#C45525] text-white"
+              : "bg-white/80 text-[#6b4f3a] opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0"
+            }`}
         >
           <Heart size={16} fill={isWishlisted ? "currentColor" : "none"} />
         </button>
@@ -90,7 +89,7 @@ const ProductCard = ({ product, idx, triggerToast }) => {
         <span className="text-[11px] font-poppins font-bold uppercase tracking-widest text-[#C45525] mb-1">
           {product.flavor || "Flavor Type"}
         </span>
-        <h3 className="text-[22px] font-poppins font-bold text-[#10321F] mb-1 leading-tight">
+        <h3 className="text-[22px] font-poppins font-bold text-[#6b4f3a] mb-1 leading-tight">
           {product.name}
         </h3>
 
@@ -101,35 +100,34 @@ const ProductCard = ({ product, idx, triggerToast }) => {
               <Star key={i} size={14} className="fill-[#D9A036] text-[#D9A036]" />
             ))}
           </div>
-          <span className="text-sm font-bold text-[#10321F] ml-1">4.5</span>
+          <span className="text-sm font-bold text-[#6b4f3a] ml-1">4.5</span>
         </div>
 
         {/* Decorative Divider */}
         <div className="flex items-center gap-3 my-2 opacity-60">
-          <div className="h-[1px] flex-grow bg-[#10321F]/20 border-t border-dashed border-[#10321F]/30"></div>
+          <div className="h-[1px] flex-grow bg-[#6b4f3a]/20 border-t border-dashed border-[#6b4f3a]/30"></div>
           <DividerFlower />
-          <div className="h-[1px] flex-grow bg-[#10321F]/20 border-t border-dashed border-[#10321F]/30"></div>
+          <div className="h-[1px] flex-grow bg-[#6b4f3a]/20 border-t border-dashed border-[#6b4f3a]/30"></div>
         </div>
       </div>
 
       {/* Price & Action Footer */}
       <div className="flex items-center justify-between mt-auto px-1 pt-3 relative z-10">
         <div className="flex flex-col">
-          <span className="text-[28px] font-poppins font-bold text-[#10321F] leading-none">
+          <span className="text-[28px] font-poppins font-bold text-[#6b4f3a] leading-none">
             ₹{product.price}
           </span>
-          <span className="text-sm font-poppins font-semibold text-[#10321F]/50 line-through mt-0.5">
+          <span className="text-sm font-poppins font-semibold text-[#6b4f3a]/50 line-through mt-0.5">
             ₹{product.mrp || Math.round(product.price * 1.2)}
           </span>
         </div>
         <button
           onClick={(e) => handleAction(e, 'cart')}
           disabled={isInCart}
-          className={`px-5 py-2.5 rounded-[12px] text-[11px] font-bold uppercase tracking-widest flex items-center gap-2 transition-all duration-300 ${
-            isInCart 
-            ? "bg-[#C45525] text-white cursor-default opacity-80" 
-            : "bg-[#10321F] text-white hover:bg-[#C45525]"
-          }`}
+          className={`px-5 py-2.5 rounded-[12px] text-[11px] font-bold uppercase tracking-widest flex items-center gap-2 transition-all duration-300 ${isInCart
+              ? "bg-[#C45525] text-white cursor-default opacity-80"
+              : "bg-[#6b4f3a] text-white hover:bg-[#C45525]"
+            }`}
         >
           {isInCart ? "IN BAG" : "ADD"}
           <ShoppingBag size={14} className="opacity-90" />
@@ -181,26 +179,26 @@ const BestsellerProducts = () => {
 
   return (
     <section className="py-24 relative overflow-hidden">
-      <div 
+      <div
         className="absolute inset-0 block md:hidden bg-cover bg-center"
-        style={{ backgroundImage: "url('/img/b1.png')" }} 
+        style={{ backgroundImage: "url('/img/b1.png')" }}
       />
-      <div 
+      <div
         className="absolute inset-0 hidden md:block bg-cover bg-center"
-        style={{ backgroundImage: "url('/img/b1.png')" }} 
+        style={{ backgroundImage: "url('/img/b1.png')" }}
       />
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/p6-grain.png')]" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         <div className="relative">
-          <SectionHeader 
-            title="Our Bestsellers" 
+          <SectionHeader
+            title="Our Bestsellers"
             subtitle=" Shop the Collection"
           />
           <div className="absolute top-0 right-0 hidden md:block">
             <Link
               to="/shop"
-              className="text-[11px] font-poppins font-bold uppercase tracking-[0.15em] text-[#10321F] flex items-center gap-2 hover:text-[#C45525] transition-colors pb-1 border-b-[1.5px] border-dashed border-[#10321F]/40"
+              className="text-[11px] font-poppins font-bold uppercase tracking-[0.15em] text-[#6b4f3a] flex items-center gap-2 hover:text-[#C45525] transition-colors pb-1 border-b-[1.5px] border-dashed border-[#6b4f3a]/40"
             >
               <span>View Shop</span>
               <ArrowRight size={14} />
@@ -244,7 +242,7 @@ const BestsellerProducts = () => {
             initial={{ opacity: 0, y: 50, x: "-50%" }}
             animate={{ opacity: 1, y: 0, x: "-50%" }}
             exit={{ opacity: 0, y: 20, x: "-50%" }}
-            className="fixed bottom-12 left-1/2 z-[200] bg-[#10321F] border border-white/10 text-[#FAF4E3] px-8 py-5 rounded-[24px] shadow-2xl flex items-center gap-6 backdrop-blur-xl max-w-md w-[90%]"
+            className="fixed bottom-12 left-1/2 z-[200] bg-[#6b4f3a] border border-white/10 text-[#FAF4E3] px-8 py-5 rounded-[24px] shadow-2xl flex items-center gap-6 backdrop-blur-xl max-w-md w-[90%]"
           >
             <div className="w-10 h-10 rounded-xl bg-[#FAF4E3]/10 flex items-center justify-center text-[#976E2A]">
               <Sparkles size={20} />
@@ -263,7 +261,7 @@ const BestsellerProducts = () => {
       <style dangerouslySetInnerHTML={{
         __html: `
         .heritage-swiper .swiper-pagination-bullet {
-          background: #10321F !important;
+          background: #6b4f3a !important;
           opacity: 0.25;
           width: 8px;
           height: 8px;

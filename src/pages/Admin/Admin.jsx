@@ -159,7 +159,7 @@ const Admin = () => {
               <button
                 type="button"
                 onClick={() => setIsProductModalOpen(true)}
-                className="px-6 py-3 rounded-xl bg-[#1C3B24] text-white text-sm font-bold shadow-lg shadow-[#1C3B24]/20 hover:bg-[#112517] hover:-translate-y-0.5 transition-all flex items-center gap-2"
+                className="px-6 py-3 rounded-xl bg-[#6b4f3] text-white text-sm font-bold shadow-lg shadow-[#6b4f3]/20 hover:bg-[#112517] hover:-translate-y-0.5 transition-all flex items-center gap-2"
               >
                 Add New Product
               </button>

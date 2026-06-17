@@ -7,7 +7,7 @@ const About = () => {
   const premiumEase = [0.25, 1, 0.5, 1];
 
   return (
-    <div className="min-h-screen relative text-[#203B23] selection:bg-[#976E2A] selection:text-[#FFFDF6]">
+    <div className="min-h-screen relative text-[#6b4f3a] selection:bg-[#976E2A] selection:text-[#FFFDF6]">
       {/* Tonal Heritage Grain Overlay */}
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/p6-grain.png')] mix-blend-multiply z-0"></div>
 
@@ -22,7 +22,7 @@ const About = () => {
       />
 
       <div className="max-w-6xl mx-auto px-6 md:px-12 relative z-10 py-16 md:py-20">
-        
+
         {/* ================= EDITORIAL MANIFESTO PANEL ================= */}
         <section className="mb-20 max-w-4xl mx-auto">
           <motion.div
@@ -39,7 +39,7 @@ const About = () => {
               <div className="w-6 h-[1px] bg-[#976E2A]/30" />
             </div>
 
-            <p className="text-base md:text-lg font-poppins font-medium leading-[1.75] text-[#203B23]/90 tracking-wide">
+            <p className="text-base md:text-lg font-poppins font-medium leading-[1.75] text-[#6b4f3a]/90 tracking-wide">
               In today’s fast-paced world, finding food that is truly pure has become a luxury. That is why we are here—to bring 100% organic, chemical-free, and wholesome products straight to your doorstep, crafted with the same love and honesty as you would at home.
             </p>
           </motion.div>
@@ -51,7 +51,7 @@ const About = () => {
             <span className="text-[10px] font-poppins font-bold uppercase tracking-[0.3em] text-[#976E2A] block">
               The Framework
             </span>
-            <h2 className="text-2xl md:text-3xl font-poppins font-bold text-[#203B23] tracking-tight">
+            <h2 className="text-2xl md:text-3xl font-poppins font-bold text-[#6b4f3a] tracking-tight">
               What Makes Us Special?
             </h2>
             <div className="flex justify-center pt-1">
@@ -95,17 +95,17 @@ const About = () => {
                 >
                   {/* Strict Micro-Frame (p-1.5) Icon Asset Container */}
                   <div className="w-11 h-11 rounded-xl bg-[#FFFDF6] border border-[#E3DBC5]/60 p-1.5 shrink-0 shadow-sm group-hover:shadow-[0_8px_16px_rgba(151,110,42,0.1)] transition-all duration-500">
-                    <div className="w-full h-full rounded-lg bg-[#FAF4E3] flex items-center justify-center text-[#976E2A] group-hover:bg-[#203B23] group-hover:text-[#FFFDF6] transition-colors duration-500">
+                    <div className="w-full h-full rounded-lg bg-[#FAF4E3] flex items-center justify-center text-[#976E2A] group-hover:bg-[#6b4f3a] group-hover:text-[#FFFDF6] transition-colors duration-500">
                       <Icon size={14} strokeWidth={1.8} />
                     </div>
                   </div>
 
                   {/* High-End Content Layout Group */}
                   <div className="space-y-1.5 pt-0.5">
-                    <h3 className="text-sm font-poppins font-bold text-[#203B23] tracking-wide uppercase group-hover:text-[#976E2A] transition-colors duration-300">
+                    <h3 className="text-sm font-poppins font-bold text-[#6b4f3a] tracking-wide uppercase group-hover:text-[#976E2A] transition-colors duration-300">
                       {pillar.title}
                     </h3>
-                    <p className="text-xs text-[#203B23]/75 font-poppins leading-relaxed font-medium">
+                    <p className="text-xs text-[#6b4f3a]/75 font-poppins leading-relaxed font-medium">
                       {pillar.desc}
                     </p>
                   </div>

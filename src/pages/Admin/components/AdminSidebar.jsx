@@ -1,10 +1,10 @@
 import React from 'react';
-import { 
-  LayoutDashboard, 
-  Package, 
-  ShoppingCart, 
-  Tags, 
-  Users, 
+import {
+  LayoutDashboard,
+  Package,
+  ShoppingCart,
+  Tags,
+  Users,
   Leaf
 } from 'lucide-react';
 
@@ -21,7 +21,7 @@ const AdminSidebar = ({ activeItem, setActiveItem }) => {
     <aside className="w-64 border-r border-[#D9D3C7] bg-[#FDFBF7] flex flex-col shadow-sm">
       <div className="px-6 py-6 border-b border-[#D9D3C7]">
         <div className="flex items-center gap-3">
-          <div className="h-10 w-10 rounded-xl bg-[#1C3B24] text-[#D9A036] flex items-center justify-center shadow-md">
+          <div className="h-10 w-10 rounded-xl bg-[#6b4f3] text-[#D9A036] flex items-center justify-center shadow-md">
             <Leaf size={20} strokeWidth={2} />
           </div>
           <div>
@@ -42,11 +42,10 @@ const AdminSidebar = ({ activeItem, setActiveItem }) => {
               key={item.name}
               type="button"
               onClick={() => setActiveItem(item.name)}
-              className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all ${
-                isActive
-                  ? "bg-[#1C3B24] text-white shadow-md"
+              className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all ${isActive
+                  ? "bg-[#6b4f3] text-white shadow-md"
                   : "text-[#4A5D4E] hover:bg-[#EFECE6] hover:text-[#1C2B21]"
-              }`}
+                }`}
             >
               <Icon size={18} strokeWidth={isActive ? 2.5 : 2} />
               <span>{item.name}</span>

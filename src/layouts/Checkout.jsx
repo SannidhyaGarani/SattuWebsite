@@ -87,7 +87,7 @@ const Checkout = () => {
   if (loading) {
     return (
       <div className="min-h-screen bg-[#EFECE6] flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#1C3B24]"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#6b4f3]"></div>
       </div>
     );
   }
@@ -116,7 +116,7 @@ const Checkout = () => {
             </p>
             <Link
               to="/login"
-              className="block w-full py-4 bg-[#1C3B24] text-white rounded-2xl font-bold hover:bg-[#112517] transition-all shadow-lg shadow-[#1C3B24]/20"
+              className="block w-full py-4 bg-[#6b4f3] text-white rounded-2xl font-bold hover:bg-[#112517] transition-all shadow-lg shadow-[#6b4f3]/20"
             >
               Sign In
             </Link>
@@ -175,7 +175,7 @@ const Checkout = () => {
             >
               <Link
                 to="/shop"
-                className="px-10 py-4 bg-[#1C3B24] text-white rounded-2xl font-bold hover:bg-[#112517] transition-all shadow-lg shadow-[#1C3B24]/20"
+                className="px-10 py-4 bg-[#6b4f3] text-white rounded-2xl font-bold hover:bg-[#112517] transition-all shadow-lg shadow-[#6b4f3]/20"
               >
                 Continue Shopping
               </Link>
@@ -211,7 +211,7 @@ const Checkout = () => {
           <div className="lg:col-span-2 space-y-8">
             <div className="bg-white rounded-3xl border border-[#D9D3C7] shadow-[0_20px_60px_rgba(28,43,33,0.05)] p-8 md:p-10">
               <div className="flex items-center gap-3 mb-8">
-                <div className="w-12 h-12 rounded-2xl bg-[#1C3B24]/10 text-[#1C3B24] flex items-center justify-center">
+                <div className="w-12 h-12 rounded-2xl bg-[#6b4f3]/10 text-[#6b4f3] flex items-center justify-center">
                   <MapPin size={24} />
                 </div>
                 <h2 className="text-2xl font-poppins font-bold text-[#1C2B21]">Shipping Details</h2>
@@ -230,7 +230,7 @@ const Checkout = () => {
                       required
                       value={formData.name}
                       onChange={handleInputChange}
-                      className="w-full px-5 py-4 rounded-xl border border-[#D9D3C7] focus:border-[#1C3B24] focus:ring-1 focus:ring-[#1C3B24] outline-none bg-[#FDFBF7] text-sm transition-all"
+                      className="w-full px-5 py-4 rounded-xl border border-[#D9D3C7] focus:border-[#6b4f3] focus:ring-1 focus:ring-[#6b4f3] outline-none bg-[#FDFBF7] text-sm transition-all"
                       placeholder="John Doe"
                     />
                   </div>
@@ -245,7 +245,7 @@ const Checkout = () => {
                       required
                       value={formData.email}
                       onChange={handleInputChange}
-                      className="w-full px-5 py-4 rounded-xl border border-[#D9D3C7] focus:border-[#1C3B24] focus:ring-1 focus:ring-[#1C3B24] outline-none bg-[#FDFBF7] text-sm transition-all"
+                      className="w-full px-5 py-4 rounded-xl border border-[#D9D3C7] focus:border-[#6b4f3] focus:ring-1 focus:ring-[#6b4f3] outline-none bg-[#FDFBF7] text-sm transition-all"
                       placeholder="john@example.com"
                     />
                   </div>
@@ -262,7 +262,7 @@ const Checkout = () => {
                     required
                     value={formData.phone}
                     onChange={handleInputChange}
-                    className="w-full px-5 py-4 rounded-xl border border-[#D9D3C7] focus:border-[#1C3B24] focus:ring-1 focus:ring-[#1C3B24] outline-none bg-[#FDFBF7] text-sm transition-all"
+                    className="w-full px-5 py-4 rounded-xl border border-[#D9D3C7] focus:border-[#6b4f3] focus:ring-1 focus:ring-[#6b4f3] outline-none bg-[#FDFBF7] text-sm transition-all"
                     placeholder="+91 98765 43210"
                   />
                 </div>
@@ -278,7 +278,7 @@ const Checkout = () => {
                     rows={3}
                     value={formData.address}
                     onChange={handleInputChange}
-                    className="w-full px-5 py-4 rounded-xl border border-[#D9D3C7] focus:border-[#1C3B24] focus:ring-1 focus:ring-[#1C3B24] outline-none bg-[#FDFBF7] text-sm transition-all"
+                    className="w-full px-5 py-4 rounded-xl border border-[#D9D3C7] focus:border-[#6b4f3] focus:ring-1 focus:ring-[#6b4f3] outline-none bg-[#FDFBF7] text-sm transition-all"
                     placeholder="123, Main Street, Near Park"
                   />
                 </div>
@@ -294,7 +294,7 @@ const Checkout = () => {
                       required
                       value={formData.city}
                       onChange={handleInputChange}
-                      className="w-full px-5 py-4 rounded-xl border border-[#D9D3C7] focus:border-[#1C3B24] focus:ring-1 focus:ring-[#1C3B24] outline-none bg-[#FDFBF7] text-sm transition-all"
+                      className="w-full px-5 py-4 rounded-xl border border-[#D9D3C7] focus:border-[#6b4f3] focus:ring-1 focus:ring-[#6b4f3] outline-none bg-[#FDFBF7] text-sm transition-all"
                       placeholder="Mumbai"
                     />
                   </div>
@@ -308,7 +308,7 @@ const Checkout = () => {
                       required
                       value={formData.state}
                       onChange={handleInputChange}
-                      className="w-full px-5 py-4 rounded-xl border border-[#D9D3C7] focus:border-[#1C3B24] focus:ring-1 focus:ring-[#1C3B24] outline-none bg-[#FDFBF7] text-sm transition-all"
+                      className="w-full px-5 py-4 rounded-xl border border-[#D9D3C7] focus:border-[#6b4f3] focus:ring-1 focus:ring-[#6b4f3] outline-none bg-[#FDFBF7] text-sm transition-all"
                       placeholder="Maharashtra"
                     />
                   </div>
@@ -322,7 +322,7 @@ const Checkout = () => {
                       required
                       value={formData.pincode}
                       onChange={handleInputChange}
-                      className="w-full px-5 py-4 rounded-xl border border-[#D9D3C7] focus:border-[#1C3B24] focus:ring-1 focus:ring-[#1C3B24] outline-none bg-[#FDFBF7] text-sm transition-all"
+                      className="w-full px-5 py-4 rounded-xl border border-[#D9D3C7] focus:border-[#6b4f3] focus:ring-1 focus:ring-[#6b4f3] outline-none bg-[#FDFBF7] text-sm transition-all"
                       placeholder="400001"
                     />
                   </div>
@@ -348,17 +348,16 @@ const Checkout = () => {
                           key={method.id}
                           type="button"
                           onClick={() => setFormData({ ...formData, paymentMethod: method.id })}
-                          className={`p-6 rounded-2xl border-2 transition-all text-left ${
-                            formData.paymentMethod === method.id
-                              ? "border-[#1C3B24] bg-[#1C3B24]/5"
+                          className={`p-6 rounded-2xl border-2 transition-all text-left ${formData.paymentMethod === method.id
+                              ? "border-[#6b4f3] bg-[#6b4f3]/5"
                               : "border-[#D9D3C7] hover:border-[#4A5D4E] bg-white"
-                          }`}
+                            }`}
                         >
                           <div className="flex flex-col items-start gap-3">
                             <div
                               className={
                                 formData.paymentMethod === method.id
-                                  ? "text-[#1C3B24]"
+                                  ? "text-[#6b4f3]"
                                   : "text-[#707A72]"
                               }
                             >
@@ -383,7 +382,7 @@ const Checkout = () => {
                 <button
                   type="submit"
                   disabled={isProcessing}
-                  className="w-full py-5 bg-[#1C3B24] text-white rounded-2xl font-bold text-lg hover:bg-[#112517] transition-all shadow-lg shadow-[#1C3B24]/20 disabled:opacity-50 flex items-center justify-center gap-3"
+                  className="w-full py-5 bg-[#6b4f3] text-white rounded-2xl font-bold text-lg hover:bg-[#112517] transition-all shadow-lg shadow-[#6b4f3]/20 disabled:opacity-50 flex items-center justify-center gap-3"
                 >
                   {isProcessing ? (
                     <>
@@ -420,7 +419,7 @@ const Checkout = () => {
                           {item.flavor || "Premium Sattu"}
                         </p>
                       </div>
-                      <p className="text-base font-bold text-[#1C3B24] mt-2">
+                      <p className="text-base font-bold text-[#6b4f3] mt-2">
                         ₹{Number(item.price).toFixed(0)}
                       </p>
                     </div>
@@ -441,7 +440,7 @@ const Checkout = () => {
                   <span className="text-[10px] font-bold uppercase tracking-widest text-[#707A72]">
                     Total
                   </span>
-                  <span className="text-4xl font-poppins font-bold text-[#1C3B24]">
+                  <span className="text-4xl font-poppins font-bold text-[#6b4f3]">
                     ₹{total.toFixed(0)}
                   </span>
                 </div>
@@ -458,7 +457,7 @@ const Checkout = () => {
             initial={{ opacity: 0, y: 50, x: "-50%" }}
             animate={{ opacity: 1, y: 0, x: "-50%" }}
             exit={{ opacity: 0, y: 20, x: "-50%" }}
-            className="fixed bottom-12 left-1/2 z-50 bg-[#1C3B24] border border-white/10 text-[#EFECE6] px-6 py-4 rounded-xl shadow-2xl flex items-center gap-4 backdrop-blur-md max-w-md w-[90%]"
+            className="fixed bottom-12 left-1/2 z-50 bg-[#6b4f3] border border-white/10 text-[#EFECE6] px-6 py-4 rounded-xl shadow-2xl flex items-center gap-4 backdrop-blur-md max-w-md w-[90%]"
           >
             <Sparkles size={16} className="text-[#D9A036] shrink-0" />
             <p className="text-xs font-light tracking-wide flex-1">{feedbackMessage}</p>

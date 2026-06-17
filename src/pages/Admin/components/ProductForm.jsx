@@ -221,7 +221,7 @@ const SattuProductForm = ({ onSuccess, isEdit = false, product = null }) => {
             type="file"
             multiple
             accept="image/*"
-            className="w-full px-4 py-3 rounded-xl border border-dashed border-[#4A5D4E] hover:border-[#1C3B24] transition-colors text-sm file:mr-4 file:py-2 file:px-5 file:rounded-lg file:border-0 file:text-xs file:font-bold file:bg-[#4A5D4E]/10 file:text-[#4A5D4E] cursor-pointer bg-[#FDFBF7]"
+            className="w-full px-4 py-3 rounded-xl border border-dashed border-[#4A5D4E] hover:border-[#6b4f3] transition-colors text-sm file:mr-4 file:py-2 file:px-5 file:rounded-lg file:border-0 file:text-xs file:font-bold file:bg-[#4A5D4E]/10 file:text-[#4A5D4E] cursor-pointer bg-[#FDFBF7]"
             {...register("images")}
           />
         </div>
@@ -242,7 +242,7 @@ const SattuProductForm = ({ onSuccess, isEdit = false, product = null }) => {
         <button
           type="submit"
           disabled={loading}
-          className="px-8 py-3 rounded-xl bg-[#1C3B24] text-white text-sm font-bold shadow-lg shadow-[#1C3B24]/20 hover:bg-[#112517] hover:-translate-y-0.5 transition-all disabled:opacity-60 disabled:translate-y-0"
+          className="px-8 py-3 rounded-xl bg-[#6b4f3] text-white text-sm font-bold shadow-lg shadow-[#6b4f3]/20 hover:bg-[#112517] hover:-translate-y-0.5 transition-all disabled:opacity-60 disabled:translate-y-0"
         >
           {loading ? (
             <span className="flex items-center gap-2">

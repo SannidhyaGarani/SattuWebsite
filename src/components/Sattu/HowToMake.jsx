@@ -36,7 +36,7 @@ const steps = [
 
 const HowToMake = () => {
   return (
-    <section 
+    <section
       className="py-24 relative overflow-hidden bg-cover bg-center border-t border-b border-[#E3DBC5]"
       style={{ backgroundImage: "url('/img/b3.png')" }}
     >
@@ -45,19 +45,19 @@ const HowToMake = () => {
       <div className="absolute inset-0 opacity-[0.02] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/p6-grain.png')]" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
-        
+
         {/* Section Title Unit */}
-        <SectionHeader 
-          title="How to Make Sattu Drink" 
+        <SectionHeader
+          title="How to Make Sattu Drink"
           subtitle="Crafting the Perfect Blend"
         />
 
         {/* DESKTOP GALLERY GRID */}
         <div className="hidden lg:grid grid-cols-4 gap-8 relative mt-20">
-          
+
           {/* Fine Editorial Connecting Track Line */}
           <div className="absolute top-40 left-0 w-full h-[1px] px-32 pointer-events-none">
-            <motion.div 
+            <motion.div
               initial={{ scaleX: 0 }}
               whileInView={{ scaleX: 1 }}
               viewport={{ once: true }}
@@ -77,28 +77,28 @@ const HowToMake = () => {
             >
               {/* Arched Frame Asset with Decreased Stroke (p-1.5) & Rich Ambient Shadows */}
               <div className="relative w-full aspect-[3/4] max-w-[230px] bg-[#FFFDF6] border border-[#E3DBC5]/80 rounded-t-[120px] rounded-b-[24px] p-1.5 mb-8 transition-all duration-500 group-hover:border-[#976E2A]/40 shadow-[0_20px_40px_rgba(32,59,35,0.06),0_1px_3px_rgba(32,59,35,0.02)] group-hover:shadow-[0_35px_60px_rgba(151,110,42,0.14),0_2px_8px_rgba(151,110,42,0.04)] group-hover:-translate-y-1">
-                
+
                 {/* Internal Image Viewport Mask */}
                 <div className="w-full h-full overflow-hidden rounded-t-[115px] rounded-b-[18px] relative bg-[#FAF4E3]">
-                  <img 
-                    src={step.image} 
-                    alt={step.title} 
-                    className="w-full h-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:scale-105" 
+                  <img
+                    src={step.image}
+                    alt={step.title}
+                    className="w-full h-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:scale-105"
                   />
                   {/* Subtle grading overlay tint */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#203B23]/10 via-transparent to-transparent opacity-60" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#6b4f3a]/10 via-transparent to-transparent opacity-60" />
                 </div>
 
                 {/* Floating Wireframe Step Medal */}
-                <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-9 h-9 rounded-full bg-[#203B23] border border-[#976E2A]/30 flex items-center justify-center text-white shadow-[0_4px_12px_rgba(32,59,35,0.3)] transition-all duration-300 group-hover:bg-[#976E2A] group-hover:shadow-[0_6px_16px_rgba(151,110,42,0.4)]">
+                <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-9 h-9 rounded-full bg-[#6b4f3a] border border-[#976E2A]/30 flex items-center justify-center text-white shadow-[0_4px_12px_rgba(32,59,35,0.3)] transition-all duration-300 group-hover:bg-[#976E2A] group-hover:shadow-[0_6px_16px_rgba(151,110,42,0.4)]">
                   <span className="text-[11px] font-poppins font-bold tracking-wider">{step.number}</span>
                 </div>
               </div>
-              
+
               {/* Typography Structure */}
               <div className="px-2 mt-2">
-                
-                <h3 className="font-poppins text-lg font-bold text-[#203B23] leading-snug tracking-tight group-hover:text-[#976E2A] transition-colors duration-300 mb-1">
+
+                <h3 className="font-poppins text-lg font-bold text-[#6b4f3a] leading-snug tracking-tight group-hover:text-[#976E2A] transition-colors duration-300 mb-1">
                   {step.title}
                 </h3>
                 <span className="text-[10px] font-poppins font-bold uppercase tracking-[0.25em] text-[#976E2A] block ">
@@ -128,24 +128,24 @@ const HowToMake = () => {
             {steps.map((step) => (
               <SwiperSlide key={step.number} className="h-full">
                 <div className="group flex flex-col items-center w-full text-center relative px-2">
-                  
+
                   {/* Matching Mobile Architectural Frame with Premium Adjustments */}
                   <div className="relative w-full aspect-[3/4] max-w-[230px] mx-auto bg-[#FFFDF6] border border-[#E3DBC5]/80 rounded-t-[120px] rounded-b-[24px] p-1.5 mb-8 shadow-[0_16px_32px_rgba(32,59,35,0.05)]">
                     <div className="w-full h-full overflow-hidden rounded-t-[115px] rounded-b-[18px] relative bg-[#FAF4E3]">
                       <img src={step.image} alt={step.title} className="w-full h-full object-cover" />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#203B23]/10 via-transparent to-transparent opacity-60" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#6b4f3a]/10 via-transparent to-transparent opacity-60" />
                     </div>
 
-                    <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-9 h-9 rounded-full bg-[#203B23] border border-[#976E2A]/30 flex items-center justify-center text-white shadow-[0_4px_12px_rgba(32,59,35,0.2)]">
+                    <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-9 h-9 rounded-full bg-[#6b4f3a] border border-[#976E2A]/30 flex items-center justify-center text-white shadow-[0_4px_12px_rgba(32,59,35,0.2)]">
                       <span className="text-[11px] font-poppins font-bold tracking-wider">{step.number}</span>
                     </div>
                   </div>
-                  
+
                   <div className="mt-2">
                     <span className="text-[10px] font-poppins font-bold uppercase tracking-[0.25em] text-[#976E2A] block mb-2">
                       {step.subtitle}
                     </span>
-                    <h3 className="font-poppins text-base font-bold text-[#203B23] leading-snug tracking-tight">
+                    <h3 className="font-poppins text-base font-bold text-[#6b4f3a] leading-snug tracking-tight">
                       {step.title}
                     </h3>
                   </div>
@@ -158,9 +158,10 @@ const HowToMake = () => {
       </div>
 
       {/* Reconfigured Minimal Slider Pagination Architecture */}
-      <style dangerouslySetInnerHTML={{__html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         .premium-htw-swiper .swiper-pagination-bullet {
-          background: #203B23 !important;
+          background: #6b4f3a !important;
           opacity: 0.15;
           width: 6px;
           height: 6px;
@@ -178,10 +179,10 @@ const HowToMake = () => {
       `}} />
 
       {/* Fine-Art Background Floating Accents */}
-      <div className="absolute left-6 bottom-10 opacity-10 rotate-[35deg] hidden lg:block text-[#203B23]">
+      <div className="absolute left-6 bottom-10 opacity-10 rotate-[35deg] hidden lg:block text-[#6b4f3a]">
         <Leaf size={48} strokeWidth={1.2} />
       </div>
-      <div className="absolute right-10 top-1/4 opacity-10 -rotate-[15deg] hidden lg:block text-[#203B23]">
+      <div className="absolute right-10 top-1/4 opacity-10 -rotate-[15deg] hidden lg:block text-[#6b4f3a]">
         <Leaf size={38} strokeWidth={1.2} />
       </div>
     </section>

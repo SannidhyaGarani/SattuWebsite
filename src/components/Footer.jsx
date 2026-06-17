@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { 
-  Leaf, Instagram, Facebook, Twitter, Youtube, 
-  ArrowRight, Phone, Mail, MapPin, Truck, 
-  ShieldCheck, Zap, Clock, TrendingUp, ChevronUp 
+import {
+  Leaf, Instagram, Facebook, Twitter, Youtube,
+  ArrowRight, Phone, Mail, MapPin, Truck,
+  ShieldCheck, Zap, Clock, TrendingUp, ChevronUp
 } from 'lucide-react';
 
 const Footer = () => {
@@ -12,11 +12,11 @@ const Footer = () => {
   return (
     <footer className="bg-[#EFECE6] pt-24 lg:pt-28 pb-12 overflow-hidden border-t border-[#D9D3C7] tracking-normal">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
-        
+
         {/* ================= USER BENEFIT STRIP ================= */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-10 gap-x-12 pb-16 border-b border-[#D9D3C7]/80 mb-20">
           <div className="flex items-start gap-4 group">
-            <div className="p-3 rounded-xl bg-white text-[#1C3B24] shadow-sm border border-[#D9D3C7]/40">
+            <div className="p-3 rounded-xl bg-white text-[#6b4f3] shadow-sm border border-[#D9D3C7]/40">
               <Truck size={20} strokeWidth={1.25} />
             </div>
             <div>
@@ -26,7 +26,7 @@ const Footer = () => {
           </div>
 
           <div className="flex items-start gap-4 group">
-            <div className="p-3 rounded-xl bg-white text-[#1C3B24] shadow-sm border border-[#D9D3C7]/40">
+            <div className="p-3 rounded-xl bg-white text-[#6b4f3] shadow-sm border border-[#D9D3C7]/40">
               <TrendingUp size={20} strokeWidth={1.25} />
             </div>
             <div>
@@ -36,7 +36,7 @@ const Footer = () => {
           </div>
 
           <div className="flex items-start gap-4 group">
-            <div className="p-3 rounded-xl bg-white text-[#1C3B24] shadow-sm border border-[#D9D3C7]/40">
+            <div className="p-3 rounded-xl bg-white text-[#6b4f3] shadow-sm border border-[#D9D3C7]/40">
               <ShieldCheck size={20} strokeWidth={1.25} />
             </div>
             <div>
@@ -46,7 +46,7 @@ const Footer = () => {
           </div>
 
           <div className="flex items-start gap-4 group">
-            <div className="p-3 rounded-xl bg-white text-[#1C3B24] shadow-sm border border-[#D9D3C7]/40">
+            <div className="p-3 rounded-xl bg-white text-[#6b4f3] shadow-sm border border-[#D9D3C7]/40">
               <Zap size={20} strokeWidth={1.25} />
             </div>
             <div>
@@ -58,14 +58,14 @@ const Footer = () => {
 
         {/* ================= MAIN ASYMMETRIC MATRICES ================= */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-y-16 gap-x-16 lg:gap-x-24 mb-20">
-          
+
           {/* LEFT SIDE: Brand & Structured Navigation Ecosystem (7 Columns) */}
           <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-x-12 gap-y-12">
-            
+
             {/* Column 1: Brand Pitch */}
             <div className="flex flex-col gap-6 sm:col-span-1">
               <Link to="/" className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-[#1C3B24] rounded-xl flex items-center justify-center p-2.5 shadow-sm">
+                <div className="w-10 h-10 bg-[#6b4f3] rounded-xl flex items-center justify-center p-2.5 shadow-sm">
                   <Leaf className="text-[#D9A036] w-full h-full" strokeWidth={1.5} />
                 </div>
                 <div className="flex flex-col">
@@ -80,7 +80,7 @@ const Footer = () => {
               </p>
               <div className="flex gap-5 mt-2">
                 {[Instagram, Facebook, Youtube, Twitter].map((Icon, i) => (
-                  <a key={i} href="#" className="text-[#1C3B24]/70 hover:text-[#D9A036] transition-colors duration-300">
+                  <a key={i} href="#" className="text-[#6b4f3]/70 hover:text-[#D9A036] transition-colors duration-300">
                     <Icon size={18} strokeWidth={1.5} />
                   </a>
                 ))}
@@ -92,7 +92,7 @@ const Footer = () => {
               <h4 className="text-[#1C2B21] font-poppins font-semibold text-xs uppercase tracking-[0.2em] mb-6">Ecosystem</h4>
               <div className="flex flex-col gap-3.5">
                 {['Home', 'Shop Flavours', 'Product Benefits', 'How to Formulation', 'Verified Reviews', 'Contact Portfolio'].map((item) => (
-                  <Link key={item} to="#" className="text-[#4A574E] hover:text-[#1C3B24] font-poppins text-[13px] transition-colors duration-200 group flex items-center gap-0 hover:gap-1">
+                  <Link key={item} to="#" className="text-[#4A574E] hover:text-[#6b4f3] font-poppins text-[13px] transition-colors duration-200 group flex items-center gap-0 hover:gap-1">
                     <span className="transition-all">{item}</span>
                   </Link>
                 ))}
@@ -104,7 +104,7 @@ const Footer = () => {
               <h4 className="text-[#1C2B21] font-poppins font-semibold text-xs uppercase tracking-[0.2em] mb-6">Client Services</h4>
               <div className="flex flex-col gap-3.5">
                 {['My Account Control', 'Track Realtime Order', 'Shipping Logistics', 'Returns & Exchanges', 'Terms of Service', 'Privacy Charter'].map((item) => (
-                  <Link key={item} to="#" className="text-[#4A574E] hover:text-[#1C3B24] font-poppins text-[13px] transition-colors duration-200">
+                  <Link key={item} to="#" className="text-[#4A574E] hover:text-[#6b4f3] font-poppins text-[13px] transition-colors duration-200">
                     {item}
                   </Link>
                 ))}
@@ -115,21 +115,21 @@ const Footer = () => {
 
           {/* RIGHT SIDE: Connected Newsletter & Concierge Row (5 Columns) */}
           <div className="lg:col-span-5 bg-white/40 border border-[#D9D3C7]/60 rounded-2xl p-8 lg:p-10 flex flex-col justify-between shadow-sm">
-            
+
             {/* Top Subrow: Editorial Newsletter */}
             <div className="mb-8">
               <h4 className="text-[#1C2B21] font-poppins font-bold text-lg lg:text-xl tracking-tight mb-2">Join the Wellness Circle</h4>
               <p className="text-[13px] text-[#4A574E] mb-6 leading-relaxed font-poppins">
                 Subscribe to unlock early batches, seasonal flavor reserves, and curated nutritional strategies.
               </p>
-              
-              <div className="flex items-center bg-white border border-[#D9D3C7] rounded-xl p-1.5 shadow-sm focus-within:border-[#1C3B24] focus-within:ring-1 focus-within:ring-[#1C3B24]/20 transition-all">
-                <input 
-                  type="email" 
-                  placeholder="Enter your email address" 
-                  className="w-full text-sm px-3 py-2 bg-transparent focus:outline-none text-[#1C2B21] placeholder-[#707A72]/70 font-poppins" 
+
+              <div className="flex items-center bg-white border border-[#D9D3C7] rounded-xl p-1.5 shadow-sm focus-within:border-[#6b4f3] focus-within:ring-1 focus-within:ring-[#6b4f3]/20 transition-all">
+                <input
+                  type="email"
+                  placeholder="Enter your email address"
+                  className="w-full text-sm px-3 py-2 bg-transparent focus:outline-none text-[#1C2B21] placeholder-[#707A72]/70 font-poppins"
                 />
-                <button className="bg-[#1C3B24] text-white px-5 py-2.5 font-poppins font-medium text-xs tracking-wider uppercase rounded-lg hover:bg-[#112517] transition-all duration-300 flex items-center gap-2 flex-shrink-0">
+                <button className="bg-[#6b4f3] text-white px-5 py-2.5 font-poppins font-medium text-xs tracking-wider uppercase rounded-lg hover:bg-[#112517] transition-all duration-300 flex items-center gap-2 flex-shrink-0">
                   <span>Join</span>
                   <ArrowRight size={13} strokeWidth={2} />
                 </button>
@@ -141,11 +141,11 @@ const Footer = () => {
               <div className="flex flex-col gap-3">
                 <span className="text-[10px] font-poppins font-bold uppercase tracking-[0.15em] text-[#D9A036]">Direct Lines</span>
                 <a href="tel:+919876543210" className="flex items-center gap-2.5 text-xs font-semibold font-poppins text-[#1C2B21] hover:text-[#D9A036] transition-colors">
-                  <Phone size={13} className="text-[#1C3B24]" strokeWidth={2} />
+                  <Phone size={13} className="text-[#6b4f3]" strokeWidth={2} />
                   <span>+91 98765 43210</span>
                 </a>
-                <a href="mailto:hello@sattudrink.com" className="flex items-center gap-2.5 text-xs font-poppins text-[#4A574E] hover:text-[#1C3B24] transition-colors">
-                  <Mail size={13} className="text-[#1C3B24]" strokeWidth={1.5} />
+                <a href="mailto:hello@sattudrink.com" className="flex items-center gap-2.5 text-xs font-poppins text-[#4A574E] hover:text-[#6b4f3] transition-colors">
+                  <Mail size={13} className="text-[#6b4f3]" strokeWidth={1.5} />
                   <span>hello@sattudrink.com</span>
                 </a>
               </div>
@@ -153,11 +153,11 @@ const Footer = () => {
               <div className="flex flex-col gap-3">
                 <span className="text-[10px] font-poppins font-bold uppercase tracking-[0.15em] text-[#D9A036]">HQ & Hours</span>
                 <div className="flex items-center gap-2.5 text-xs font-poppins text-[#4A574E]">
-                  <MapPin size={13} className="text-[#1C3B24]" strokeWidth={1.5} />
+                  <MapPin size={13} className="text-[#6b4f3]" strokeWidth={1.5} />
                   <span>Bihar, India</span>
                 </div>
                 <div className="flex items-center gap-2.5 text-xs font-poppins text-[#4A574E]">
-                  <Clock size={13} className="text-[#1C3B24]" strokeWidth={1.5} />
+                  <Clock size={13} className="text-[#6b4f3]" strokeWidth={1.5} />
                   <span>Mon - Sat: 9 AM - 7 PM</span>
                 </div>
               </div>
@@ -172,18 +172,18 @@ const Footer = () => {
           <p className="text-[#707A72] font-poppins text-xs order-2 md:order-1">
             © {currentYear} Sattu Drink. Executed with premium native integrity. All Rights Reserved.
           </p>
-          
+
           {/* Grayscale Premium Payment Gateway Vectors */}
           <div className="flex items-center gap-6 order-1 md:order-2">
-             <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/UPI-Logo-vector.svg" alt="UPI" className="h-4 grayscale opacity-30 hover:opacity-90 transition-all duration-300 cursor-pointer" />
-             <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="VISA" className="h-3 grayscale opacity-30 hover:opacity-90 transition-all duration-300 cursor-pointer" />
-             <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard" className="h-4.5 grayscale opacity-30 hover:opacity-90 transition-all duration-300 cursor-pointer" />
-             <img src="https://upload.wikimedia.org/wikipedia/commons/c/cb/Rupay-Logo.svg" alt="RuPay" className="h-4 grayscale opacity-30 hover:opacity-90 transition-all duration-300 cursor-pointer" />
+            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/UPI-Logo-vector.svg" alt="UPI" className="h-4 grayscale opacity-30 hover:opacity-90 transition-all duration-300 cursor-pointer" />
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="VISA" className="h-3 grayscale opacity-30 hover:opacity-90 transition-all duration-300 cursor-pointer" />
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard" className="h-4.5 grayscale opacity-30 hover:opacity-90 transition-all duration-300 cursor-pointer" />
+            <img src="https://upload.wikimedia.org/wikipedia/commons/c/cb/Rupay-Logo.svg" alt="RuPay" className="h-4 grayscale opacity-30 hover:opacity-90 transition-all duration-300 cursor-pointer" />
           </div>
 
-          <button 
+          <button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="w-10 h-10 bg-white border border-[#D9D3C7] text-[#1C3B24] rounded-full flex items-center justify-center hover:bg-[#1C3B24] hover:text-white transition-all duration-300 shadow-sm hover:shadow-md order-3"
+            className="w-10 h-10 bg-white border border-[#D9D3C7] text-[#6b4f3] rounded-full flex items-center justify-center hover:bg-[#6b4f3] hover:text-white transition-all duration-300 shadow-sm hover:shadow-md order-3"
             aria-label="Scroll back to top"
           >
             <ChevronUp size={18} strokeWidth={1.5} />

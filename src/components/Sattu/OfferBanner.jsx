@@ -5,16 +5,16 @@ import { Leaf, Heart, Users, Sparkles, GlassWater, Zap, CheckCircle2, Globe2 } f
 const SattuStorySection = () => {
   return (
     <div className="w-full max-w-7xl mx-auto font-poppins overflow-hidden bg-[#EFECE6] border border-[#D9D3C7] rounded-2xl shadow-xl shadow-stone-900/5 my-12">
-      
+
       {/* MAIN RUSTIC HERITAGE GRID */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 w-full">
-        
+
         {/* Column 1: Farmer Image Background */}
         <div className="relative h-72 md:h-96 lg:h-auto group overflow-hidden border-b md:border-b-0 md:border-r border-[#D9D3C7]">
-          <div 
+          <div
             className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-            style={{ 
-              backgroundImage: `url('https://images.unsplash.com/photo-1574943320219-553eb213f72d?w=800&auto=format&fit=crop&q=80')` 
+            style={{
+              backgroundImage: `url('https://images.unsplash.com/photo-1574943320219-553eb213f72d?w=800&auto=format&fit=crop&q=80')`
             }}
           />
           {/* Elegant warm editorial gradient scrim */}
@@ -25,7 +25,7 @@ const SattuStorySection = () => {
         <div className="bg-[#EFECE6] p-8 lg:p-10 xl:p-12 flex flex-col justify-center border-b lg:border-b-0 lg:border-r border-[#D9D3C7] relative">
           {/* Subtle tactile premium geometric overlay */}
           <div className="absolute inset-0 opacity-[0.02] pointer-events-none bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:20px_20px]"></div>
-          
+
           <div className="relative z-10">
             <span className="text-[#D9A036] font-poppins font-bold text-xs uppercase tracking-widest mb-3 block">
               Our Legacy
@@ -44,9 +44,9 @@ const SattuStorySection = () => {
         </div>
 
         {/* Column 3: Feature Highlights (Signature Forest Green Block) */}
-        <div className="bg-[#1C3B24] p-8 lg:p-10 xl:p-12 text-[#EFECE6] flex flex-col justify-center space-y-6 lg:border-r border-[#112517] relative">
+        <div className="bg-[#6b4f3] p-8 lg:p-10 xl:p-12 text-[#EFECE6] flex flex-col justify-center space-y-6 lg:border-r border-[#112517] relative">
           <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[linear-gradient(to_right,#fff_1px,transparent_1px)] [background-size:40px] hidden lg:block"></div>
-          
+
           {/* Feature 1 */}
           <div className="flex items-start space-x-4 group">
             <div className="mt-1 p-2 rounded-lg bg-white/5 border border-white/10 text-[#D9A036] transition-colors group-hover:bg-[#D9A036]/10">
@@ -94,10 +94,10 @@ const SattuStorySection = () => {
 
         {/* Column 4: Product Image Background */}
         <div className="relative h-72 md:h-96 lg:h-auto group overflow-hidden">
-          <div 
+          <div
             className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-            style={{ 
-              backgroundImage: `url('img/s11.png')` 
+            style={{
+              backgroundImage: `url('img/s11.png')`
             }}
           />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-amber-950/20 to-amber-950/50 mix-blend-multiply"></div>
@@ -106,8 +106,8 @@ const SattuStorySection = () => {
       </div>
 
       {/* BOTTOM DEEP-GREEN TRUST FOOTER BANNER */}
-      <div className="bg-[#112517] text-white px-8 py-8 lg:px-12 flex flex-col lg:flex-row items-center justify-between gap-8 border-t border-[#1C3B24] relative">
-        
+      <div className="bg-[#112517] text-white px-8 py-8 lg:px-12 flex flex-col lg:flex-row items-center justify-between gap-8 border-t border-[#6b4f3] relative">
+
         {/* Left Side: Tagline & CTA */}
         <div className="flex flex-col sm:flex-row items-center gap-6 w-full lg:w-auto justify-between lg:justify-start z-10">
           <div className="text-center sm:text-left">
@@ -116,7 +116,7 @@ const SattuStorySection = () => {
             </h3>
             <p className="text-[#A3B8A8] text-xs mt-1 font-poppins tracking-wide uppercase">No Added Preservatives • Clean Label Certified</p>
           </div>
-          <motion.button 
+          <motion.button
             whileHover={{ scale: 1.02, backgroundColor: '#C28E2E' }}
             whileTap={{ scale: 0.98 }}
             className="bg-[#D9A036] text-[#112517] font-poppins font-bold uppercase tracking-widest text-xs px-8 py-4 rounded-md transition-colors shadow-lg shadow-black/10 whitespace-nowrap w-full sm:w-auto text-center"
@@ -127,7 +127,7 @@ const SattuStorySection = () => {
 
         {/* Right Side: Trust Seals */}
         <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-8 text-xs font-semibold uppercase tracking-widest text-[#D9E2DC] z-10 border-t border-white/5 pt-6 lg:pt-0 lg:border-t-0 w-full lg:w-auto">
-          
+
           {/* Trust item 1 */}
           <div className="flex items-center space-x-2.5 group">
             <Leaf className="w-4 h-4 text-[#D9A036] transition-transform group-hover:rotate-12" strokeWidth={2} />

@@ -37,8 +37,8 @@ const Cart = () => {
   }
 
   return (
-    <div 
-      className="min-h-screen relative bg-cover bg-center text-[#203B23] selection:bg-[#976E2A] selection:text-[#FFFDF6]"
+    <div
+      className="min-h-screen relative bg-cover bg-center text-[#6b4f3a] selection:bg-[#976E2A] selection:text-[#FFFDF6]"
       style={{ backgroundImage: "url('/img/b3.png')" }}
     >
       {/* Premium Multi-layered Tonal Overlays */}
@@ -57,11 +57,11 @@ const Cart = () => {
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 py-14 relative z-10">
         <div className="flex flex-col lg:flex-row gap-10 items-start">
-          
+
           {/* MAIN CART ARCHIVE AREA */}
           <div className="flex-1 w-full">
             {cart.length === 0 ? (
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 className="bg-[#FFFDF6] rounded-[32px] border border-[#E3DBC5] p-12 text-center shadow-[0_15px_35px_rgba(32,59,35,0.04)] max-w-2xl mx-auto"
@@ -69,15 +69,15 @@ const Cart = () => {
                 <div className="w-14 h-14 rounded-full bg-[#FAF4E3] border border-[#E3DBC5] flex items-center justify-center text-[#976E2A] mx-auto mb-5">
                   <ShoppingBag size={20} strokeWidth={1.2} />
                 </div>
-                <h3 className="text-xl font-poppins font-bold text-[#203B23] mb-2">
+                <h3 className="text-xl font-poppins font-bold text-[#6b4f3a] mb-2">
                   Archive Unoccupied
                 </h3>
-                <p className="text-xs text-[#203B23]/70 font-poppins italic max-w-xs mx-auto mb-8 leading-relaxed">
+                <p className="text-xs text-[#6b4f3a]/70 font-poppins italic max-w-xs mx-auto mb-8 leading-relaxed">
                   Your premium formulation vault is currently empty. Begin adding items from our heritage registry.
                 </p>
                 <Link
                   to="/shop"
-                  className="inline-flex items-center gap-3 px-8 py-4 bg-[#203B23] text-[#FFFDF6] font-poppins font-bold text-[10px] uppercase tracking-[0.25em] rounded-xl hover:bg-[#976E2A] transition-all duration-300 shadow-md"
+                  className="inline-flex items-center gap-3 px-8 py-4 bg-[#6b4f3a] text-[#FFFDF6] font-poppins font-bold text-[10px] uppercase tracking-[0.25em] rounded-xl hover:bg-[#976E2A] transition-all duration-300 shadow-md"
                 >
                   Return to Boutique
                   <ArrowRight size={12} />
@@ -90,7 +90,7 @@ const Cart = () => {
                     {cart.length} Artisanal Blends Registered
                   </h2>
                 </div>
-                
+
                 {/* COMPACT ITEM ROW STACK */}
                 <div className="space-y-4">
                   {cart.map((item, idx) => (
@@ -117,10 +117,10 @@ const Cart = () => {
                         <span className="text-[9px] font-poppins font-bold uppercase tracking-[0.2em] text-[#976E2A]">
                           {item.flavor || "Classic Formulation"}
                         </span>
-                        <h3 className="text-lg font-poppins font-bold text-[#203B23] tracking-tight group-hover:text-[#976E2A] transition-colors duration-300">
+                        <h3 className="text-lg font-poppins font-bold text-[#6b4f3a] tracking-tight group-hover:text-[#976E2A] transition-colors duration-300">
                           {item.name}
                         </h3>
-                        <p className="text-xl font-poppins font-bold text-[#203B23] pt-1">
+                        <p className="text-xl font-poppins font-bold text-[#6b4f3a] pt-1">
                           ₹{Number(item.price).toFixed(0)}
                         </p>
                       </div>
@@ -128,7 +128,7 @@ const Cart = () => {
                       {/* Redesigned Compact Removal Action */}
                       <button
                         onClick={() => removeFromCart(item.id)}
-                        className="sm:mr-2 p-3.5 rounded-xl bg-[#FAF4E3] text-[#203B23]/40 border border-[#E3DBC5]/40 hover:bg-red-50 hover:text-red-600 hover:border-red-100 transition-all duration-300 group/trash shadow-sm"
+                        className="sm:mr-2 p-3.5 rounded-xl bg-[#FAF4E3] text-[#6b4f3a]/40 border border-[#E3DBC5]/40 hover:bg-red-50 hover:text-red-600 hover:border-red-100 transition-all duration-300 group/trash shadow-sm"
                         aria-label="Remove item"
                       >
                         <Trash2 size={15} strokeWidth={1.8} className="group-hover/trash:scale-105 transition-transform" />
@@ -143,7 +143,7 @@ const Cart = () => {
           {/* SUMMARY SIDEBAR */}
           {cart.length > 0 && (
             <aside className="w-full lg:w-[380px] shrink-0 sticky top-32">
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, ease: premiumEase }}
@@ -154,34 +154,34 @@ const Cart = () => {
                   <Sparkles size={16} className="text-[#976E2A]" />
                 </div>
 
-                <h2 className="text-lg font-poppins font-bold text-[#203B23] mb-6 border-b border-[#E3DBC5]/60 pb-4">
+                <h2 className="text-lg font-poppins font-bold text-[#6b4f3a] mb-6 border-b border-[#E3DBC5]/60 pb-4">
                   Archive Summary
                 </h2>
 
                 {/* Computational Metadata Matrix */}
                 <div className="space-y-4 mb-8">
-                  <div className="flex justify-between items-baseline font-poppins font-bold text-[9px] uppercase tracking-wider text-[#203B23]/60">
+                  <div className="flex justify-between items-baseline font-poppins font-bold text-[9px] uppercase tracking-wider text-[#6b4f3a]/60">
                     <span>Provisional Subtotal</span>
-                    <span className="text-[#203B23] font-poppins font-bold text-sm">₹{total.toFixed(0)}</span>
+                    <span className="text-[#6b4f3a] font-poppins font-bold text-sm">₹{total.toFixed(0)}</span>
                   </div>
-                  <div className="flex justify-between items-baseline font-poppins font-bold text-[9px] uppercase tracking-wider text-[#203B23]/60">
+                  <div className="flex justify-between items-baseline font-poppins font-bold text-[9px] uppercase tracking-wider text-[#6b4f3a]/60">
                     <span>Artisanal Logistics</span>
                     <span className="text-[#976E2A] font-poppins italic text-xs tracking-normal normal-case">Complimentary</span>
                   </div>
-                  <div className="flex justify-between items-baseline font-poppins font-bold text-[9px] uppercase tracking-wider text-[#203B23]/60">
+                  <div className="flex justify-between items-baseline font-poppins font-bold text-[9px] uppercase tracking-wider text-[#6b4f3a]/60">
                     <span>Fiscal Asset Allocation (GST)</span>
-                    <span className="text-[#203B23] font-poppins font-bold text-sm">₹0.00</span>
+                    <span className="text-[#6b4f3a] font-poppins font-bold text-sm">₹0.00</span>
                   </div>
-                  
+
                   {/* Total Configuration Divider */}
                   <div className="pt-5 border-t border-dashed border-[#E3DBC5] flex justify-between items-end">
                     <div className="space-y-0.5">
                       <span className="text-[9px] font-poppins font-bold text-[#976E2A] uppercase tracking-[0.3em] block">
                         Total Value
                       </span>
-                      <span className="text-[9px] text-[#203B23]/40 font-poppins italic block">Incl. gallery wrap packaging</span>
+                      <span className="text-[9px] text-[#6b4f3a]/40 font-poppins italic block">Incl. gallery wrap packaging</span>
                     </div>
-                    <span className="text-3xl font-poppins font-bold text-[#203B23] tracking-tight leading-none">
+                    <span className="text-3xl font-poppins font-bold text-[#6b4f3a] tracking-tight leading-none">
                       ₹{total.toFixed(0)}
                     </span>
                   </div>
@@ -190,7 +190,7 @@ const Cart = () => {
                 {/* Primary Secure Action Node */}
                 <button
                   onClick={handleCheckout}
-                  className="w-full py-4.5 bg-[#203B23] text-[#FFFDF6] font-poppins font-bold text-[10px] uppercase tracking-[0.25em] rounded-xl hover:bg-[#976E2A] hover:shadow-[0_12px_24px_rgba(151,110,42,0.2)] transition-all duration-500 shadow-[0_10px_20px_rgba(32,59,35,0.12)] mb-8 flex items-center justify-center gap-3 group/checkout"
+                  className="w-full py-4.5 bg-[#6b4f3a] text-[#FFFDF6] font-poppins font-bold text-[10px] uppercase tracking-[0.25em] rounded-xl hover:bg-[#976E2A] hover:shadow-[0_12px_24px_rgba(151,110,42,0.2)] transition-all duration-500 shadow-[0_10px_20px_rgba(32,59,35,0.12)] mb-8 flex items-center justify-center gap-3 group/checkout"
                 >
                   <span>Begin Secure Checkout</span>
                   <ChevronRight size={14} className="group-hover/checkout:translate-x-0.5 transition-transform" />
@@ -210,10 +210,10 @@ const Cart = () => {
                           <Icon size={15} strokeWidth={1.5} />
                         </div>
                         <div className="space-y-0.5">
-                          <p className="text-[9px] font-poppins font-bold text-[#203B23] uppercase tracking-wider">
+                          <p className="text-[9px] font-poppins font-bold text-[#6b4f3a] uppercase tracking-wider">
                             {badge.title}
                           </p>
-                          <p className="text-[10px] font-poppins italic text-[#203B23]/50 leading-none">
+                          <p className="text-[10px] font-poppins italic text-[#6b4f3a]/50 leading-none">
                             {badge.sub}
                           </p>
                         </div>

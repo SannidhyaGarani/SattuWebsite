@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  Activity, ShieldCheck, Dumbbell, Feather, Sparkles, 
-  ArrowUpRight, Compass, LineChart, Droplet, Flame 
+import {
+  Activity, ShieldCheck, Dumbbell, Feather, Sparkles,
+  ArrowUpRight, Compass, LineChart, Droplet, Flame
 } from 'lucide-react';
 
 const Benefits = () => {
@@ -46,15 +46,15 @@ const Benefits = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-transparent pt-32 lg:pt-48 pb-32 text-[#1C2B21] relative selection:bg-[#1C3B24] selection:text-white">
+    <div className="min-h-screen bg-transparent pt-32 lg:pt-48 pb-32 text-[#1C2B21] relative selection:bg-[#6b4f3] selection:text-white">
       {/* Light Luxury Geometric Dot Mesh Overlay */}
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:32px_32px]"></div>
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 relative z-10">
-        
+
         {/* ================= HERO ARCHITECTURE ================= */}
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start mb-40">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -65,15 +65,15 @@ const Benefits = () => {
               <Sparkles size={12} strokeWidth={1.5} />
               <span className="text-[10px] font-bold uppercase tracking-[0.35em]">The Physiological Ledger</span>
             </div>
-            
+
             <h1 className="text-[11vw] sm:text-[8vw] lg:text-[6vw] font-poppins font-light text-[#1C2B21] leading-[0.95] tracking-tighter">
               Human Mechanics. <br />
-              <span className="font-poppins italic text-[#1C3B24] font-normal">Uncompromised</span> <br />
+              <span className="font-poppins italic text-[#6b4f3] font-normal">Uncompromised</span> <br />
               Efficiency.
             </h1>
-            
+
             <div className="h-[1px] w-20 bg-[#D9A036]" />
-            
+
             <p className="text-base sm:text-lg text-[#5C665E] font-light leading-relaxed max-w-2xl">
               We reject the empty promises of laboratory-isolated chemicals. Sattu delivers macro-nourishment that aligns perfectly with human biology, providing functional performance rooted in clean agricultural truth.
             </p>
@@ -81,7 +81,7 @@ const Benefits = () => {
 
           {/* Minimalist Sidebar Floating Counter */}
           <div className="lg:col-span-4 lg:text-right pt-6 hidden lg:block">
-            <span className="text-[120px] font-poppins font-light text-[#1C3B24]/10 leading-none select-none pointer-events-none">
+            <span className="text-[120px] font-poppins font-light text-[#6b4f3]/10 leading-none select-none pointer-events-none">
               01
             </span>
             <p className="text-[9px] font-bold uppercase tracking-widest text-[#9A8F80] mt-2">
@@ -92,7 +92,7 @@ const Benefits = () => {
 
         {/* ================= INTERACTIVE METRICS EXPLORER ================= */}
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-stretch mb-40">
-          
+
           {/* Navigation Track */}
           <div className="lg:col-span-5 flex flex-col justify-between gap-8">
             <div className="space-y-4">
@@ -105,16 +105,14 @@ const Benefits = () => {
                 <button
                   key={idx}
                   onClick={() => setActiveMetric(idx)}
-                  className={`w-full text-left p-6 rounded-xl border transition-all duration-500 flex items-center justify-between group ${
-                    activeMetric === idx 
-                      ? 'bg-white border-[#1C3B24]/30 shadow-[0_20px_50px_rgba(28,43,33,0.04)]' 
+                  className={`w-full text-left p-6 rounded-xl border transition-all duration-500 flex items-center justify-between group ${activeMetric === idx
+                      ? 'bg-white border-[#6b4f3]/30 shadow-[0_20px_50px_rgba(28,43,33,0.04)]'
                       : 'bg-transparent border-[#EAE6DF] hover:border-[#9A8F80]/50'
-                  }`}
+                    }`}
                 >
                   <div className="flex items-center gap-4">
-                    <div className={`w-10 h-10 rounded-lg flex items-center justify-center transition-colors duration-500 ${
-                      activeMetric === idx ? 'bg-[#1C3B24] text-white' : 'bg-[#EFECE6] text-[#5C665E]'
-                    }`}>
+                    <div className={`w-10 h-10 rounded-lg flex items-center justify-center transition-colors duration-500 ${activeMetric === idx ? 'bg-[#6b4f3] text-white' : 'bg-[#EFECE6] text-[#5C665E]'
+                      }`}>
                       {item.icon}
                     </div>
                     <div>
@@ -122,9 +120,8 @@ const Benefits = () => {
                       <p className="text-[10px] text-[#9A8F80] tracking-wide mt-0.5">{item.metric}</p>
                     </div>
                   </div>
-                  <ArrowUpRight size={14} className={`text-[#9A8F80] transition-transform duration-500 ${
-                    activeMetric === idx ? 'rotate-45 text-[#D9A036]' : 'group-hover:translate-x-0.5'
-                  }`} />
+                  <ArrowUpRight size={14} className={`text-[#9A8F80] transition-transform duration-500 ${activeMetric === idx ? 'rotate-45 text-[#D9A036]' : 'group-hover:translate-x-0.5'
+                    }`} />
                 </button>
               ))}
             </div>
@@ -147,14 +144,14 @@ const Benefits = () => {
               >
                 <div className="space-y-6">
                   <div className="inline-flex items-baseline gap-2">
-                    <span className="text-5xl sm:text-6xl font-poppins font-light text-[#1C3B24] tracking-tight">
+                    <span className="text-5xl sm:text-6xl font-poppins font-light text-[#6b4f3] tracking-tight">
                       {biologicalMetrics[activeMetric].value}
                     </span>
                     <span className="text-xs uppercase tracking-widest font-bold text-[#D9A036]">
                       {biologicalMetrics[activeMetric].metric}
                     </span>
                   </div>
-                  
+
                   <p className="text-sm sm:text-base text-[#5C665E] font-light leading-relaxed">
                     {biologicalMetrics[activeMetric].desc}
                   </p>
@@ -206,7 +203,7 @@ const Benefits = () => {
               transition={{ delay: i * 0.1, duration: 0.8, ease: premiumEase }}
               className="p-10 rounded-xl bg-white border border-[#EAE6DF] hover:shadow-[0_24px_60px_rgba(28,43,33,0.03)] transition-all duration-500 space-y-6"
             >
-              <div className="w-10 h-10 rounded-lg bg-[#F9F8F6] border border-[#EAE6DF] flex items-center justify-center text-[#1C3B24]">
+              <div className="w-10 h-10 rounded-lg bg-[#F9F8F6] border border-[#EAE6DF] flex items-center justify-center text-[#6b4f3]">
                 {benefit.icon}
               </div>
               <h3 className="text-base font-poppins font-bold text-[#1C2B21] tracking-tight">{benefit.title}</h3>
@@ -216,26 +213,26 @@ const Benefits = () => {
         </div>
 
         {/* ================= CLINICAL OUTRO MANIFESTO ================= */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 1.2, ease: premiumEase }}
-          className="bg-[#1C3B24] rounded-2xl p-10 md:p-20 text-[#EFECE6] relative overflow-hidden shadow-xl"
+          className="bg-[#6b4f3] rounded-2xl p-10 md:p-20 text-[#EFECE6] relative overflow-hidden shadow-xl"
         >
           {/* Asymmetric Artistic Overlay Gradients */}
           <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#D9A036]/10 rounded-full blur-[160px] opacity-30 -translate-y-1/2 translate-x-1/2 pointer-events-none" />
-          
+
           <div className="relative z-10 max-w-4xl space-y-10">
             <div className="flex items-center gap-3">
               <div className="w-8 h-[1px] bg-[#D9A036]" />
               <span className="text-[10px] font-bold uppercase tracking-[0.35em] text-[#D9A036]">Biological Charter</span>
             </div>
-            
+
             <h2 className="text-2xl sm:text-4xl md:text-5xl font-poppins font-light leading-[1.25] tracking-tight text-white">
               “We hold an uncompromising belief: human peak performance does not require chemical modification. Our products are engineered by nature, verified by tradition, and refined for biological synergy.”
             </h2>
-            
+
             <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
               <div className="flex items-center gap-8 text-[10px] uppercase tracking-widest font-medium text-[#A69F91]">
                 <span className="flex items-center gap-1.5"><Compass size={11} /> Earth Born Real</span>
