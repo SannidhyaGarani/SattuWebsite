@@ -27,7 +27,7 @@ const SattuStorySection = () => {
           <div className="absolute inset-0 opacity-[0.02] pointer-events-none bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:20px_20px]"></div>
 
           <div className="relative z-10">
-            <span className="text-[#D9A036] font-poppins font-bold text-xs uppercase tracking-widest mb-3 block">
+            <span className="text-[#D9A036] font-poppins font-bold text-sm uppercase tracking-widest mb-3 block">
               Our Legacy
             </span>
             <h2 className="text-[#1C2B21] font-poppins font-bold text-3xl lg:text-4xl leading-[1.15] mb-6 tracking-tight">
@@ -37,7 +37,7 @@ const SattuStorySection = () => {
             <p className="text-[#3E4A41] text-sm lg:text-base leading-relaxed mb-4 font-medium opacity-90">
               Sattu has been a timeless cornerstone of Indian wellness for centuries—powering farmers, warriors, and families with pure, uncompromised endurance.
             </p>
-            <p className="text-[#707A72] text-xs lg:text-sm leading-relaxed">
+            <p className="text-[#707A72] text-sm lg:text-sm leading-relaxed">
               We preserve this ancient craftsmanship while introducing five functional profiles tailored perfectly for modern fast-paced performance.
             </p>
           </div>
@@ -54,7 +54,7 @@ const SattuStorySection = () => {
             </div>
             <div>
               <p className="font-poppins font-medium text-base text-white tracking-wide">Just Add Liquid</p>
-              <p className="text-xs text-[#A3B8A8] mt-0.5">Stir cleanly into water or milk. Ready instantly.</p>
+              <p className="text-sm text-[#A3B8A8] mt-0.5">Stir cleanly into water or milk. Ready instantly.</p>
             </div>
           </div>
 
@@ -65,7 +65,7 @@ const SattuStorySection = () => {
             </div>
             <div>
               <p className="font-poppins font-medium text-base text-white tracking-wide">Clean Active Fuel</p>
-              <p className="text-xs text-[#A3B8A8] mt-0.5">Optimized cleanly for breakfast, work, or workouts.</p>
+              <p className="text-sm text-[#A3B8A8] mt-0.5">Optimized cleanly for breakfast, work, or workouts.</p>
             </div>
           </div>
 
@@ -76,7 +76,7 @@ const SattuStorySection = () => {
             </div>
             <div>
               <p className="font-poppins font-medium text-base text-white tracking-wide">Family Formulation</p>
-              <p className="text-xs text-[#A3B8A8] mt-0.5">Perfect digestability for developing children & adults alike.</p>
+              <p className="text-sm text-[#A3B8A8] mt-0.5">Perfect digestability for developing children & adults alike.</p>
             </div>
           </div>
 
@@ -87,7 +87,7 @@ const SattuStorySection = () => {
             </div>
             <div>
               <p className="font-poppins font-medium text-base text-white tracking-wide">Daily Ritual</p>
-              <p className="text-xs text-[#A3B8A8] mt-0.5">Build a pure, high-fiber structural foundation every morning.</p>
+              <p className="text-sm text-[#A3B8A8] mt-0.5">Build a pure, high-fiber structural foundation every morning.</p>
             </div>
           </div>
         </div>
@@ -114,19 +114,19 @@ const SattuStorySection = () => {
             <h3 className="font-poppins text-xl lg:text-2xl font-bold tracking-wide text-white">
               Real Ingredients. Real Nutrition.
             </h3>
-            <p className="text-[#A3B8A8] text-xs mt-1 font-poppins tracking-wide uppercase">No Added Preservatives • Clean Label Certified</p>
+            <p className="text-[#A3B8A8] text-sm mt-1 font-poppins tracking-wide uppercase">No Added Preservatives • Clean Label Certified</p>
           </div>
           <motion.button
             whileHover={{ scale: 1.02, backgroundColor: '#C28E2E' }}
             whileTap={{ scale: 0.98 }}
-            className="bg-[#D9A036] text-[#112517] font-poppins font-bold uppercase tracking-widest text-xs px-8 py-4 rounded-md transition-colors shadow-lg shadow-black/10 whitespace-nowrap w-full sm:w-auto text-center"
+            className="bg-[#D9A036] text-[#112517] font-poppins font-bold uppercase tracking-widest text-sm px-8 py-4 rounded-md transition-colors shadow-lg shadow-black/10 whitespace-nowrap w-full sm:w-auto text-center"
           >
             Order Pure Sattu
           </motion.button>
         </div>
 
         {/* Right Side: Trust Seals */}
-        <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-8 text-xs font-semibold uppercase tracking-widest text-[#D9E2DC] z-10 border-t border-white/5 pt-6 lg:pt-0 lg:border-t-0 w-full lg:w-auto">
+        <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-8 text-sm font-semibold uppercase tracking-widest text-[#D9E2DC] z-10 border-t border-white/5 pt-6 lg:pt-0 lg:border-t-0 w-full lg:w-auto">
 
           {/* Trust item 1 */}
           <div className="flex items-center space-x-2.5 group">

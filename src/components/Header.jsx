@@ -66,7 +66,7 @@ const Header = () => {
           <motion.div
             animate={{ x: [0, -1200] }}
             transition={{ repeat: Infinity, duration: 35, ease: "linear" }}
-            className="flex gap-20 whitespace-nowrap items-center text-[9px] font-bold tracking-[0.4em] uppercase font-poppins relative z-10"
+            className="flex gap-20 whitespace-nowrap items-center text-[14px] font-bold tracking-[0.4em] uppercase font-poppins relative z-10"
           >
             <span className="flex items-center gap-3 text-[#FDF6E9]/90"><Leaf size={10} className="text-[#D9A036]" /> 100% Certified Organic Foods</span>
             <span className="flex items-center gap-3 text-[#FDF6E9]/90"><div className="w-1.5 h-1.5 bg-[#D9A036] rotate-45" /> Stone-Ground · Sun-Dried · Pure Nutrition</span>
@@ -101,7 +101,7 @@ const Header = () => {
                   <span className="text-[18px] md:text-[24px] font-poppins font-black text-[#6b4f3] tracking-tight uppercase">
                     Indian
                   </span>
-                  <span className="text-[12px] md:text-[16px] font-poppins text-[#6b4f3] tracking-wider uppercase">
+                  <span className="text-[14px] md:text-[16px] font-poppins text-[#6b4f3] tracking-wider uppercase">
                     Food Way
                   </span>
                 </div>
@@ -114,7 +114,7 @@ const Header = () => {
                 <Link
                   key={link.name}
                   to={link.path}
-                  className="px-6 py-2 text-[10px] font-bold uppercase tracking-[0.35em] text-[#6b4f3]/80 relative group transition-all"
+                  className="px-6 py-2 text-[14px] font-bold uppercase tracking-[0.35em] text-[#6b4f3]/80 relative group transition-all"
                 >
                   <span className="relative z-10 group-hover:text-[#6b4f3]">{link.name}</span>
                   {location.pathname === link.path && (
@@ -132,12 +132,12 @@ const Header = () => {
               <motion.button whileHover={{ scale: 1.1 }} className="text-[#6b4f3a] p-1.5"><Search size={20} /></motion.button>
               <Link to="/wishlist" className="relative text-[#6b4f3a] p-1.5">
                 <Heart size={20} />
-                {wishlistCount > 0 && <span className="absolute top-0 right-0 bg-[#D9A036] text-white text-[8px] w-4 h-4 rounded-full flex items-center justify-center">{wishlistCount}</span>}
+                {wishlistCount > 0 && <span className="absolute top-0 right-0 bg-[#D9A036] text-white text-[14px] w-4 h-4 rounded-full flex items-center justify-center">{wishlistCount}</span>}
               </Link>
               <Link to="/account" className="text-[#6b4f3a] p-1.5"><User size={20} /></Link>
               <Link to="/cart" className="relative bg-[#6b4f3a] text-white p-2 rounded-xl shadow-lg shadow-[#6b4f3a]/20">
                 <ShoppingBag size={18} />
-                {cartCount > 0 && <span className="absolute -top-1 -right-1 bg-[#D9A036] text-white text-[8px] w-4 h-4 rounded-full flex items-center justify-center">{cartCount}</span>}
+                {cartCount > 0 && <span className="absolute -top-1 -right-1 bg-[#D9A036] text-white text-[14px] w-4 h-4 rounded-full flex items-center justify-center">{cartCount}</span>}
               </Link>
             </div>
 
@@ -183,7 +183,7 @@ const Header = () => {
                 ))}
               </div>
 
-              <div className="p-10 border-t border-[#6b4f3]/5 text-[#6b4f3]/40 text-[9px] font-bold uppercase tracking-[0.3em]">
+              <div className="p-10 border-t border-[#6b4f3]/5 text-[#6b4f3]/40 text-[14px] font-bold uppercase tracking-[0.3em]">
                 © 2026 INDIAN FOOD WAY • PURE NUTRITION
               </div>
             </motion.div>
@@ -213,7 +213,7 @@ const Header = () => {
 
                 {/* Count Badge for Cart/Wishlist */}
                 {item.count > 0 && (
-                  <span className="absolute top-1.5 right-1.5 bg-[#C45525] text-white text-[7px] font-black w-4 h-4 rounded-full flex items-center justify-center border border-white shadow-sm">
+                  <span className="absolute top-1.5 right-1.5 bg-[#C45525] text-white text-[14px] font-black w-4 h-4 rounded-full flex items-center justify-center border border-white shadow-sm">
                     {item.count}
                   </span>
                 )}

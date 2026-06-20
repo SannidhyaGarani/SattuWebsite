@@ -31,7 +31,7 @@ const PageHeader = ({ breadcrumbItems = [] }) => {
       <div className="container mx-auto px-6 relative z-10 flex flex-col items-center bg-[#faf4e3]">
         <nav
           aria-label="Breadcrumb"
-          className="flex items-center gap-2.5 md:gap-5 text-[#6b4f3a] font-poppins font-bold text-[10px] md:text-xs uppercase tracking-[0.2em] md:tracking-[0.25em]"
+          className="flex items-center gap-2.5 md:gap-5 text-[#6b4f3a] font-poppins font-bold text-[14px] md:text-sm uppercase tracking-[0.2em] md:tracking-[0.25em]"
         >
           {breadcrumbItems.map((item, index) => {
             const isLast = index === breadcrumbItems.length - 1;
@@ -46,7 +46,7 @@ const PageHeader = ({ breadcrumbItems = [] }) => {
                   <motion.div
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    className="inline-flex items-center gap-2  backdrop-blur-[1px] text-[#bf8d2d] px-5 md:px-7 py-1.5 md:py-2.5 rounded-full text-[9px] md:text-[10px] font-poppins font-bold uppercase tracking-[0.3em]  transition-all duration-400 ease-out"
+                    className="inline-flex items-center gap-2  backdrop-blur-[1px] text-[#bf8d2d] px-5 md:px-7 py-1.5 md:py-2.5 rounded-full text-[14px] md:text-[14px] font-poppins font-bold uppercase tracking-[0.3em]  transition-all duration-400 ease-out"
                   >
                     <Leaf size={14} className="fill-current rotate-45 opacity-90" strokeWidth={1.5} />
                     <span className="whitespace-nowrap tracking-[0.1em]">{item.label}</span>

@@ -13,19 +13,17 @@ import SectionHeader from './SectionHeader';
 import 'swiper/css';
 import 'swiper/css/pagination';
 
-// Tiny floral divider icon from the reference
-const DividerFlower = () => (
-  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-[#6b4f3a]">
-    <path d="M12 2C12 2 14 8 18 10C18 10 12 12 12 18C12 18 10 12 6 10C6 10 12 8 12 2Z" fill="currentColor" />
-    <circle cx="12" cy="10" r="2" fill="#D9A036" />
-  </svg>
-);
-
 const ProductCard = ({ product, idx, triggerToast }) => {
   const navigate = useNavigate();
   const { addToCart, addToWishlist, removeFromWishlist, wishlist, cart } = useStore();
   const isWishlisted = wishlist.some(item => item.id === product.id);
   const isInCart = cart.some(item => item.id === product.id);
+
+  // Dynamic Price Calculations based on reference card metrics
+  const displayPrice = product.price;
+  const originalPrice = product.mrp || Math.round(product.price * 1.25);
+  const savingsAmount = originalPrice - displayPrice;
+  const savingsPercent = Math.round((savingsAmount / originalPrice) * 100);
 
   const handleAction = async (e, type) => {
     e.stopPropagation();
@@ -46,91 +44,96 @@ const ProductCard = ({ product, idx, triggerToast }) => {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 15 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ delay: idx * 0.1 }}
+      transition={{ delay: idx * 0.05 }}
       onClick={() => navigate(`/product/${product.id}`)}
-      className="bg-[#fbe7c8] rounded-[24px] border border-[#EACDA4] p-4 group relative cursor-pointer hover:shadow-lg transition-all duration-300 flex flex-col h-full overflow-hidden"
+      className="bg-white rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.04)] p-5 relative cursor-pointer hover:shadow-md transition-all duration-300 flex flex-col h-full border border-gray-100/60"
     >
-      {/* Corner Ornaments */}
-      <div className="absolute top-2 left-2 opacity-30 pointer-events-none">
-        <svg width="40" height="40" viewBox="0 0 100 100" fill="none" stroke="#6b4f3a" strokeWidth="1">
-          <path d="M10,10 Q30,10 50,30 Q10,30 10,10 Z M10,10 Q10,30 30,50 Q30,10 10,10 Z" />
-        </svg>
-      </div>
-      <div className="absolute bottom-2 right-2 opacity-30 pointer-events-none rotate-180">
-        <svg width="40" height="40" viewBox="0 0 100 100" fill="none" stroke="#6b4f3a" strokeWidth="1">
-          <path d="M10,10 Q30,10 50,30 Q10,30 10,10 Z M10,10 Q10,30 30,50 Q30,10 10,10 Z" />
-        </svg>
-      </div>
+      {/* 100% Accurate Top-Left Discount Badge */}
+      {savingsPercent > 0 && (
+        <div className="absolute top-0 left-4 bg-[#6b4f3a] text-white px-2.5 py-2.5 flex flex-col items-center justify-center text-center rounded-b-sm z-10 min-w-[38px]">
+          <span className="text-[14px] font-sans font-bold leading-none tracking-tight">{savingsPercent}%</span>
+          <span className="text-[14px] font-poppins font-bold uppercase tracking-tighter mt-0.5">OFF</span>
+        </div>
+      )}
 
-      {/* Image Block */}
-      <div className="relative aspect-square rounded-[18px] overflow-hidden bg-[#F4EBD8] mb-4">
+      {/* Structured Image block containing the Pouch Graphic */}
+      <div className="relative w-full aspect-square flex items-center justify-center bg-transparent mb-3 overflow-hidden">
         <img
           src={product.image || product.images?.[0]}
           alt={product.name}
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+          className="w-auto h-full max-h-full object-contain transition-transform duration-500 group-hover:scale-102"
         />
-        {/* Hover Wishlist Action */}
-        <button
-          onClick={(e) => handleAction(e, 'wishlist')}
-          className={`absolute top-3 right-3 w-9 h-9 rounded-full flex items-center justify-center transition-all duration-300 backdrop-blur-sm z-20 ${isWishlisted
-              ? "bg-[#C45525] text-white"
-              : "bg-white/80 text-[#6b4f3a] opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0"
-            }`}
-        >
-          <Heart size={16} fill={isWishlisted ? "currentColor" : "none"} />
-        </button>
       </div>
 
-      {/* Info Block */}
-      <div className="flex flex-col flex-grow relative z-10 px-1">
-        <span className="text-[11px] font-poppins font-bold uppercase tracking-widest text-[#C45525] mb-1">
-          {product.flavor || "Flavor Type"}
+      {/* Content Meta Layer */}
+      <div className="flex flex-col flex-grow">
+        {/* Category Flavour Label */}
+        <span className="text-[14px] font-poppins font-semibold uppercase tracking-wider text-gray-400 mb-0.5">
+          {product.flavor || "Dry Fruit"}
         </span>
-        <h3 className="text-[22px] font-poppins font-bold text-[#6b4f3a] mb-1 leading-tight">
+        
+        {/* Product Headline Title */}
+        <h3 className="text-base font-poppins font-bold text-[#2E1A0C] mb-1 tracking-tight leading-snug line-clamp-1">
           {product.name}
         </h3>
 
-        {/* Rating */}
-        <div className="flex items-center gap-1 mb-3">
-          <div className="flex">
+        {/* Ratings block */}
+        <div className="flex items-center gap-1 mb-1">
+          <div className="flex items-center">
             {[...Array(5)].map((_, i) => (
-              <Star key={i} size={14} className="fill-[#D9A036] text-[#D9A036]" />
+              <Star key={i} size={13} className="fill-[#F5A623] text-[#F5A623]" />
             ))}
           </div>
-          <span className="text-sm font-bold text-[#6b4f3a] ml-1">4.5</span>
+          <span className="text-[14px] font-sans font-bold text-gray-700 ml-0.5">4.5</span>
+          <span className="text-[14px] font-sans text-gray-400">({product.reviewsCount || 125})</span>
         </div>
 
-        {/* Decorative Divider */}
-        <div className="flex items-center gap-3 my-2 opacity-60">
-          <div className="h-[1px] flex-grow bg-[#6b4f3a]/20 border-t border-dashed border-[#6b4f3a]/30"></div>
-          <DividerFlower />
-          <div className="h-[1px] flex-grow bg-[#6b4f3a]/20 border-t border-dashed border-[#6b4f3a]/30"></div>
+        {/* Net Quantity/Weight Metric Container */}
+        <span className="text-[14px] font-sans font-medium text-gray-400 mb-3 block">
+          {product.weight || "500g"}
+        </span>
+
+        {/* Pricing Layout Structure */}
+        <div className="flex items-center gap-2 mb-4 flex-wrap">
+          <span className="text-xl font-sans font-extrabold text-[#2E1A0C]">
+            &nbsp;₹{displayPrice}
+          </span>
+          <span className="text-[14px] text-gray-400 line-through font-sans font-medium">
+            ₹{originalPrice}
+          </span>
+          <div className="bg-[#EAF7ED] text-[#218742] text-[14px] font-sans font-bold px-2 py-0.5 rounded-sm tracking-wide">
+            Save ₹{savingsAmount} ({savingsPercent}%)
+          </div>
         </div>
       </div>
 
-      {/* Price & Action Footer */}
-      <div className="flex items-center justify-between mt-auto px-1 pt-3 relative z-10">
-        <div className="flex flex-col">
-          <span className="text-[28px] font-poppins font-bold text-[#6b4f3a] leading-none">
-            ₹{product.price}
-          </span>
-          <span className="text-sm font-poppins font-semibold text-[#6b4f3a]/50 line-through mt-0.5">
-            ₹{product.mrp || Math.round(product.price * 1.2)}
-          </span>
-        </div>
+      {/* Fully Aligned Action Row Elements */}
+      <div className="flex items-center gap-2 w-full mt-auto">
         <button
           onClick={(e) => handleAction(e, 'cart')}
           disabled={isInCart}
-          className={`px-5 py-2.5 rounded-[12px] text-[11px] font-bold uppercase tracking-widest flex items-center gap-2 transition-all duration-300 ${isInCart
-              ? "bg-[#C45525] text-white cursor-default opacity-80"
-              : "bg-[#6b4f3a] text-white hover:bg-[#C45525]"
-            }`}
+          className={`flex-1 text-[14px] font-poppins font-bold uppercase tracking-wider py-2.5 px-4 rounded transition-all duration-200 flex items-center justify-center gap-2 ${
+            isInCart
+              ? "bg-gray-100 text-gray-400 cursor-default"
+              : "bg-[#6b4f3a] text-white hover:bg-[#25160C] shadow-sm"
+          }`}
         >
-          {isInCart ? "IN BAG" : "ADD"}
-          <ShoppingBag size={14} className="opacity-90" />
+          <span>{isInCart ? "IN BAG" : "ADD TO CART"}</span>
+          <ShoppingBag size={13} strokeWidth={2.5} />
+        </button>
+
+        <button
+          onClick={(e) => handleAction(e, 'wishlist')}
+          className={`p-2.5 border rounded-md flex items-center justify-center transition-colors duration-200 h-[37px] w-[37px] ${
+            isWishlisted
+              ? "bg-[#5C0612] text-white border-[#5C0612]"
+              : "bg-white text-gray-400 border-gray-200 hover:text-gray-600 hover:bg-gray-50"
+          }`}
+        >
+          <Heart size={15} fill={isWishlisted ? "currentColor" : "none"} strokeWidth={2.2} />
         </button>
       </div>
     </motion.div>
@@ -164,12 +167,11 @@ const BestsellerProducts = () => {
 
   if (loading) {
     return (
-      <section className="py-24 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[#FAF4E3]/50" />
+      <section className="py-20 relative overflow-hidden bg-[#FAF4E3]/30">
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[...Array(4)].map((_, i) => (
-              <div key={i} className="h-[450px] bg-[#f5d2a1]/50 rounded-[24px] animate-pulse" />
+              <div key={i} className="h-[430px] bg-white border border-gray-100 rounded-xl animate-pulse" />
             ))}
           </div>
         </div>
@@ -178,53 +180,52 @@ const BestsellerProducts = () => {
   }
 
   return (
-    <section className="py-24 relative overflow-hidden">
+    <section className="py-20 relative overflow-hidden">
+      {/* Decorative Traditional Organic Scenery Background Layers */}
       <div
-        className="absolute inset-0 block md:hidden bg-cover bg-center"
+        className="absolute inset-0 bg-cover bg-center mix-blend-multiply opacity-95 pointer-events-none"
         style={{ backgroundImage: "url('/img/b1.png')" }}
       />
-      <div
-        className="absolute inset-0 hidden md:block bg-cover bg-center"
-        style={{ backgroundImage: "url('/img/b1.png')" }}
-      />
-      <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/p6-grain.png')]" />
+      <div className="absolute inset-0 opacity-[0.02] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/p6-grain.png')]" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
-        <div className="relative">
+        <div className="relative mb-10">
           <SectionHeader
             title="Our Bestsellers"
-            subtitle=" Shop the Collection"
+            subtitle="Shop The Collection"
           />
-          <div className="absolute top-0 right-0 hidden md:block">
+          <div className="absolute bottom-2 right-0 hidden md:block">
             <Link
               to="/shop"
-              className="text-[11px] font-poppins font-bold uppercase tracking-[0.15em] text-[#6b4f3a] flex items-center gap-2 hover:text-[#C45525] transition-colors pb-1 border-b-[1.5px] border-dashed border-[#6b4f3a]/40"
+              className="text-[14px] font-poppins font-bold uppercase tracking-[0.12em] text-[#362214] flex items-center gap-1.5 hover:text-[#5C0612] transition-colors pb-0.5 border-b border-dashed border-[#362214]/40"
             >
               <span>View Shop</span>
-              <ArrowRight size={14} />
+              <ArrowRight size={13} strokeWidth={2.5} />
             </Link>
           </div>
         </div>
 
+        {/* Desktop Layout Matrix */}
         <div className="hidden lg:grid grid-cols-4 gap-6">
           {products.map((product, idx) => (
             <ProductCard key={product.id} product={product} idx={idx} triggerToast={triggerToast} />
           ))}
         </div>
 
+        {/* Responsive Touch Carousel System */}
         <div className="block lg:hidden !-mr-6 md:!-mr-12">
           <Swiper
             modules={[Autoplay, Pagination]}
-            spaceBetween={20}
-            slidesPerView={1.15}
-            pagination={{ clickable: true, modifier: 1 }}
+            spaceBetween={16}
+            slidesPerView={1.2}
+            pagination={{ clickable: true }}
             autoplay={{ delay: 4000, disableOnInteraction: false }}
             breakpoints={{
-              480: { slidesPerView: 1.4 },
-              640: { slidesPerView: 2.1 },
-              868: { slidesPerView: 2.5 },
+              480: { slidesPerView: 1.5 },
+              640: { slidesPerView: 2.2 },
+              868: { slidesPerView: 2.6 },
             }}
-            className="pb-16 heritage-swiper"
+            className="pb-14 heritage-swiper"
           >
             {products.map((product, idx) => (
               <SwiperSlide key={product.id} className="h-auto">
@@ -235,24 +236,24 @@ const BestsellerProducts = () => {
         </div>
       </div>
 
-      {/* Feedback Toast */}
+      {/* Global Context Toast Messaging Interface */}
       <AnimatePresence>
         {feedbackMessage && (
           <motion.div
-            initial={{ opacity: 0, y: 50, x: "-50%" }}
+            initial={{ opacity: 0, y: 30, x: "-50%" }}
             animate={{ opacity: 1, y: 0, x: "-50%" }}
-            exit={{ opacity: 0, y: 20, x: "-50%" }}
-            className="fixed bottom-12 left-1/2 z-[200] bg-[#6b4f3a] border border-white/10 text-[#FAF4E3] px-8 py-5 rounded-[24px] shadow-2xl flex items-center gap-6 backdrop-blur-xl max-w-md w-[90%]"
+            exit={{ opacity: 0, y: 15, x: "-50%" }}
+            className="fixed bottom-10 left-1/2 z-[200] bg-[#362214] text-white px-6 py-4 rounded-xl shadow-xl flex items-center gap-4 backdrop-blur-md max-w-sm w-[90%]"
           >
-            <div className="w-10 h-10 rounded-xl bg-[#FAF4E3]/10 flex items-center justify-center text-[#976E2A]">
-              <Sparkles size={20} />
+            <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center text-[#F5A623]">
+              <Sparkles size={16} />
             </div>
-            <p className="text-xs font-poppins font-medium tracking-wide flex-1">{feedbackMessage}</p>
+            <p className="text-[14px] font-poppins font-medium tracking-wide flex-1">{feedbackMessage}</p>
             <button
               onClick={() => setFeedbackMessage(null)}
-              className="opacity-40 hover:opacity-100 transition-opacity"
+              className="opacity-50 hover:opacity-100 transition-opacity"
             >
-              <X size={20} />
+              <X size={16} />
             </button>
           </motion.div>
         )}
@@ -261,16 +262,16 @@ const BestsellerProducts = () => {
       <style dangerouslySetInnerHTML={{
         __html: `
         .heritage-swiper .swiper-pagination-bullet {
-          background: #6b4f3a !important;
-          opacity: 0.25;
-          width: 8px;
-          height: 8px;
+          background: #362214 !important;
+          opacity: 0.2;
+          width: 7px;
+          height: 7px;
           transition: all 0.3s ease;
         }
         .heritage-swiper .swiper-pagination-bullet-active {
           opacity: 1;
-          background: #C45525 !important;
-          width: 24px;
+          background: #5C0612 !important;
+          width: 20px;
           border-radius: 4px;
         }
         .heritage-swiper .swiper-pagination {

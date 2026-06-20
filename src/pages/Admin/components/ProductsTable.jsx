@@ -29,7 +29,7 @@ const ProductsTable = ({ products, onEdit, onDelete }) => {
       <div className="overflow-x-auto">
         <table className="min-w-full text-left text-sm">
           <thead className="bg-[#EFECE6]">
-            <tr className="text-xs font-bold text-[#4A5D4E] uppercase tracking-wide">
+            <tr className="text-sm font-bold text-[#4A5D4E] uppercase tracking-wide">
               <th className="px-6 py-4">Product Name</th>
               <th className="px-6 py-4">Flavor</th>
               <th className="px-6 py-4">Price</th>
@@ -51,7 +51,7 @@ const ProductsTable = ({ products, onEdit, onDelete }) => {
                 </td>
                 <td className="px-6 py-4">
                   <span
-                    className={`inline-flex items-center px-3 py-1.5 rounded-full border text-xs font-bold ${statusBadgeClasses(row.stock_status || "In Stock")}`}
+                    className={`inline-flex items-center px-3 py-1.5 rounded-full border text-sm font-bold ${statusBadgeClasses(row.stock_status || "In Stock")}`}
                   >
                     {row.stock_status || "In Stock"}
                   </span>

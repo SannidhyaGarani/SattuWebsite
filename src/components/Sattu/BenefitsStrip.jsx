@@ -141,7 +141,7 @@ const BenefitsStrip = () => {
                     </h3>
 
                     {/* 4. Muted Organic Body Text Description */}
-                    <p className="text-xs font-poppins font-medium text-[#605948] leading-relaxed max-w-[160px]">
+                    <p className="text-sm font-poppins font-medium text-[#605948] leading-relaxed max-w-[160px]">
                       {benefit.desc}
                     </p>
 

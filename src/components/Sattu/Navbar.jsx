@@ -29,13 +29,13 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 w-full z-50">
       {/* Top Announcement Bar */}
       <div className="bg-[#4A5D4E] text-[#FDFBF7] py-2.5 px-4 overflow-hidden">
-        <div className="max-w-7xl mx-auto flex justify-between items-center text-xs md:text-sm font-medium tracking-wide">
+        <div className="max-w-7xl mx-auto flex justify-between items-center text-sm md:text-sm font-medium tracking-wide">
           <div className="flex items-center gap-2">
             <Leaf size={14} />
             <span>100% Natural Ingredients</span>
           </div>
           <div className="flex items-center gap-2">
-            <span className="w-4 h-4 rounded-full border border-white flex items-center justify-center text-xs">✓</span>
+            <span className="w-4 h-4 rounded-full border border-white flex items-center justify-center text-sm">✓</span>
             <span>No Preservatives</span>
           </div>
           <div className="flex items-center gap-2">
@@ -63,7 +63,7 @@ const Navbar = () => {
               </div>
               <div className="flex flex-col -space-y-1">
                 <span className="text-2xl font-bold tracking-tight text-[#4A5D4E]">SATTU</span>
-                <span className="text-[10px] tracking-[0.2em] font-medium text-[#4A5D4E] flex items-center gap-1">
+                <span className="text-[14px] tracking-[0.2em] font-medium text-[#4A5D4E] flex items-center gap-1">
                   <span className="h-[1px] w-2 bg-[#4A5D4E]"></span>DRINK<span className="h-[1px] w-2 bg-[#4A5D4E]"></span>
                 </span>
               </div>
@@ -95,7 +95,7 @@ const Navbar = () => {
               <div className="text-[#4A5D4E] transition-colors">
                 <ShoppingCart size={22} />
               </div>
-              <span className="absolute -top-2 -right-2 bg-[#4A5D4E] text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">
+              <span className="absolute -top-2 -right-2 bg-[#4A5D4E] text-white text-[14px] font-bold w-4 h-4 rounded-full flex items-center justify-center">
                 {cartCount || 2}
               </span>
             </Link>

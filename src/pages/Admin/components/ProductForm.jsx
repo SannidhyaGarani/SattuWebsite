@@ -221,7 +221,7 @@ const SattuProductForm = ({ onSuccess, isEdit = false, product = null }) => {
             type="file"
             multiple
             accept="image/*"
-            className="w-full px-4 py-3 rounded-xl border border-dashed border-[#4A5D4E] hover:border-[#6b4f3] transition-colors text-sm file:mr-4 file:py-2 file:px-5 file:rounded-lg file:border-0 file:text-xs file:font-bold file:bg-[#4A5D4E]/10 file:text-[#4A5D4E] cursor-pointer bg-[#FDFBF7]"
+            className="w-full px-4 py-3 rounded-xl border border-dashed border-[#4A5D4E] hover:border-[#6b4f3] transition-colors text-sm file:mr-4 file:py-2 file:px-5 file:rounded-lg file:border-0 file:text-sm file:font-bold file:bg-[#4A5D4E]/10 file:text-[#4A5D4E] cursor-pointer bg-[#FDFBF7]"
             {...register("images")}
           />
         </div>

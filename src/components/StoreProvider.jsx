@@ -139,8 +139,29 @@ export const StoreProvider = ({ children }) => {
     }
   };
 
+  const updateQuantity = async (id, delta) => {
+    if (user) {
+      const itemRef = doc(db, "users", user.uid, "cart", id);
+      const existing = cart.find(i => i.id === id);
+      if (existing) {
+        const newQty = Math.max(1, (existing.quantity || 1) + delta);
+        await setDoc(itemRef, { ...existing, quantity: newQty }, { merge: true });
+      }
+    } else {
+      const currentCart = JSON.parse(localStorage.getItem("guest_cart") || "[]");
+      const updated = currentCart.map(item => {
+        if (item.id === id) {
+          return { ...item, quantity: Math.max(1, (item.quantity || 1) + delta) };
+        }
+        return item;
+      });
+      localStorage.setItem("guest_cart", JSON.stringify(updated));
+      setCart(updated);
+    }
+  };
+
   return (
-    <StoreContext.Provider value={{ cart, wishlist, loading, addToCart, removeFromCart, addToWishlist, removeFromWishlist }}>
+    <StoreContext.Provider value={{ cart, wishlist, loading, addToCart, removeFromCart, updateQuantity, addToWishlist, removeFromWishlist }}>
       {children}
     </StoreContext.Provider>
   );

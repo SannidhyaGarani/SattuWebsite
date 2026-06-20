@@ -145,7 +145,7 @@ const Testimonials = () => {
                       </div>
                       <div className="text-left">
                         <h4 className="font-poppins font-bold text-sm text-[#11261C] tracking-tight">{item.name}</h4>
-                        <p className="text-[10px] font-poppins font-black text-[#D9A036] uppercase tracking-[0.2em]">{item.role}</p>
+                        <p className="text-[14px] font-poppins font-black text-[#D9A036] uppercase tracking-[0.2em]">{item.role}</p>
                       </div>
                     </div>
                   </div>

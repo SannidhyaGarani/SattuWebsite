@@ -10,7 +10,7 @@
   
   --font-serif: "Playfair Display", serif;
   --font-sans: "Inter", sans-serif;
-  --font-poppins: "Poppins", sans-serif;
+  --font-poppins: "Cormorant Garamond", serif;
 
   --animate-float: float 6s ease-in-out infinite;
   --animate-pulse-subtle: pulse-subtle 3s ease-in-out infinite;
@@ -18,7 +18,7 @@
 
 @layer base {
   body {
-    @apply text-brand-olive font-poppins antialiased min-h-screen bg-[#FAF4E3];
+    @apply text-brand-olive font-poppins antialiased min-h-screen bg-[#FAF4E3] text-[14px];
     background-image: url('/img/Body.jpeg');
     background-attachment: fixed;
     background-size: cover;

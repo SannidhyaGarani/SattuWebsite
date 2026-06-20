@@ -48,7 +48,7 @@ const About = () => {
         {/* ================= PILLARS ARCHITECTURE MATRIX ================= */}
         <section>
           <div className="text-center max-w-xl mx-auto mb-12 space-y-3">
-            <span className="text-[10px] font-poppins font-bold uppercase tracking-[0.3em] text-[#976E2A] block">
+            <span className="text-[14px] font-poppins font-bold uppercase tracking-[0.3em] text-[#976E2A] block">
               The Framework
             </span>
             <h2 className="text-2xl md:text-3xl font-poppins font-bold text-[#6b4f3a] tracking-tight">
@@ -105,7 +105,7 @@ const About = () => {
                     <h3 className="text-sm font-poppins font-bold text-[#6b4f3a] tracking-wide uppercase group-hover:text-[#976E2A] transition-colors duration-300">
                       {pillar.title}
                     </h3>
-                    <p className="text-xs text-[#6b4f3a]/75 font-poppins leading-relaxed font-medium">
+                    <p className="text-sm text-[#6b4f3a]/75 font-poppins leading-relaxed font-medium">
                       {pillar.desc}
                     </p>
                   </div>

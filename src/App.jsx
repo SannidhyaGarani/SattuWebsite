@@ -19,6 +19,7 @@ import Account from "./pages/Account";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Shop from "./pages/Shop";
+import Orders from "./pages/Orders";
 import ScrollToTop from "./components/ScrollToTop";
 import Preloader from "./pages/Preloader";
 
@@ -45,6 +46,7 @@ const AppRoutes = () => {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/shop" element={<Shop />} />
+          <Route path="/orders" element={<Orders />} />
           <Route path="/benefits" element={<Benefits />} />
           <Route path="/product/:id" element={<ProductDetail />} />
           <Route path="/product/:id/quickview" element={<QuickView />} />

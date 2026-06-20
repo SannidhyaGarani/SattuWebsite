@@ -31,7 +31,7 @@ const Wishlist = () => {
           <div className="absolute inset-0 border border-[#E3DBC5] rounded-full" />
           <div className="absolute inset-0 border border-t-[#976E2A] rounded-full animate-spin" />
         </div>
-        <p className="text-[10px] font-poppins font-bold uppercase tracking-[0.4em] text-[#976E2A]">Curating Catalog...</p>
+        <p className="text-[14px] font-poppins font-bold uppercase tracking-[0.4em] text-[#976E2A]">Curating Catalog...</p>
       </div>
     );
   }
@@ -69,7 +69,7 @@ const Wishlist = () => {
             </p>
             <Link
               to="/shop"
-              className="inline-flex items-center gap-4 px-12 py-6 bg-[#6b4f3a] text-[#FFFDF6] font-poppins font-bold text-[11px] uppercase tracking-[0.4em] rounded-2xl hover:bg-[#976E2A] transition-all duration-300 shadow-2xl shadow-[#6b4f3a]/10"
+              className="inline-flex items-center gap-4 px-12 py-6 bg-[#6b4f3a] text-[#FFFDF6] font-poppins font-bold text-[14px] uppercase tracking-[0.4em] rounded-2xl hover:bg-[#976E2A] transition-all duration-300 shadow-2xl shadow-[#6b4f3a]/10"
             >
               Discover Boutique
               <ArrowRight size={14} />
@@ -78,7 +78,7 @@ const Wishlist = () => {
         ) : (
           <div className="space-y-12">
             <div className="flex items-center justify-between border-b border-[#E3DBC5]/60 pb-8">
-              <h2 className="text-[12px] font-poppins font-bold uppercase tracking-[0.5em] text-[#976E2A]">
+              <h2 className="text-[14px] font-poppins font-bold uppercase tracking-[0.5em] text-[#976E2A]">
                 {wishlist.length} {wishlist.length === 1 ? "Archive Entry" : "Archive Entries"}
               </h2>
             </div>
@@ -114,7 +114,7 @@ const Wishlist = () => {
                   </div>
 
                   <div className="space-y-4 px-1 flex-grow">
-                    <span className="text-[10px] font-poppins font-bold uppercase tracking-[0.35em] text-[#C45525]">
+                    <span className="text-[14px] font-poppins font-bold uppercase tracking-[0.35em] text-[#C45525]">
                       {item.flavor || "Artisanal Selection"}
                     </span>
                     <h3
@@ -155,7 +155,7 @@ const Wishlist = () => {
             <div className="w-10 h-10 rounded-xl bg-[#FAF4E3]/10 flex items-center justify-center text-[#976E2A]">
               <Sparkles size={20} />
             </div>
-            <p className="text-[11px] font-poppins font-bold uppercase tracking-widest flex-1">{feedbackMessage}</p>
+            <p className="text-[14px] font-poppins font-bold uppercase tracking-widest flex-1">{feedbackMessage}</p>
             <button
               onClick={() => setFeedbackMessage(null)}
               className="opacity-40 hover:opacity-100 transition-opacity"

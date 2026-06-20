@@ -21,7 +21,7 @@ const Footer = () => {
             </div>
             <div>
               <h4 className="text-sm font-poppins font-semibold text-[#1C2B21] tracking-wide">Complimentary Shipping</h4>
-              <p className="text-xs font-poppins text-[#707A72] mt-1 leading-relaxed">On all curated orders above ₹499</p>
+              <p className="text-sm font-poppins text-[#707A72] mt-1 leading-relaxed">On all curated orders above ₹499</p>
             </div>
           </div>
 
@@ -31,7 +31,7 @@ const Footer = () => {
             </div>
             <div>
               <h4 className="text-sm font-poppins font-semibold text-[#1C2B21] tracking-wide">Expedited Priority Delivery</h4>
-              <p className="text-xs font-poppins text-[#707A72] mt-1 leading-relaxed">Arriving at your doorstep within 3-5 days</p>
+              <p className="text-sm font-poppins text-[#707A72] mt-1 leading-relaxed">Arriving at your doorstep within 3-5 days</p>
             </div>
           </div>
 
@@ -41,7 +41,7 @@ const Footer = () => {
             </div>
             <div>
               <h4 className="text-sm font-poppins font-semibold text-[#1C2B21] tracking-wide">Encrypted Checkout</h4>
-              <p className="text-xs font-poppins text-[#707A72] mt-1 leading-relaxed">Secure transaction handling via UPI, Cards, & COD</p>
+              <p className="text-sm font-poppins text-[#707A72] mt-1 leading-relaxed">Secure transaction handling via UPI, Cards, & COD</p>
             </div>
           </div>
 
@@ -51,7 +51,7 @@ const Footer = () => {
             </div>
             <div>
               <h4 className="text-sm font-poppins font-semibold text-[#1C2B21] tracking-wide">100% Pure, Native Wellness</h4>
-              <p className="text-xs font-poppins text-[#707A72] mt-1 leading-relaxed">Zero processed elements, chemicals or additives</p>
+              <p className="text-sm font-poppins text-[#707A72] mt-1 leading-relaxed">Zero processed elements, chemicals or additives</p>
             </div>
           </div>
         </div>
@@ -70,12 +70,12 @@ const Footer = () => {
                 </div>
                 <div className="flex flex-col">
                   <span className="text-xl font-poppins font-bold tracking-tight text-[#1C2B21]">SATTU</span>
-                  <span className="text-[9px] tracking-[0.25em] font-poppins font-bold text-[#D9A036] uppercase">
+                  <span className="text-[14px] tracking-[0.25em] font-poppins font-bold text-[#D9A036] uppercase">
                     Pure Wellness
                   </span>
                 </div>
               </Link>
-              <p className="text-[#3E4A41] font-poppins text-[13px] leading-relaxed opacity-90">
+              <p className="text-[#3E4A41] font-poppins text-[14px] leading-relaxed opacity-90">
                 Honoring traditional Indian raw nutrition through highly refined whole foods engineered for today’s active routines.
               </p>
               <div className="flex gap-5 mt-2">
@@ -89,10 +89,10 @@ const Footer = () => {
 
             {/* Column 2: Discover Links */}
             <div>
-              <h4 className="text-[#1C2B21] font-poppins font-semibold text-xs uppercase tracking-[0.2em] mb-6">Ecosystem</h4>
+              <h4 className="text-[#1C2B21] font-poppins font-semibold text-sm uppercase tracking-[0.2em] mb-6">Ecosystem</h4>
               <div className="flex flex-col gap-3.5">
                 {['Home', 'Shop Flavours', 'Product Benefits', 'How to Formulation', 'Verified Reviews', 'Contact Portfolio'].map((item) => (
-                  <Link key={item} to="#" className="text-[#4A574E] hover:text-[#6b4f3] font-poppins text-[13px] transition-colors duration-200 group flex items-center gap-0 hover:gap-1">
+                  <Link key={item} to="#" className="text-[#4A574E] hover:text-[#6b4f3] font-poppins text-[14px] transition-colors duration-200 group flex items-center gap-0 hover:gap-1">
                     <span className="transition-all">{item}</span>
                   </Link>
                 ))}
@@ -101,10 +101,10 @@ const Footer = () => {
 
             {/* Column 3: Corporate/Care Links */}
             <div>
-              <h4 className="text-[#1C2B21] font-poppins font-semibold text-xs uppercase tracking-[0.2em] mb-6">Client Services</h4>
+              <h4 className="text-[#1C2B21] font-poppins font-semibold text-sm uppercase tracking-[0.2em] mb-6">Client Services</h4>
               <div className="flex flex-col gap-3.5">
                 {['My Account Control', 'Track Realtime Order', 'Shipping Logistics', 'Returns & Exchanges', 'Terms of Service', 'Privacy Charter'].map((item) => (
-                  <Link key={item} to="#" className="text-[#4A574E] hover:text-[#6b4f3] font-poppins text-[13px] transition-colors duration-200">
+                  <Link key={item} to="#" className="text-[#4A574E] hover:text-[#6b4f3] font-poppins text-[14px] transition-colors duration-200">
                     {item}
                   </Link>
                 ))}
@@ -119,7 +119,7 @@ const Footer = () => {
             {/* Top Subrow: Editorial Newsletter */}
             <div className="mb-8">
               <h4 className="text-[#1C2B21] font-poppins font-bold text-lg lg:text-xl tracking-tight mb-2">Join the Wellness Circle</h4>
-              <p className="text-[13px] text-[#4A574E] mb-6 leading-relaxed font-poppins">
+              <p className="text-[14px] text-[#4A574E] mb-6 leading-relaxed font-poppins">
                 Subscribe to unlock early batches, seasonal flavor reserves, and curated nutritional strategies.
               </p>
 
@@ -129,7 +129,7 @@ const Footer = () => {
                   placeholder="Enter your email address"
                   className="w-full text-sm px-3 py-2 bg-transparent focus:outline-none text-[#1C2B21] placeholder-[#707A72]/70 font-poppins"
                 />
-                <button className="bg-[#6b4f3] text-white px-5 py-2.5 font-poppins font-medium text-xs tracking-wider uppercase rounded-lg hover:bg-[#112517] transition-all duration-300 flex items-center gap-2 flex-shrink-0">
+                <button className="bg-[#6b4f3] text-white px-5 py-2.5 font-poppins font-medium text-sm tracking-wider uppercase rounded-lg hover:bg-[#112517] transition-all duration-300 flex items-center gap-2 flex-shrink-0">
                   <span>Join</span>
                   <ArrowRight size={13} strokeWidth={2} />
                 </button>
@@ -139,24 +139,24 @@ const Footer = () => {
             {/* Bottom Subrow: Concierge Contact Details */}
             <div className="pt-8 border-t border-[#D9D3C7]/60 grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div className="flex flex-col gap-3">
-                <span className="text-[10px] font-poppins font-bold uppercase tracking-[0.15em] text-[#D9A036]">Direct Lines</span>
-                <a href="tel:+919876543210" className="flex items-center gap-2.5 text-xs font-semibold font-poppins text-[#1C2B21] hover:text-[#D9A036] transition-colors">
+                <span className="text-[14px] font-poppins font-bold uppercase tracking-[0.15em] text-[#D9A036]">Direct Lines</span>
+                <a href="tel:+919876543210" className="flex items-center gap-2.5 text-sm font-semibold font-poppins text-[#1C2B21] hover:text-[#D9A036] transition-colors">
                   <Phone size={13} className="text-[#6b4f3]" strokeWidth={2} />
                   <span>+91 98765 43210</span>
                 </a>
-                <a href="mailto:hello@sattudrink.com" className="flex items-center gap-2.5 text-xs font-poppins text-[#4A574E] hover:text-[#6b4f3] transition-colors">
+                <a href="mailto:hello@sattudrink.com" className="flex items-center gap-2.5 text-sm font-poppins text-[#4A574E] hover:text-[#6b4f3] transition-colors">
                   <Mail size={13} className="text-[#6b4f3]" strokeWidth={1.5} />
                   <span>hello@sattudrink.com</span>
                 </a>
               </div>
 
               <div className="flex flex-col gap-3">
-                <span className="text-[10px] font-poppins font-bold uppercase tracking-[0.15em] text-[#D9A036]">HQ & Hours</span>
-                <div className="flex items-center gap-2.5 text-xs font-poppins text-[#4A574E]">
+                <span className="text-[14px] font-poppins font-bold uppercase tracking-[0.15em] text-[#D9A036]">HQ & Hours</span>
+                <div className="flex items-center gap-2.5 text-sm font-poppins text-[#4A574E]">
                   <MapPin size={13} className="text-[#6b4f3]" strokeWidth={1.5} />
                   <span>Bihar, India</span>
                 </div>
-                <div className="flex items-center gap-2.5 text-xs font-poppins text-[#4A574E]">
+                <div className="flex items-center gap-2.5 text-sm font-poppins text-[#4A574E]">
                   <Clock size={13} className="text-[#6b4f3]" strokeWidth={1.5} />
                   <span>Mon - Sat: 9 AM - 7 PM</span>
                 </div>
@@ -169,7 +169,7 @@ const Footer = () => {
 
         {/* ================= BOTTOM LEGAL CREDITS BLOCK ================= */}
         <div className="pt-8 border-t border-[#D9D3C7] flex flex-col md:flex-row justify-between items-center gap-8">
-          <p className="text-[#707A72] font-poppins text-xs order-2 md:order-1">
+          <p className="text-[#707A72] font-poppins text-sm order-2 md:order-1">
             © {currentYear} Sattu Drink. Executed with premium native integrity. All Rights Reserved.
           </p>
 

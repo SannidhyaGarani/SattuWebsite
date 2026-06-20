@@ -72,11 +72,11 @@ const FlavorCard = ({ flavor }) => {
           <h3 className="text-xl font-poppins font-bold text-[#2D241E] mb-1">
             {flavor.name}
           </h3>
-          <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#8B5A2B] italic mb-3">
+          <p className="text-[14px] font-bold uppercase tracking-[0.2em] text-[#8B5A2B] italic mb-3">
             {flavor.subtitle}
           </p>
           
-          <div className="text-[10px] bg-[#2D241E] text-[#E5D3B3] px-3 py-1 font-mono tracking-widest uppercase">
+          <div className="text-[14px] bg-[#2D241E] text-[#E5D3B3] px-3 py-1 font-mono tracking-widest uppercase">
             {flavor.tag}
           </div>
         </div>
@@ -85,7 +85,7 @@ const FlavorCard = ({ flavor }) => {
       {/* Button Module */}
       <div className="w-full pt-6 mt-4 flex justify-center">
         <Link to="/shop" className="relative px-6 py-2 border-2 border-[#5C4033] hover:bg-[#5C4033] hover:text-[#FDF6E9] transition-colors duration-300">
-          <span className="font-poppins font-bold text-xs uppercase">
+          <span className="font-poppins font-bold text-sm uppercase">
             Pick Harvest
           </span>
         </Link>

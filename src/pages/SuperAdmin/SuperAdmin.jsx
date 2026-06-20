@@ -96,7 +96,7 @@ const SuperAdmin = () => {
       </div>
       <div className="hidden sm:flex items-center gap-3 px-3 py-1.5 rounded-full bg-white shadow-sm border border-slate-100">
         <span className="h-2 w-2 rounded-full bg-emerald-500" />
-        <span className="text-xs font-medium text-slate-600">
+        <span className="text-sm font-medium text-slate-600">
           System status: <span className="font-semibold text-slate-900">Online</span>
         </span>
       </div>
@@ -111,13 +111,13 @@ const SuperAdmin = () => {
           className="bg-white rounded-xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow duration-150"
         >
           <div className="p-5">
-            <p className="text-xs font-medium tracking-wide text-slate-500 uppercase">
+            <p className="text-sm font-medium tracking-wide text-slate-500 uppercase">
               {card.label}
             </p>
             <p className="mt-3 text-2xl font-semibold text-slate-900">
               {card.value}
             </p>
-            <p className="mt-2 text-xs font-medium text-slate-500">
+            <p className="mt-2 text-sm font-medium text-slate-500">
               {card.trend}
             </p>
           </div>
@@ -132,7 +132,7 @@ const SuperAdmin = () => {
       <div className="px-5 py-4 flex items-center justify-between border-b border-slate-100">
         <div>
           <h2 className="text-sm font-semibold text-slate-900">Products</h2>
-          <p className="text-xs text-slate-500 mt-0.5">
+          <p className="text-sm text-slate-500 mt-0.5">
             Overview of all catalog items
           </p>
         </div>
@@ -140,11 +140,11 @@ const SuperAdmin = () => {
           <button
             type="button"
             onClick={() => setIsProductModalOpen(true)}
-            className="px-3 py-1.5 rounded-lg bg-[#811331] text-white text-xs font-medium shadow-sm hover:bg-[#650f27]"
+            className="px-3 py-1.5 rounded-lg bg-[#811331] text-white text-sm font-medium shadow-sm hover:bg-[#650f27]"
           >
             Add Product
           </button>
-          <span className="px-3 py-1 rounded-full bg-[#811331]/5 text-xs font-medium text-[#811331]">
+          <span className="px-3 py-1 rounded-full bg-[#811331]/5 text-sm font-medium text-[#811331]">
             {products.length} items
           </span>
         </div>
@@ -152,7 +152,7 @@ const SuperAdmin = () => {
       <div className="overflow-x-auto">
         <table className="min-w-full text-left text-sm">
           <thead className="bg-slate-50/60">
-            <tr className="text-xs font-medium text-slate-500 uppercase tracking-wide">
+            <tr className="text-sm font-medium text-slate-500 uppercase tracking-wide">
               <th className="px-5 py-3">Name</th>
               <th className="px-5 py-3">Category</th>
               <th className="px-5 py-3">Price</th>
@@ -178,7 +178,7 @@ const SuperAdmin = () => {
                 </td>
                 <td className="px-5 py-3">
                   <span
-                    className={`inline-flex items-center px-2.5 py-1 rounded-full border text-xs font-medium ${statusBadgeClasses(
+                    className={`inline-flex items-center px-2.5 py-1 rounded-full border text-sm font-medium ${statusBadgeClasses(
                       row.stock_status || "In Stock"
                     )}`}
                   >
@@ -190,7 +190,7 @@ const SuperAdmin = () => {
                     <button
                       type="button"
                       onClick={() => handleDeleteProduct(row.id)}
-                      className="px-3 py-1 rounded-lg text-xs font-medium bg-red-50 text-red-600 hover:bg-red-100"
+                      className="px-3 py-1 rounded-lg text-sm font-medium bg-red-50 text-red-600 hover:bg-red-100"
                     >
                       Delete
                     </button>
@@ -202,7 +202,7 @@ const SuperAdmin = () => {
               <tr>
                 <td
                   colSpan={6}
-                  className="px-5 py-6 text-center text-xs text-slate-500"
+                  className="px-5 py-6 text-center text-sm text-slate-500"
                 >
                   No products found.
                 </td>
@@ -219,18 +219,18 @@ const SuperAdmin = () => {
       <div className="px-5 py-4 flex items-center justify-between border-b border-slate-100">
         <div>
           <h2 className="text-sm font-semibold text-slate-900">Recent Orders</h2>
-          <p className="text-xs text-slate-500 mt-0.5">
+          <p className="text-sm text-slate-500 mt-0.5">
             Latest customer activity across channels
           </p>
         </div>
-        <span className="px-3 py-1 rounded-full bg-slate-50 text-xs font-medium text-slate-600">
+        <span className="px-3 py-1 rounded-full bg-slate-50 text-sm font-medium text-slate-600">
           Updated just now
         </span>
       </div>
       <div className="overflow-x-auto">
         <table className="min-w-full text-left text-sm">
           <thead className="bg-slate-50/60">
-            <tr className="text-xs font-medium text-slate-500 uppercase tracking-wide">
+            <tr className="text-sm font-medium text-slate-500 uppercase tracking-wide">
               <th className="px-5 py-3">Order</th>
               <th className="px-5 py-3">Customer</th>
               <th className="px-5 py-3">Total</th>
@@ -247,7 +247,7 @@ const SuperAdmin = () => {
                 <td className="px-5 py-3 text-slate-900">{row.total}</td>
                 <td className="px-5 py-3">
                   <span
-                    className={`inline-flex items-center px-2.5 py-1 rounded-full border text-xs font-medium ${statusBadgeClasses(
+                    className={`inline-flex items-center px-2.5 py-1 rounded-full border text-sm font-medium ${statusBadgeClasses(
                       row.status
                     )}`}
                   >
@@ -267,18 +267,18 @@ const SuperAdmin = () => {
       <div className="px-5 py-4 flex items-center justify-between border-b border-slate-100">
         <div>
           <h2 className="text-sm font-semibold text-slate-900">Users</h2>
-          <p className="text-xs text-slate-500 mt-0.5">
+          <p className="text-sm text-slate-500 mt-0.5">
             All registered users in the system
           </p>
         </div>
-        <span className="px-3 py-1 rounded-full bg-[#811331]/5 text-xs font-medium text-[#811331]">
+        <span className="px-3 py-1 rounded-full bg-[#811331]/5 text-sm font-medium text-[#811331]">
           {users.length} users
         </span>
       </div>
       <div className="overflow-x-auto">
         <table className="min-w-full text-left text-sm">
           <thead className="bg-slate-50/60">
-            <tr className="text-xs font-medium text-slate-500 uppercase tracking-wide">
+            <tr className="text-sm font-medium text-slate-500 uppercase tracking-wide">
               <th className="px-5 py-3">Name</th>
               <th className="px-5 py-3">Email</th>
               <th className="px-5 py-3">Phone</th>
@@ -302,14 +302,14 @@ const SuperAdmin = () => {
                 <td className="px-5 py-3 text-slate-600">
                   {user.address || "-"}
                 </td>
-                <td className="px-5 py-3 text-slate-600 text-xs">
+                <td className="px-5 py-3 text-slate-600 text-sm">
                   {user.createdAt 
                     ? new Date(user.createdAt.toDate?.() || user.createdAt).toLocaleDateString()
                     : "-"
                   }
                 </td>
                 <td className="px-5 py-3">
-                  <span className="inline-flex items-center px-2.5 py-1 rounded-full border text-xs font-medium bg-emerald-50 text-emerald-700 border-emerald-100">
+                  <span className="inline-flex items-center px-2.5 py-1 rounded-full border text-sm font-medium bg-emerald-50 text-emerald-700 border-emerald-100">
                     Active
                   </span>
                 </td>
@@ -319,7 +319,7 @@ const SuperAdmin = () => {
               <tr>
                 <td
                   colSpan={6}
-                  className="px-5 py-6 text-center text-xs text-slate-500"
+                  className="px-5 py-6 text-center text-sm text-slate-500"
                 >
                   No users found.
                 </td>
@@ -380,7 +380,7 @@ const SuperAdmin = () => {
               <p className="text-sm font-semibold tracking-tight text-slate-900">
                 Super Admin
               </p>
-              <p className="text-xs text-slate-500">Control Center</p>
+              <p className="text-sm text-slate-500">Control Center</p>
             </div>
           </div>
         </div>
@@ -408,7 +408,7 @@ const SuperAdmin = () => {
           })}
         </nav>
 
-        <div className="px-4 py-4 border-t border-slate-100 text-xs text-slate-500">
+        <div className="px-4 py-4 border-t border-slate-100 text-sm text-slate-500">
           <p className="font-medium text-slate-700">Session</p>
           <p>Last synced a few moments ago</p>
         </div>
@@ -428,14 +428,14 @@ const SuperAdmin = () => {
                 <h2 className="text-sm font-semibold text-slate-900">
                   Add New Product
                 </h2>
-                <p className="text-xs text-slate-500">
+                <p className="text-sm text-slate-500">
                   Super admins can upload products directly to the catalog.
                 </p>
               </div>
               <button
                 type="button"
                 onClick={() => setIsProductModalOpen(false)}
-                className="text-xs font-medium text-slate-500 hover:text-slate-900"
+                className="text-sm font-medium text-slate-500 hover:text-slate-900"
               >
                 Close
               </button>

@@ -7,33 +7,24 @@ import { motion, AnimatePresence } from "framer-motion";
 import PageHeader from "../components/Sattu/PageHeader";
 import { useStore } from "../components/StoreProvider";
 
-// Heritage-style flower icon from Bestsellers
-const DividerFlower = () => (
-  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-[#6b4f3a]">
-    <path d="M12 2C12 2 14 8 18 10C18 10 12 12 12 18C12 18 10 12 6 10C6 10 12 8 12 2Z" fill="currentColor" />
-    <circle cx="12" cy="10" r="2" fill="#D9A036" />
-  </svg>
-);
-
-const Shop = () => {
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [searchTerm, setSearchTerm] = useState("");
-  const [selectedFlavor, setSelectedFlavor] = useState("All");
-  const [feedbackMessage, setFeedbackMessage] = useState(null);
-
+const ProductCard = ({ product, idx, triggerToast }) => {
   const navigate = useNavigate();
   const { addToCart, addToWishlist, removeFromWishlist, wishlist, cart } = useStore();
+  const isWishlisted = wishlist.some(item => item.id === product.id);
+  const isInCart = cart.some(item => item.id === product.id);
 
-  const handleAction = async (e, product, type) => {
+  // Dynamic Price Calculations
+  const displayPrice = product.price;
+  const originalPrice = product.mrp || Math.round(product.price * 1.25);
+  const savingsAmount = originalPrice - displayPrice;
+  const savingsPercent = Math.round((savingsAmount / originalPrice) * 100);
+
+  const handleAction = async (e, type) => {
     e.stopPropagation();
-    const isInCart = cart.some(item => item.id === product.id);
-    const isWishlisted = wishlist.some(item => item.id === product.id);
-
     if (type === 'cart') {
       if (isInCart) return;
       await addToCart(product);
-      triggerToast("Added to your collection!");
+      triggerToast("Added to your selection!");
     } else {
       if (isWishlisted) {
         await removeFromWishlist(product.id);
@@ -45,7 +36,113 @@ const Shop = () => {
     }
   };
 
-  const premiumEase = [0.25, 1, 0.5, 1];
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 15 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ delay: idx * 0.05 }}
+      onClick={() => navigate(`/product/${product.id}`)}
+      className="bg-white rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.04)] p-5 relative cursor-pointer hover:shadow-md transition-all duration-300 flex flex-col h-full border border-gray-100/60"
+    >
+      {/* 100% Accurate Top-Left Discount Badge */}
+      {savingsPercent > 0 && (
+        <div className="absolute top-0 left-4 bg-[#6b4f3a] text-white px-2.5 py-2.5 flex flex-col items-center justify-center text-center rounded-b-sm z-10 min-w-[38px]">
+          <span className="text-[14px] font-sans font-bold leading-none tracking-tight">{savingsPercent}%</span>
+          <span className="text-[14px] font-poppins font-bold uppercase tracking-tighter mt-0.5">OFF</span>
+        </div>
+      )}
+
+      {/* Structured Image block containing the Pouch Graphic */}
+      <div className="relative w-full aspect-square flex items-center justify-center bg-transparent mb-3 overflow-hidden">
+        <img
+          src={product.image || product.images?.[0]}
+          alt={product.name}
+          className="w-auto h-full max-h-full object-contain transition-transform duration-500 group-hover:scale-102"
+        />
+      </div>
+
+      {/* Content Meta Layer */}
+      <div className="flex flex-col flex-grow">
+        {/* Category Flavour Label */}
+        <span className="text-[14px] font-poppins font-semibold uppercase tracking-wider text-gray-400 mb-0.5">
+          {product.flavor || "Dry Fruit"}
+        </span>
+        
+        {/* Product Headline Title */}
+        <h3 className="text-base font-poppins font-bold text-[#2E1A0C] mb-1 tracking-tight leading-snug line-clamp-1">
+          {product.name}
+        </h3>
+
+        {/* Ratings block */}
+        <div className="flex items-center gap-1 mb-1">
+          <div className="flex items-center">
+            {[...Array(5)].map((_, i) => (
+              <Star key={i} size={13} className="fill-[#F5A623] text-[#F5A623]" />
+            ))}
+          </div>
+          <span className="text-[14px] font-sans font-bold text-gray-700 ml-0.5">4.5</span>
+          <span className="text-[14px] font-sans text-gray-400">({product.reviewsCount || 125})</span>
+        </div>
+
+        {/* Net Quantity/Weight Metric Container */}
+        <span className="text-[14px] font-sans font-medium text-gray-400 mb-3 block">
+          {product.weight || "500g"}
+        </span>
+
+        {/* Pricing Layout Structure */}
+        <div className="flex items-center gap-2 mb-4 flex-wrap">
+          <span className="text-xl font-sans font-extrabold text-[#2E1A0C]">
+            &nbsp;₹{displayPrice}
+          </span>
+          <span className="text-[14px] text-gray-400 line-through font-sans font-medium">
+            ₹{originalPrice}
+          </span>
+          <div className="bg-[#EAF7ED] text-[#218742] text-[14px] font-sans font-bold px-2 py-0.5 rounded-sm tracking-wide">
+            Save ₹{savingsAmount} ({savingsPercent}%)
+          </div>
+        </div>
+      </div>
+
+      {/* Fully Aligned Action Row Elements */}
+      <div className="flex items-center gap-2 w-full mt-auto">
+        <button
+          onClick={(e) => handleAction(e, 'cart')}
+          disabled={isInCart}
+          className={`flex-1 text-[14px] font-poppins font-bold uppercase tracking-wider py-2.5 px-4 rounded transition-all duration-200 flex items-center justify-center gap-2 ${
+            isInCart
+              ? "bg-gray-100 text-gray-400 cursor-default"
+              : "bg-[#6b4f3a] text-white hover:bg-[#25160C] shadow-sm"
+          }`}
+        >
+          <span>{isInCart ? "IN BAG" : "ADD TO CART"}</span>
+          <ShoppingBag size={13} strokeWidth={2.5} />
+        </button>
+
+        <button
+          onClick={(e) => handleAction(e, 'wishlist')}
+          className={`p-2.5 border rounded-md flex items-center justify-center transition-colors duration-200 h-[37px] w-[37px] ${
+            isWishlisted
+              ? "bg-[#5C0612] text-white border-[#5C0612]"
+              : "bg-white text-gray-400 border-gray-200 hover:text-gray-600 hover:bg-gray-50"
+          }`}
+        >
+          <Heart size={15} fill={isWishlisted ? "currentColor" : "none"} strokeWidth={2.2} />
+        </button>
+      </div>
+    </motion.div>
+  );
+};
+
+const Shop = () => {
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedFlavor, setSelectedFlavor] = useState("All");
+  const [feedbackMessage, setFeedbackMessage] = useState(null);
+
+  const navigate = useNavigate();
+  const { wishlist, cart } = useStore();
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -95,7 +192,7 @@ const Shop = () => {
         {/* Filters & Search - Matching Homepage Spacing */}
         <div className="flex flex-col lg:flex-row gap-8 mb-20 items-start lg:items-end">
           <div className="w-full lg:w-1/3 space-y-3">
-            <label className="text-[10px] font-poppins font-bold uppercase tracking-widest text-[#976E2A] ml-1">Search Our Blends</label>
+            <label className="text-[14px] font-poppins font-bold uppercase tracking-widest text-[#976E2A] ml-1">Search Our Blends</label>
             <div className="relative group">
               <Search
                 className="absolute left-5 top-1/2 -translate-y-1/2 text-[#976E2A]"
@@ -104,7 +201,7 @@ const Shop = () => {
               <input
                 type="text"
                 placeholder="Pure heritage sattu..."
-                className="w-full bg-[#FFFDF6] border border-[#E3DBC5] rounded-[20px] pl-12 pr-6 py-5 text-[13px] font-poppins font-medium text-[#6b4f3a] outline-none shadow-sm focus:border-[#976E2A] transition-all"
+                className="w-full bg-[#FFFDF6] border border-[#E3DBC5] rounded-[20px] pl-12 pr-6 py-5 text-[14px] font-poppins font-medium text-[#6b4f3a] outline-none shadow-sm focus:border-[#976E2A] transition-all"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
@@ -112,13 +209,13 @@ const Shop = () => {
           </div>
 
           <div className="w-full lg:w-2/3 space-y-3">
-            <label className="text-[10px] font-poppins font-bold uppercase tracking-widest text-[#976E2A] ml-1">Filter by Flavor</label>
+            <label className="text-[14px] font-poppins font-bold uppercase tracking-widest text-[#976E2A] ml-1">Filter by Flavor</label>
             <div className="flex flex-wrap gap-3">
               {flavors.map((flavor) => (
                 <button
                   key={flavor}
                   onClick={() => setSelectedFlavor(flavor)}
-                  className={`px-6 py-3 rounded-xl text-[10px] font-poppins font-bold uppercase tracking-widest transition-all duration-300 border ${selectedFlavor === flavor
+                  className={`px-6 py-3 rounded-xl text-[14px] font-poppins font-bold uppercase tracking-widest transition-all duration-300 border ${selectedFlavor === flavor
                     ? "bg-[#6b4f3a] text-[#FAF4E3] border-[#6b4f3a] shadow-lg shadow-[#6b4f3a]/10"
                     : "bg-[#FFFDF6] text-[#605948] border-[#E3DBC5] hover:border-[#976E2A]/40"
                     }`}
@@ -134,105 +231,19 @@ const Shop = () => {
         {loading ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
             {[...Array(8)].map((_, i) => (
-              <div key={i} className="h-[450px] bg-[#f5d2a1]/20 rounded-[24px] animate-pulse" />
+              <div key={i} className="h-[450px] bg-white border border-gray-100 rounded-xl animate-pulse" />
             ))}
           </div>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-8 gap-y-12">
-            {filteredProducts.map((product, idx) => {
-              const isWishlisted = wishlist.some(item => item.id === product.id);
-              return (
-                <motion.div
-                  key={product.id}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: idx * 0.05, duration: 0.8, ease: premiumEase }}
-                  onClick={() => navigate(`/product/${product.id}`)}
-                  className="bg-[#fbe7c8] rounded-[24px] border border-[#EACDA4] p-4 group relative cursor-pointer hover:shadow-2xl transition-all duration-500 flex flex-col h-full overflow-hidden"
-                >
-                  {/* Corner Ornaments Matching Homepage */}
-                  <div className="absolute top-2 left-2 opacity-20 pointer-events-none">
-                    <svg width="40" height="40" viewBox="0 0 100 100" fill="none" stroke="#6b4f3a" strokeWidth="1">
-                      <path d="M10,10 Q30,10 50,30 Q10,30 10,10 Z M10,10 Q10,30 30,50 Q30,10 10,10 Z" />
-                    </svg>
-                  </div>
-                  <div className="absolute bottom-2 right-2 opacity-20 pointer-events-none rotate-180">
-                    <svg width="40" height="40" viewBox="0 0 100 100" fill="none" stroke="#6b4f3a" strokeWidth="1">
-                      <path d="M10,10 Q30,10 50,30 Q10,30 10,10 Z M10,10 Q10,30 30,50 Q30,10 10,10 Z" />
-                    </svg>
-                  </div>
-
-                  {/* Arched Image Container */}
-                  <div className="relative aspect-square mb-5 rounded-[20px] overflow-hidden bg-[#F4EBD8] border border-[#E3DBC5]/30">
-                    <img
-                      src={product.image || product.images?.[0]}
-                      alt={product.name}
-                      className="w-full h-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-[#6b4f3a]/5" />
-                    <button
-                      onClick={(e) => handleAction(e, product, "wishlist")}
-                      className={`absolute top-3 right-3 w-10 h-10 rounded-full transition-all duration-300 shadow-md flex items-center justify-center z-20 backdrop-blur-sm ${isWishlisted
-                        ? "bg-[#C45525] text-white"
-                        : "bg-white/90 text-[#6b4f3a] opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0"
-                        }`}
-                    >
-                      <Heart size={16} fill={isWishlisted ? "currentColor" : "none"} />
-                    </button>
-                  </div>
-
-                  <div className="space-y-4 px-1 flex-grow flex flex-col relative z-10">
-                    <div className="space-y-1">
-                      <span className="text-[10px] font-poppins font-bold uppercase tracking-[0.2em] text-[#C45525]">
-                        {product.flavor || "Heritage Blend"}
-                      </span>
-                      <h3 className="text-[22px] font-poppins font-bold text-[#6b4f3a] tracking-tight leading-tight line-clamp-2">
-                        {product.name}
-                      </h3>
-                    </div>
-
-                    <div className="flex items-center gap-1">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} size={12} className="fill-[#D9A036] text-[#D9A036]" />
-                      ))}
-                      <span className="text-[12px] font-poppins font-bold text-[#6b4f3a] ml-1">{product.rating || "4.9"}</span>
-                    </div>
-
-                    {/* Decorative Divider */}
-                    <div className="flex items-center gap-3 py-1 opacity-40">
-                      <div className="h-[1px] flex-grow border-t border-dashed border-[#6b4f3a]/30" />
-                      <DividerFlower />
-                      <div className="h-[1px] flex-grow border-t border-dashed border-[#6b4f3a]/30" />
-                    </div>
-
-                    <div className="pt-2 flex items-center justify-between mt-auto">
-                      <div className="flex flex-col">
-                        <span className="text-[28px] font-poppins font-bold text-[#6b4f3a] leading-none">
-                          ₹{product.price}
-                        </span>
-                        {product.mrp && product.mrp > product.price && (
-                          <span className="text-[12px] text-[#6b4f3a]/50 line-through font-poppins font-semibold mt-1">
-                            ₹{product.mrp}
-                          </span>
-                        )}
-                      </div>
-                      <button
-                        onClick={(e) => handleAction(e, product, "cart")}
-                        disabled={cart.some(item => item.id === product.id)}
-                        className={`px-6 py-3 rounded-xl text-[11px] font-poppins font-bold uppercase tracking-widest flex items-center gap-2 transition-all shadow-md group/btn ${cart.some(item => item.id === product.id)
-                          ? "bg-[#C45525] text-white cursor-default"
-                          : "bg-[#6b4f3a] text-white hover:bg-[#C45525]"
-                          }`}
-                      >
-                        {cart.some(item => item.id === product.id) ? "IN BAG" : "ADD"}
-                        <ShoppingBag size={14} className="group-hover/btn:rotate-12 transition-transform" />
-                      </button>
-                    </div>
-                  </div>
-                </motion.div>
-              );
-            })}
+            {filteredProducts.map((product, idx) => (
+              <ProductCard
+                key={product.id}
+                product={product}
+                idx={idx}
+                triggerToast={triggerToast}
+              />
+            ))}
           </div>
         )}
 
@@ -253,7 +264,7 @@ const Shop = () => {
                 setSearchTerm("");
                 setSelectedFlavor("All");
               }}
-              className="mt-8 inline-flex items-center gap-2 text-[11px] font-poppins font-bold uppercase tracking-[0.2em] text-[#976E2A] hover:text-[#6b4f3a] transition-colors pb-1 border-b border-dashed border-[#976E2A]"
+              className="mt-8 inline-flex items-center gap-2 text-[14px] font-poppins font-bold uppercase tracking-[0.2em] text-[#976E2A] hover:text-[#6b4f3a] transition-colors pb-1 border-b border-dashed border-[#976E2A]"
             >
               <span>Reset Selection</span>
               <ArrowUpRight size={16} />
@@ -274,7 +285,7 @@ const Shop = () => {
             <div className="w-10 h-10 rounded-xl bg-[#FAF4E3]/10 flex items-center justify-center text-[#976E2A]">
               <Sparkles size={20} />
             </div>
-            <p className="text-xs font-poppins font-medium tracking-wide flex-1">{feedbackMessage}</p>
+            <p className="text-sm font-poppins font-medium tracking-wide flex-1">{feedbackMessage}</p>
             <button
               onClick={() => setFeedbackMessage(null)}
               className="opacity-40 hover:opacity-100 transition-opacity"

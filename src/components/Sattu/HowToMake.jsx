@@ -91,7 +91,7 @@ const HowToMake = () => {
 
                 {/* Floating Wireframe Step Medal */}
                 <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-9 h-9 rounded-full bg-[#6b4f3a] border border-[#976E2A]/30 flex items-center justify-center text-white shadow-[0_4px_12px_rgba(32,59,35,0.3)] transition-all duration-300 group-hover:bg-[#976E2A] group-hover:shadow-[0_6px_16px_rgba(151,110,42,0.4)]">
-                  <span className="text-[11px] font-poppins font-bold tracking-wider">{step.number}</span>
+                  <span className="text-[14px] font-sans font-bold tracking-wider">{step.number}</span>
                 </div>
               </div>
 
@@ -101,7 +101,7 @@ const HowToMake = () => {
                 <h3 className="font-poppins text-lg font-bold text-[#6b4f3a] leading-snug tracking-tight group-hover:text-[#976E2A] transition-colors duration-300 mb-1">
                   {step.title}
                 </h3>
-                <span className="text-[10px] font-poppins font-bold uppercase tracking-[0.25em] text-[#976E2A] block ">
+                <span className="text-[14px] font-poppins font-bold uppercase tracking-[0.25em] text-[#976E2A] block ">
                   {step.subtitle}
                 </span>
               </div>
@@ -137,12 +137,12 @@ const HowToMake = () => {
                     </div>
 
                     <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-9 h-9 rounded-full bg-[#6b4f3a] border border-[#976E2A]/30 flex items-center justify-center text-white shadow-[0_4px_12px_rgba(32,59,35,0.2)]">
-                      <span className="text-[11px] font-poppins font-bold tracking-wider">{step.number}</span>
+                      <span className="text-[14px] font-sans font-bold tracking-wider">{step.number}</span>
                     </div>
                   </div>
 
                   <div className="mt-2">
-                    <span className="text-[10px] font-poppins font-bold uppercase tracking-[0.25em] text-[#976E2A] block mb-2">
+                    <span className="text-[14px] font-poppins font-bold uppercase tracking-[0.25em] text-[#976E2A] block mb-2">
                       {step.subtitle}
                     </span>
                     <h3 className="font-poppins text-base font-bold text-[#6b4f3a] leading-snug tracking-tight">

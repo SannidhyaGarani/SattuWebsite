@@ -30,7 +30,7 @@ const FlavorsOverview = () => {
                 </div>
                 <div>
                   <p className="text-sm font-semibold text-[#1C2B21]">{flavor.name}</p>
-                  <p className="text-xs font-bold text-[#707A72]">{flavor.count} Products</p>
+                  <p className="text-sm font-bold text-[#707A72]">{flavor.count} Products</p>
                 </div>
               </div>
             </div>

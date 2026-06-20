@@ -69,16 +69,16 @@ const Footer = () => {
               <div className="flex items-center gap-3">
                 <img src="/img/logo.png" alt="Logo" className="h-9 w-auto contrast-125" />
                 <span className="text-xl font-poppins font-bold tracking-tight text-[#6b4f3a] uppercase">
-                  Indian Food Way
+                  Sattu Heritage
                 </span>
               </div>
-              <span className="text-[10px] text-[#976E2A] font-poppins font-bold tracking-[0.35em] uppercase">
+              <span className="text-[14px] text-[#976E2A] font-poppins font-bold tracking-[0.35em] uppercase">
                 Nutrition • Est. 2024
               </span>
             </Link>
 
-            <p className="text-xs text-[#605948] leading-relaxed max-w-xs italic font-medium">
-              "Crafted with reverence to authentic Vedic structures. Operating at the intersection of raw purity and biological refinement."
+            <p className="text-sm text-[#605948] leading-relaxed max-w-xs italic font-medium">
+              "Crafted with reverence to authentic Vedic traditions. Operating at the intersection of purity and modern wellness."
             </p>
 
             {/* Social Links Package */}
@@ -97,13 +97,13 @@ const Footer = () => {
 
           {/* Boutique Navigation Links */}
           <div className="col-span-1 lg:col-span-2 lg:col-start-6">
-            <h4 className="text-[10px] font-poppins font-bold uppercase tracking-[0.25em] text-[#976E2A] mb-6">
+            <h4 className="text-[14px] font-poppins font-bold uppercase tracking-[0.25em] text-[#976E2A] mb-6">
               The Boutique
             </h4>
             <ul className="flex flex-col gap-3.5">
               {footerLinks.explore.map((link) => (
                 <li key={link.name}>
-                  <Link to={link.path} className="text-xs font-poppins font-semibold text-[#605948] hover:text-[#976E2A] transition-colors flex items-center group">
+                  <Link to={link.path} className="text-sm font-poppins font-semibold text-[#605948] hover:text-[#976E2A] transition-colors flex items-center group">
                     <span className="w-0 overflow-hidden group-hover:w-3 transition-all duration-300 opacity-70">▹</span>
                     {link.name}
                   </Link>
@@ -114,24 +114,34 @@ const Footer = () => {
 
           {/* Essentials Navigation Links */}
           <div className="col-span-1 lg:col-span-2">
-            <h4 className="text-[10px] font-poppins font-bold uppercase tracking-[0.25em] text-[#976E2A] mb-6">
+            <h4 className="text-[14px] font-poppins font-bold uppercase tracking-[0.25em] text-[#976E2A] mb-6">
               Essential
             </h4>
             <ul className="flex flex-col gap-3.5">
-              {footerLinks.essential.map((link) => (
-                <li key={link.name}>
-                  <Link to={link.path} className="text-xs font-poppins font-semibold text-[#605948] hover:text-[#976E2A] transition-colors flex items-center group">
-                    <span className="w-0 overflow-hidden group-hover:w-3 transition-all duration-300 opacity-70">▹</span>
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
+              <li>
+                <Link to="/account" className="text-sm font-poppins font-semibold text-[#605948] hover:text-[#976E2A] transition-colors flex items-center group">
+                  <span className="w-0 overflow-hidden group-hover:w-3 transition-all duration-300 opacity-70">▹</span>
+                  My Account
+                </Link>
+              </li>
+              <li>
+                <Link to="/orders" className="text-sm font-poppins font-semibold text-[#605948] hover:text-[#976E2A] transition-colors flex items-center group">
+                  <span className="w-0 overflow-hidden group-hover:w-3 transition-all duration-300 opacity-70">▹</span>
+                  My Orders
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact" className="text-sm font-poppins font-semibold text-[#605948] hover:text-[#976E2A] transition-colors flex items-center group">
+                  <span className="w-0 overflow-hidden group-hover:w-3 transition-all duration-300 opacity-70">▹</span>
+                  Support
+                </Link>
+              </li>
             </ul>
           </div>
 
           {/* Direct Contact Metadata Column */}
           <div className="col-span-2 md:col-span-1 lg:col-span-3">
-            <h4 className="text-[10px] font-poppins font-bold uppercase tracking-[0.25em] text-[#976E2A] mb-6">
+            <h4 className="text-[14px] font-poppins font-bold uppercase tracking-[0.25em] text-[#976E2A] mb-6">
               Connect With Us
             </h4>
             <div className="flex flex-col gap-4">
@@ -140,17 +150,17 @@ const Footer = () => {
                 <div className="w-8 h-8 rounded-full bg-[#FFFDF6] flex items-center justify-center border border-[#E3DBC5] group-hover:bg-[#976E2A]/10 group-hover:border-[#976E2A]/40">
                   <Phone size={13} className="text-[#976E2A]" />
                 </div>
-                <span className="text-xs font-poppins font-semibold text-[#605948] group-hover:text-[#6b4f3a] transition-colors">
+                <span className="text-sm font-poppins font-semibold text-[#605948] group-hover:text-[#6b4f3a] transition-colors">
                   +91 98765 43210
                 </span>
               </a>
 
-              <a href="mailto:care@indianfoodway.com" className="group flex items-center gap-3">
+              <a href="mailto:care@sattuheritage.com" className="group flex items-center gap-3">
                 <div className="w-8 h-8 rounded-full bg-[#FFFDF6] flex items-center justify-center border border-[#E3DBC5] group-hover:bg-[#976E2A]/10 group-hover:border-[#976E2A]/40">
                   <Mail size={13} className="text-[#976E2A]" />
                 </div>
-                <span className="text-xs font-poppins font-semibold text-[#605948] group-hover:text-[#6b4f3a] transition-colors">
-                  care@indianfoodway.com
+                <span className="text-sm font-poppins font-semibold text-[#605948] group-hover:text-[#6b4f3a] transition-colors">
+                  care@sattuheritage.com
                 </span>
               </a>
 
@@ -158,7 +168,7 @@ const Footer = () => {
                 <div className="w-8 h-8 rounded-full bg-[#FFFDF6] flex items-center justify-center border border-[#E3DBC5]">
                   <MapPin size={13} className="text-[#976E2A]" />
                 </div>
-                <span className="text-xs font-poppins font-medium text-[#605948]/80 leading-relaxed">
+                <span className="text-sm font-poppins font-medium text-[#605948]/80 leading-relaxed">
                   Flagship Studio, Gaya, Bihar <br /> Republic of India
                 </span>
               </div>
@@ -171,10 +181,10 @@ const Footer = () => {
         <div className="pt-8 border-t border-[#E3DBC5] flex flex-col lg:flex-row justify-between items-center gap-6">
 
           <div className="flex flex-col md:flex-row items-center gap-3 md:gap-10 order-2 lg:order-1">
-            <p className="text-[#605948]/60 text-[10px] font-poppins font-bold uppercase tracking-widest whitespace-nowrap">
-              © {currentYear} Indian Food Way
+            <p className="text-[#605948]/60 text-[14px] font-poppins font-bold uppercase tracking-widest whitespace-nowrap">
+              © {currentYear} Sattu Heritage
             </p>
-            <div className="flex flex-wrap justify-center gap-5 text-[10px] text-[#605948]/70 font-poppins font-bold uppercase tracking-widest">
+            <div className="flex flex-wrap justify-center gap-5 text-[14px] text-[#605948]/70 font-poppins font-bold uppercase tracking-widest">
               {footerLinks.legal.map(link => (
                 <a key={link.name} href={link.path} className="hover:text-[#976E2A] transition-colors">
                   {link.name}
@@ -199,7 +209,7 @@ const Footer = () => {
             <div className="w-9 h-9 rounded-full border border-[#E3DBC5] bg-[#FFFDF6] flex items-center justify-center text-[#976E2A] group-hover:bg-[#6b4f3a] group-hover:border-[#6b4f3a] group-hover:text-[#FAF4E3] transition-all duration-400 shadow-sm">
               <ArrowUpRight size={14} className="-rotate-45 group-hover:rotate-0 transition-transform duration-400" />
             </div>
-            <span className="text-[9px] font-poppins font-bold uppercase tracking-[0.25em] text-[#605948]/50 group-hover:text-[#976E2A] transition-colors">
+            <span className="text-[14px] font-poppins font-bold uppercase tracking-[0.25em] text-[#605948]/50 group-hover:text-[#976E2A] transition-colors">
               Return to Zenith
             </span>
           </button>

@@ -81,7 +81,7 @@ const WhyChooseSection = () => {
 
         {/* Section Header with traditional stamp aesthetic */}
         <div className="text-center mb-16 md:mb-20 flex flex-col items-center">
-          <span className="text-[#D9A036] font-poppins font-bold tracking-widest text-xs uppercase block mb-3 relative sepia filter">
+          <span className="text-[#D9A036] font-poppins font-bold tracking-widest text-sm uppercase block mb-3 relative sepia filter">
             Pure Benefits
             <span className="absolute -bottom-1 left-0 w-full h-[1px] bg-[#D9A036]/50"></span>
           </span>

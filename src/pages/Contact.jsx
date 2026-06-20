@@ -47,7 +47,7 @@ const Contact = () => {
             <div className="w-12 h-12 rounded-2xl bg-[#FAF4E3]/10 flex items-center justify-center text-[#976E2A]">
               <CheckCircle size={24} />
             </div>
-            <p className="text-xs font-poppins font-medium tracking-wide flex-1 leading-relaxed">Inquiry successfully logged into our digital registry. Our specialists will respond shortly.</p>
+            <p className="text-sm font-poppins font-medium tracking-wide flex-1 leading-relaxed">Inquiry successfully logged into our digital registry. Our specialists will respond shortly.</p>
             <button onClick={() => setFormSubmitted(false)} className="opacity-40 hover:opacity-100 transition-opacity p-2">
               <X size={20} />
             </button>
@@ -70,7 +70,7 @@ const Contact = () => {
               <div className="flex items-center gap-3 text-[#976E2A]">
                 <Leaf size={16} className="fill-current rotate-45" />
                 <div className="h-[1px] w-12 bg-[#976E2A]/30" />
-                <span className="text-[10px] font-poppins font-bold uppercase tracking-[0.35em]">Get In Touch</span>
+                <span className="text-[14px] font-poppins font-bold uppercase tracking-[0.35em]">Get In Touch</span>
               </div>
               <h2 className="text-4xl md:text-5xl font-poppins font-bold text-[#6b4f3a] leading-tight uppercase">
                 Initiate a <br />
@@ -92,7 +92,7 @@ const Contact = () => {
                     {item.icon}
                   </div>
                   <div className="flex-1">
-                    <p className="text-[10px] font-poppins font-bold uppercase tracking-[0.2em] text-[#976E2A] mb-1">{item.label}</p>
+                    <p className="text-[14px] font-poppins font-bold uppercase tracking-[0.2em] text-[#976E2A] mb-1">{item.label}</p>
                     <p className="text-xl font-poppins font-bold text-[#6b4f3a] tracking-tight">{item.val}</p>
                   </div>
                   <ArrowUpRight size={20} className={`text-[#976E2A] transition-all duration-500 ${activeChannel === i ? 'rotate-45 scale-125' : ''}`} />
@@ -113,7 +113,7 @@ const Contact = () => {
               <form className="space-y-10" onSubmit={handleFormSubmit}>
                 <div className="grid sm:grid-cols-2 gap-8">
                   <div className="space-y-3">
-                    <label className="text-[10px] font-poppins font-bold uppercase tracking-widest text-[#976E2A] ml-1">Your Identity</label>
+                    <label className="text-[14px] font-poppins font-bold uppercase tracking-widest text-[#976E2A] ml-1">Your Identity</label>
                     <input
                       type="text"
                       required
@@ -122,7 +122,7 @@ const Contact = () => {
                     />
                   </div>
                   <div className="space-y-3">
-                    <label className="text-[10px] font-poppins font-bold uppercase tracking-widest text-[#976E2A] ml-1">Electronic Mail</label>
+                    <label className="text-[14px] font-poppins font-bold uppercase tracking-widest text-[#976E2A] ml-1">Electronic Mail</label>
                     <input
                       type="email"
                       required
@@ -133,7 +133,7 @@ const Contact = () => {
                 </div>
 
                 <div className="space-y-3">
-                  <label className="text-[10px] font-poppins font-bold uppercase tracking-widest text-[#976E2A] ml-1">Inquiry Parameter</label>
+                  <label className="text-[14px] font-poppins font-bold uppercase tracking-widest text-[#976E2A] ml-1">Inquiry Parameter</label>
                   <select className="w-full bg-[#FAF4E3]/30 border border-[#E3DBC5] rounded-2xl px-6 py-5 text-sm font-poppins font-medium text-[#6b4f3a] outline-none focus:border-[#976E2A]/40 focus:bg-white transition-all shadow-inner appearance-none cursor-pointer">
                     <option>Product Composition</option>
                     <option>Order Status</option>
@@ -143,7 +143,7 @@ const Contact = () => {
                 </div>
 
                 <div className="space-y-3">
-                  <label className="text-[10px] font-poppins font-bold uppercase tracking-widest text-[#976E2A] ml-1">Narrative Formulation</label>
+                  <label className="text-[14px] font-poppins font-bold uppercase tracking-widest text-[#976E2A] ml-1">Narrative Formulation</label>
                   <textarea
                     rows="5"
                     required
@@ -154,7 +154,7 @@ const Contact = () => {
 
                 <button
                   type="submit"
-                  className="w-full h-18 rounded-2xl bg-[#6b4f3a] text-[#FAF4E3] font-poppins font-bold text-xs uppercase tracking-[0.3em] shadow-xl hover:bg-[#C45525] transition-all duration-500 flex items-center justify-center gap-4 group"
+                  className="w-full h-18 rounded-2xl bg-[#6b4f3a] text-[#FAF4E3] font-poppins font-bold text-sm uppercase tracking-[0.3em] shadow-xl hover:bg-[#C45525] transition-all duration-500 flex items-center justify-center gap-4 group"
                 >
                   <Send size={16} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-500" />
                   <span>Transmit Protocol</span>

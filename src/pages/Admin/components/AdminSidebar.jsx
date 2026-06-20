@@ -28,7 +28,7 @@ const AdminSidebar = ({ activeItem, setActiveItem }) => {
             <p className="text-base font-poppins font-bold tracking-tight text-[#1C2B21]">
               Sattu Admin
             </p>
-            <p className="text-xs text-[#707A72]">Product Management</p>
+            <p className="text-sm text-[#707A72]">Product Management</p>
           </div>
         </div>
       </div>
@@ -58,8 +58,8 @@ const AdminSidebar = ({ activeItem, setActiveItem }) => {
       </nav>
 
       <div className="px-5 py-5 border-t border-[#D9D3C7] bg-[#EFECE6]">
-        <p className="text-xs font-semibold text-[#1C2B21] mb-1">Session</p>
-        <p className="text-xs text-[#707A72]">Changes are auto-saved to Firestore</p>
+        <p className="text-sm font-semibold text-[#1C2B21] mb-1">Session</p>
+        <p className="text-sm text-[#707A72]">Changes are auto-saved to Firestore</p>
       </div>
     </aside>
   );

@@ -7,9 +7,9 @@ const SectionHeader = ({ title, subtitle }) => {
 
       {/* Top Vintage Ornament Row */}
       <div className="flex items-center justify-center gap-2 mb-3 text-[#976E2A]">
-        <span className="text-xs opacity-40 tracking-tight">--------⌲</span>
+        <span className="text-sm font-poppins opacity-40 tracking-tight">--------⌲</span>
         <Leaf size={16} className="fill-current rotate-45" />
-        <span className="text-xs opacity-40 tracking-tight">⌱--------</span>
+        <span className="text-sm font-poppins opacity-40 tracking-tight">⌱--------</span>
       </div>
 
       {/* Main Title Header */}
@@ -19,7 +19,7 @@ const SectionHeader = ({ title, subtitle }) => {
 
       {/* Subtitle with side boundary borders */}
       <div className="flex items-center justify-center gap-4 max-w-md mx-auto border-y border-[#6b4f3a]/20 py-2">
-        <span className="text-[11px] sm:text-xs font-poppins font-bold text-[#6b4f3a] uppercase tracking-[0.3em] whitespace-nowrap">
+        <span className="text-[14px] sm:text-sm font-poppins font-bold text-[#6b4f3a] uppercase tracking-[0.3em] whitespace-nowrap">
           {subtitle || "Natural • Nutritious • Wholesome"}
         </span>
       </div>
@@ -27,7 +27,7 @@ const SectionHeader = ({ title, subtitle }) => {
       {/* Bottom Accent Anchor Diamond */}
       <div className="flex justify-center items-center mt-3 text-[#976E2A]">
         <div className="w-12 h-[1px] bg-[#976E2A]/30" />
-        <span className="text-[8px] mx-2">◆</span>
+        <span className="text-[14px] font-poppins mx-2">◆</span>
         <div className="w-12 h-[1px] bg-[#976E2A]/30" />
       </div>
     </div>

@@ -15,7 +15,7 @@ const UsersTable = ({ users }) => {
       <div className="overflow-x-auto">
         <table className="min-w-full text-left text-sm">
           <thead className="bg-[#EFECE6]">
-            <tr className="text-xs font-bold text-[#4A5D4E] uppercase tracking-wide">
+            <tr className="text-sm font-bold text-[#4A5D4E] uppercase tracking-wide">
               <th className="px-6 py-4">Name</th>
               <th className="px-6 py-4">Email</th>
               <th className="px-6 py-4">Phone</th>
@@ -34,7 +34,7 @@ const UsersTable = ({ users }) => {
                 <td className="px-6 py-4 text-[#707A72]">
                   {user.phone || "-"}
                 </td>
-                <td className="px-6 py-4 text-[#707A72] text-xs">
+                <td className="px-6 py-4 text-[#707A72] text-sm">
                   {user.createdAt ? new Date(user.createdAt.toDate?.() || user.createdAt).toLocaleDateString() : "-"}
                 </td>
               </tr>
